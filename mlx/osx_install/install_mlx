@@ -1,0 +1,3 @@
+sudo mkdir -p /usr/X11/ /usr/X11/include /usr/X11/lib
+sudo cp mlx.h /usr/X11/include
+sudo cp libmlx.a /usr/X11/lib/

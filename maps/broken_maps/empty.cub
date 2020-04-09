@@ -1,0 +1,8 @@
+SO    ./textures/forest.xpm
+WE    ./textures/apple_golden.xpm
+NO    ./textures/meilvf.xpm
+EA	   ./textures/meilv.xpm
+R       960 480
+S   ./textures/baked_potato.xpm
+F ./textures/grass.xpm
+C  250,206,135
