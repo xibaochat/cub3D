@@ -1,26 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_ceil.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 08:30:04 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/17 08:33:39 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void	draw_ceil(int x, t_map *rVar)
+void		draw_ceil(int x, t_map *rvar)
 {
-	int y;
-	int j;
-	unsigned int color;
+	int				y;
+	int				j;
+	unsigned int	color;
 
 	y = 0;
-	while (y++ < rVar->drawStart)
+	while (y++ < rvar->drawStart)
 	{
-		j = y * rVar->size_line + x* (rVar->bpp/8);
-		if (rVar->endian == 0)
+		j = y * rvar->size_line + x * (rvar->bpp / 8);
+		if (rvar->endian == 0)
 		{
-			rVar->addr[j] =  rVar->ceil_color.r;
-            rVar->addr[j + 1]=  rVar->ceil_color.g;
-            rVar->addr[j + 2] =  rVar->ceil_color.b;
+			rvar->addr[j] = rvar->ceil_color.r;
+			rvar->addr[j + 1] = rvar->ceil_color.g;
+			rvar->addr[j + 2] = rvar->ceil_color.b;
 		}
 		else
 		{
-			rVar->addr[j] =  rVar->ceil_color.b;
-			rVar->addr[j + 1]=  rVar->ceil_color.g;
-			rVar->addr[j + 2] =  rVar->ceil_color.r;
+			rvar->addr[j] = rvar->ceil_color.b;
+			rvar->addr[j + 1] = rvar->ceil_color.g;
+			rvar->addr[j + 2] = rvar->ceil_color.r;
 		}
 	}
 }
