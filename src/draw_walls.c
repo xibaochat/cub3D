@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_walls.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 09:46:33 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/17 10:08:34 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void draw_walls(void *mlx_ptr, void *win_ptr, t_map *rVar)
+void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *rVar)
 {
 	int	x;
 

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/09 13:13:29 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/17 12:11:16 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,8 @@ typedef struct s_door
 
 typedef	struct	s_map
 {
+	int d;
+	int k;
 	double *sprite_distance;
 	int nb_spr;
 	int save_bmp;

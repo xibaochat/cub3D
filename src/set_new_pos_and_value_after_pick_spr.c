@@ -1,24 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_new_pos_and_value_after_pick_spr.c             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 09:42:17 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/17 09:42:20 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-static void re_init_animated_sprites(t_map *rVar)
+static void	re_init_animated_sprites(t_map *rvar)
 {
-    rVar->nb_bad_cat = 0;
+	rvar->nb_bad_cat = 0;
 }
 
-void set_new_pos_and_value_after_pick_spr(t_map *rVar)
+void		set_new_pos_and_value_after_pick_spr(t_map *rvar)
 {
-	if (rVar->map[(int)rVar->new_posX][(int)rVar->new_posY] == 3)
+	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 3)
 	{
-		rVar->score += 50;
-		rVar->map[(int)rVar->new_posX][(int)rVar->new_posY] = 0;
-		set_entity_hitpoint(rVar, 1, (int)rVar->new_posX, (int)rVar->new_posY, 0);
+		rvar->score += 50;
+		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
+		set_entity_hitpoint(rvar, 1, \
+		(int)rvar->new_posX, (int)rvar->new_posY, 0);
 	}
-	if (rVar->map[(int)rVar->new_posX][(int)rVar->new_posY] == 5)
+	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 5)
 	{
-		rVar->lucky_value++;
-		rVar->map[(int)rVar->new_posX][(int)rVar->new_posY] = 0;
-		set_entity_hitpoint(rVar, 3, (int)rVar->new_posX, (int)rVar->new_posY, 0);
+		rvar->lucky_value++;
+		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
+		set_entity_hitpoint(rvar, 3, (int)rvar->new_posX, \
+		(int)rvar->new_posY, 0);
 	}
-	if (rVar->map[(int)rVar->new_posX][(int)rVar->new_posY] != 4)
-		re_init_animated_sprites(rVar);
+	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] != 4)
+		re_init_animated_sprites(rvar);
 }

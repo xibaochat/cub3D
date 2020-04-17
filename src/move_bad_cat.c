@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_bad_cat.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 09:50:48 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/17 09:51:32 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void move_bad_cat(t_map *rVar)
+void	move_bad_cat(t_map *rvar)
 {
-    rVar->nb_bad_cat++;
-    if (rVar->nb_bad_cat == 30)
-        rVar->nb_bad_cat = 0;
+	rvar->nb_bad_cat++;
+	if (rvar->nb_bad_cat == 30)
+		rvar->nb_bad_cat = 0;
 }
