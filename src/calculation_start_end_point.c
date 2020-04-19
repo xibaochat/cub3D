@@ -6,106 +6,106 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:56:23 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/17 09:49:05 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/18 10:48:03 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	reset_rayon_var(t_map *rVar, int x)
+void	reset_rayon_var(t_map *rvar, int x)
 {
 	double	r;
 	double	r1;
 
-	r = (rVar->rayDirY * rVar->rayDirY) / (rVar->rayDirX * rVar->rayDirX);
-	r1 = (rVar->rayDirX * rVar->rayDirX) / (rVar->rayDirY * rVar->rayDirY);
-	rVar->cameraX = 2 * x / (double)WIDTH - 1;
-	rVar->rayDirX = rVar->dirX + (rVar->planeX) * (rVar->cameraX);
-	rVar->rayDirY = rVar->dirY + (rVar->planeY) * (rVar->cameraX);
-	rVar->mapX = (int)(rVar->posX);
-	rVar->mapY = (int)(rVar->posY);
-	rVar->deltaDistX = sqrt(1 + r);
-	rVar->deltaDistY = sqrt(1 + r1);
-	rVar->hit = 0;
+	r = (rvar->rayDirY * rvar->rayDirY) / (rvar->rayDirX * rvar->rayDirX);
+	r1 = (rvar->rayDirX * rvar->rayDirX) / (rvar->rayDirY * rvar->rayDirY);
+	rvar->cameraX = 2 * x / (double)WIDTH - 1;
+	rvar->rayDirX = rvar->dirX + (rvar->planeX) * (rvar->cameraX);
+	rvar->rayDirY = rvar->dirY + (rvar->planeY) * (rvar->cameraX);
+	rvar->mapX = (int)(rvar->posX);
+	rvar->mapY = (int)(rvar->posY);
+	rvar->deltaDistX = sqrt(1 + r);
+	rvar->deltaDistY = sqrt(1 + r1);
+	rvar->hit = 0;
 }
 
-void	calculate_side_dist(t_map *rVar)
+void	calculate_side_dist(t_map *rvar)
 {
-	if (rVar->rayDirX < 0)
+	if (rvar->rayDirX < 0)
 	{
-		rVar->stepX = -1;
-		rVar->sideDistX = (rVar->posX - rVar->mapX) * (rVar->deltaDistX);
+		rvar->stepX = -1;
+		rvar->sideDistX = (rvar->posX - rvar->mapX) * (rvar->deltaDistX);
 	}
 	else
 	{
-		rVar->stepX = 1;
-		rVar->sideDistX = (rVar->mapX + 1.0 - rVar->posX) * (rVar->deltaDistX);
+		rvar->stepX = 1;
+		rvar->sideDistX = (rvar->mapX + 1.0 - rvar->posX) * (rvar->deltaDistX);
 	}
-	if (rVar->rayDirY < 0)
+	if (rvar->rayDirY < 0)
 	{
-		rVar->stepY = -1;
-		rVar->sideDistY = (rVar->posY - rVar->mapY) * (rVar->deltaDistY);
+		rvar->stepY = -1;
+		rvar->sideDistY = (rvar->posY - rvar->mapY) * (rvar->deltaDistY);
 	}
 	else
 	{
-		rVar->stepY = 1;
-		rVar->sideDistY = (rVar->mapY + 1.0 - rVar->posY) * (rVar->deltaDistY);
+		rvar->stepY = 1;
+		rvar->sideDistY = (rvar->mapY + 1.0 - rvar->posY) * (rvar->deltaDistY);
 	}
 }
 
-void	find_hits(t_map *rVar, int x)
+void	find_hits(t_map *rvar, int x)
 {
-	while (rVar->hit == 0)
+	while (rvar->hit == 0)
 	{
-		if (rVar->sideDistX < rVar->sideDistY)
+		if (rvar->sideDistX < rvar->sideDistY)
 		{
-			rVar->sideDistX = rVar->sideDistX + rVar->deltaDistX;
-			rVar->mapX = rVar->mapX + rVar->stepX;
-			rVar->side = 0;
+			rvar->sideDistX = rvar->sideDistX + rvar->deltaDistX;
+			rvar->mapX = rvar->mapX + rvar->stepX;
+			rvar->side = 0;
 		}
 		else
 		{
-			rVar->sideDistY = rVar->sideDistY + rVar->deltaDistY;
-			rVar->mapY = rVar->mapY + rVar->stepY;
-			rVar->side = 1;
+			rvar->sideDistY = rvar->sideDistY + rvar->deltaDistY;
+			rvar->mapY = rvar->mapY + rvar->stepY;
+			rvar->side = 1;
 		}
-		if (rVar->map[rVar->mapX][rVar->mapY] == 1)
-			rVar->hit = 1;
-		else if ((rVar->map[rVar->mapX][rVar->mapY] == 7 ||
-					rVar->map[rVar->mapX][rVar->mapY] == 2) &&
+		if (rvar->map[rvar->mapX][rvar->mapY] == 1)
+			rvar->hit = 1;
+		else if ((rvar->map[rvar->mapX][rvar->mapY] == 7 ||
+					rvar->map[rvar->mapX][rvar->mapY] == 2) &&
 					x >= WIDTH / 2 - 15 && x <= WIDTH / 2 + 15)
 		{
-			rVar->enemy.hit = 1;
-			rVar->enemy.x = rVar->mapX;
-			rVar->enemy.y = rVar->mapY;
+			rvar->enemy.hit = 1;
+			rvar->enemy.x = rvar->mapX;
+			rvar->enemy.y = rvar->mapY;
 		}
 	}
 }
 
-void	calculate_start_end_point(t_map *rVar)
+void	calculate_start_end_point(t_map *rvar)
 {
-	if (rVar->side == 0)
-		rVar->perpWallDist = (rVar->mapX - rVar->posX + (1 - rVar->stepX) / 2)
-		/ rVar->rayDirX;
+	if (rvar->side == 0)
+		rvar->perpWallDist = (rvar->mapX - rvar->posX + (1 - rvar->stepX) / 2)
+		/ rvar->rayDirX;
 	else
-		rVar->perpWallDist = (rVar->mapY - rVar->posY + (1 - rVar->stepY) / 2)
-		/ rVar->rayDirY;
-	rVar->lineHeight = (int)(HEIGHT / rVar->perpWallDist);
-	rVar->drawStart = ((rVar->lineHeight) * -1) / 2 + HEIGHT / 2;
-	if (rVar->drawStart < 0)
-		rVar->drawStart = 0;
-	rVar->drawEnd = rVar->lineHeight / 2 + HEIGHT / 2;
-	if (rVar->drawEnd >= HEIGHT)
-		rVar->drawEnd = HEIGHT - 1;
+		rvar->perpWallDist = (rvar->mapY - rvar->posY + (1 - rvar->stepY) / 2)
+		/ rvar->rayDirY;
+	rvar->lineHeight = (int)(HEIGHT / rvar->perpWallDist);
+	rvar->drawStart = ((rvar->lineHeight) * -1) / 2 + HEIGHT / 2;
+	if (rvar->drawStart < 0)
+		rvar->drawStart = 0;
+	rvar->drawEnd = rvar->lineHeight / 2 + HEIGHT / 2;
+	if (rvar->drawEnd >= HEIGHT)
+		rvar->drawEnd = HEIGHT - 1;
 }
 
-int		get_wall_texture(t_map *rVar)
+int		get_wall_texture(t_map *rvar)
 {
-	if (rVar->side == 1 && rVar->rayDirY > 0)
+	if (rvar->side == 1 && rvar->rayDirY > 0)
 		return (0);
-	else if (rVar->side == 1 && rVar->rayDirY < 0)
+	else if (rvar->side == 1 && rvar->rayDirY < 0)
 		return (1);
-	else if (rVar->side == 0 && rVar->rayDirX > 0)
+	else if (rvar->side == 0 && rvar->rayDirX > 0)
 		return (2);
 	else
 		return (3);

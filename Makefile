@@ -6,18 +6,18 @@
 #    By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 01:08:01 by xinwang           #+#    #+#              #
-#    Updated: 2020/04/08 04:02:54 by osshit           ###   ########.fr        #
+#    Updated: 2020/04/18 12:55:12 by osshit           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = cub3D
 
-SRCS_NAME = calculation_start_end_point.c  draw_column.c  draw_sol.c\
-			main.c display_image.c  draw_line.c init_bres_var.c\
-			put_pixel.c  swap_distance.c movement.c release.c manage_map.c \
+SRCS_NAME = calculation_start_end_point.c  draw_sol.c\
+			main.c display_image.c   \
+			put_pixel.c  movement.c release.c manage_map.c \
 			utils.c get_next_line.c get_next_line_utils.c player_info.c\
 			change_shift_dir.c manage_key_code.c is_valida_map.c map_info.c\
-			atoi_with_index.c fst_arg_in_map.c show_texture.c \
+			atoi_with_index.c fst_arg_in_map.c  save_bmp.c \
 			draw_ceil.c integrate_map.c press.c get_texture_path.c show_cover.c\
 			init_all_major_var.c music.c lose.c put_bar_to_win.c init_all_sprites.c \
 			init_life_score_hitpoint.c init_weapons.c init_weapon_texture.c \
@@ -27,7 +27,7 @@ SRCS_NAME = calculation_start_end_point.c  draw_column.c  draw_sol.c\
 			draw_sprites.c draw_vertical_sprite.c move_roll_cat.c set_sprite_img.c \
 			set_curr_sprites_tex.c set_entity_hitpoints.c manage_sound_based_on_pos.c \
 			manage_damage.c init_enemy_die.c secret_door.c move_door.c \
-			init_mutant.c bmp.c  free_cub3d_var.c get_map_as_str.c check_validity_map.c get_player_direction.c \
+			bmp.c  free_cub3d_var.c get_map_as_str.c check_validity_map.c get_player_direction.c \
 			free_img.c init_program_var_to_null.c init_mutan.c sprite_calculation.c change_sprite_tex_index.c new_coor_calc_vertical_move.c new_coor_non_ver_move.c \
 set_new_pos_and_value_after_pick_spr.c  insert_hurt.c
 

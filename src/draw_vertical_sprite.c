@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 12:13:26 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 12:14:43 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/18 10:49:41 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	replace_color(t_spr indi_spr, int y, int k, t_map *rvar)
 	}
 }
 
-void		draw_vertical_sprite(t_spr *indi_spr, t_map *rVar)
+void		draw_vertical_sprite(t_spr *indi_spr, t_map *rvar)
 {
 	int y;
 	int tex_x;
@@ -59,17 +59,17 @@ void		draw_vertical_sprite(t_spr *indi_spr, t_map *rVar)
 		indi_spr->origin_sprite->width / indi_spr->spriteWidth) / 256);
 		if (indi_spr->transformY > 0 && indi_spr->stripe > 0 &&
 			indi_spr->stripe < WIDTH
-			&& indi_spr->transformY < rVar->spr_buffer[indi_spr->stripe])
+			&& indi_spr->transformY < rvar->spr_buffer[indi_spr->stripe])
 		{
 			y = indi_spr->drawStartY;
 			while (y++ < indi_spr->drawEndY - 1)
 			{
-				rVar->d = y * 256 - HEIGHT * 128 + indi_spr->spriteHeight * 128;
-				tex_y = ((rVar->d * indi_spr->origin_sprite->height)
+				rvar->d = y * 256 - HEIGHT * 128 + indi_spr->spriteHeight * 128;
+				tex_y = ((rvar->d * indi_spr->origin_sprite->height)
 				/ indi_spr->spriteHeight) / 256;
-				rVar->k = color_index_in_str(tex_x, tex_y,
-				indi_spr->origin_sprite->s_l, rVar);
-				replace_color(*indi_spr, y, rVar->k, rVar);
+				rvar->k = color_index_in_str(tex_x, tex_y,
+				indi_spr->origin_sprite->s_l, rvar);
+				replace_color(*indi_spr, y, rvar->k, rvar);
 			}
 		}
 	}

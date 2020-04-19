@@ -1,81 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_img.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/18 12:48:39 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/18 12:48:43 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void free_hitpoint(t_map *rVar)
+void	free_hitpoint(t_map *rvar)
 {
-	if (rVar->hitpoint_img)
+	if (rvar->hitpoint_img)
 	{
-		free(rVar->hitpoint_img);
-		rVar->hitpoint_img = NULL;
+		free(rvar->hitpoint_img);
+		rvar->hitpoint_img = NULL;
 	}
 }
 
-void free_weapons(t_map *rVar)
+void	free_weapons(t_map *rvar)
 {
 	int i;
 	int j;
 
 	i = -1;
-	if (rVar->weaps)
+	if (rvar->weaps)
 	{
 		while (++i < NB_WEAPONS)
 		{
-			if ((rVar->weaps + i)->tex)
+			if ((rvar->weaps + i)->tex)
 			{
-				free(rVar->weaps[i].tex);
-				rVar->weaps[i].tex = NULL;
+				free(rvar->weaps[i].tex);
+				rvar->weaps[i].tex = NULL;
 			}
 		}
-		free(rVar->weaps);
-		rVar->weaps = NULL;
+		free(rvar->weaps);
+		rvar->weaps = NULL;
 	}
 }
 
-void free_sprites_selon_type_spr(t_map *rVar)
+void	free_sprites_selon_type_spr(t_map *rvar)
 {
 	int i;
 
 	i = -1;
-	if (rVar->all_spr)
+	if (rvar->all_spr)
 	{
 		while (++i < NB_SPRITE)
 		{
-			if ((rVar->all_spr + i)->indi_spr)
+			if ((rvar->all_spr + i)->indi_spr)
 			{
-				free((rVar->all_spr + i)->indi_spr);
-				(rVar->all_spr + i)->indi_spr = NULL;
+				free((rvar->all_spr + i)->indi_spr);
+				(rvar->all_spr + i)->indi_spr = NULL;
 			}
 		}
-		free(rVar->all_spr);
-		rVar->all_spr = NULL;
+		free(rvar->all_spr);
+		rvar->all_spr = NULL;
 	}
 }
 
-void free_sprite_order(t_map *rVar)
+void	free_sprite_order(t_map *rvar)
 {
-	if (rVar->sprite_order)
+	if (rvar->sprite_order)
 	{
-		free(rVar->sprite_order);
-		rVar->sprite_order = NULL;
+		free(rvar->sprite_order);
+		rvar->sprite_order = NULL;
 	}
 }
 
-void free_spr_img(t_map *rVar)
+void	free_spr_img(t_map *rvar)
 {
-	if (rVar->bad_cat)
+	if (rvar->bad_cat)
 	{
-		free(rVar->bad_cat);
-		rVar->bad_cat = NULL;
+		free(rvar->bad_cat);
+		rvar->bad_cat = NULL;
 	}
-	if (rVar->roll_cat)
+	if (rvar->roll_cat)
 	{
-		free(rVar->roll_cat);
-		rVar->roll_cat = NULL;
+		free(rvar->roll_cat);
+		rvar->roll_cat = NULL;
 	}
-	if (rVar->door)
+	if (rvar->door)
 	{
-		free(rVar->door);
-		rVar->door = NULL;
+		free(rvar->door);
+		rvar->door = NULL;
 	}
-	free_weapons(rVar);
-	free_sprites_selon_type_spr(rVar);
+	free_weapons(rvar);
+	free_sprites_selon_type_spr(rvar);
 }

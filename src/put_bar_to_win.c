@@ -1,29 +1,29 @@
 #include "cub3D.h"
 
-void    put_lucky_value_to_window(t_map  *rVar)
+void    put_lucky_value_to_window(t_map  *rvar)
 {
 	int i;
 
 	i = -1;
-	while (++i < rVar->lucky_value)
-		mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->turns_img, WIDTH - 35 * (i + 2), 25 * (i + 2));
+	while (++i < rvar->lucky_value)
+		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->turns_img, WIDTH - 35 * (i + 2), 25 * (i + 2));
 }
 
-void    put_score_to_window(t_map   *rVar)
+void    put_score_to_window(t_map   *rvar)
 {
     int w;
     int h;
 
-    rVar->score_img = mlx_xpm_file_to_image(rVar->mlx_ptr, "textures/score.xpm", &w, &h);
-    mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->score_img, 0, HEIGHT - 25);
-	mlx_string_put (rVar->mlx_ptr, rVar->win_ptr, 10, HEIGHT - 5, 15692404, ft_itoa(rVar->score));
-	if (rVar->hitpoint >= 100 )
-		mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->hitpoint_img[0], 100, HEIGHT - 25);
-	else if(rVar->hitpoint >=  50 )
-		mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->hitpoint_img[1], 100, HEIGHT - 25);
-	else if(rVar->hitpoint >= 25 )
-		mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->hitpoint_img[2], 100, HEIGHT - 25);
-	else if (rVar->hitpoint != 0 && rVar->hitpoint < 25)
-		mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->hitpoint_img[3], 100, HEIGHT - 25);
+    rvar->score_img = mlx_xpm_file_to_image(rvar->mlx_ptr, "textures/score.xpm", &w, &h);
+    mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->score_img, 0, HEIGHT - 25);
+	mlx_string_put (rvar->mlx_ptr, rvar->win_ptr, 10, HEIGHT - 5, 15692404, ft_itoa(rvar->score));
+	if (rvar->hitpoint >= 100 )
+		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->hitpoint_img[0], 100, HEIGHT - 25);
+	else if(rvar->hitpoint >=  50 )
+		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->hitpoint_img[1], 100, HEIGHT - 25);
+	else if(rvar->hitpoint >= 25 )
+		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->hitpoint_img[2], 100, HEIGHT - 25);
+	else if (rvar->hitpoint != 0 && rvar->hitpoint < 25)
+		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->hitpoint_img[3], 100, HEIGHT - 25);
 
 }

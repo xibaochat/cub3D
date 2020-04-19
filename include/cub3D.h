@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/17 12:11:16 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/18 10:24:20 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
 # include <errno.h>
 # include "libft.h"
 
-# define WIDTH  rVar->width
+# define WIDTH  rvar->width
 # define MAX_VALID_WIDTH 1920
 # define MIN_VALID_WIDTH 250
 # define MAX_VALID_HEIGHT 1080
 # define MIN_VALID_HEIGHT 250
-# define HEIGHT rVar->height
+# define HEIGHT rvar->height
 # define NB_SPRITE 6
 # define BUFFER_SIZE 1
 # define sign(x) ((x > 0)? 1 : ((x < 0)? -1: 0))
@@ -66,17 +66,6 @@
 # define crazy_cat 4
 # define TNT 7
 # define wall 1
-typedef	struct	s_bres
-{
-	int	i;
-	int x;
-	int y;
-	int dx;
-	int	dy;
-	int s1, s2;
-	int is_swap;
-	int D;
-}				t_bres;
 
 typedef struct s_color
 {
@@ -350,9 +339,6 @@ void	calculate_start_end_point(t_map *rVar);
 void	set_color(t_map *rVar);
 void	put_pixel(int x, t_map *rVar);
 void	draw_line(void *mlx_ptr, void *win_ptr, int x1, int x2, int y1, int y2, int distance);
-void	draw_column(int x1, int x2, int y1, int y2);
-void	swap_distance(t_bres *bres_var);
-t_bres	init_bres(int x1, int x2, int y1, int y2);
 void	draw_sol(t_map rVar, int x);
 void	display_image(int x, t_map *rVar);
 void    move_up(t_map    *rVar);
@@ -384,7 +370,6 @@ int		get_next_line_from_str(t_map *rVar, char **str, char **line);
 void	valid_map_on_everyline(t_map *rVar, char *str);
 int		atoi_with_index(const char *str, int *i);
 int		map_fst_arg_is_invalid(int *i, char *str);
-void	show_texture(t_map *rVar);
 void	init_rVar_tex_path(t_map *rVar);
 void	draw_floor(t_map *rVar);
 void	get_tex_dir_path(char *line, t_map *rVar);
@@ -469,4 +454,6 @@ int player_is_knocking_on_wall_or_barrier(t_map *rVar,
 void inser_hurt(t_map *rVar, double n1, double n2);
 int nice_job(t_map *rVar);
 void final_message(char *s1, char *s2);
+void    write_bmp(t_map *rvar);
+int     save_bmp(t_map *rVar);
 #endif

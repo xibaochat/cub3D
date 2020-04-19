@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_enemy_die.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/18 12:49:24 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/18 12:49:25 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void init_enemy_die(t_map *rVar)
+void	init_enemy_die(t_map *rvar)
 {
-	rVar->enemy.hit = 0;
-	rVar->enemy.x = 0;
-	rVar->enemy.y = 0;
+	rvar->enemy.hit = 0;
+	rvar->enemy.x = 0;
+	rvar->enemy.y = 0;
 }

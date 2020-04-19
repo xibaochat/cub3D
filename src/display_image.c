@@ -1,25 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display_image.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 13:32:11 by xinwang           #+#    #+#             */
+/*   Updated: 2020/04/17 13:33:00 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void display_image(int x, t_map *rVar)
+void	display_image(int x, t_map *r)
 {
-  int	i;
-  int	j;
-  i = rVar->drawStart;
-  while (i++ < rVar->drawEnd)
-    {
-      j = i * rVar->size_line + x * (rVar->bpp) / 8;
-      if (rVar->endian)
+	int	i;
+	int	j;
+
+	i = r->drawStart;
+	while (i++ < r->drawEnd)
 	{
-	  rVar->addr[j] = rVar->color;
-	  rVar->addr[j + 1] = rVar->color >> 8;
-	  rVar->addr[j + 2] = rVar->color >> 16;
+		j = i * r->size_line + x * (r->bpp) / 8;
+		if (r->endian)
+		{
+			r->addr[j] = r->color;
+			r->addr[j + 1] = r->color >> 8;
+			r->addr[j + 2] = r->color >> 16;
+		}
+		else
+		{
+			r->addr[j] = r->color >> 16;
+			r->addr[j + 1] = r->color >> 8;
+			r->addr[j + 2] = r->color;
+		}
 	}
-      else
-	{
-	  rVar->addr[j] = rVar->color >> 16;
-	  rVar->addr[j + 1] = rVar->color >> 8;
-	  rVar->addr[j + 2] = rVar->color;
-	}
-    }
-  mlx_put_image_to_window(rVar->mlx_ptr, rVar->win_ptr, rVar->image_ptr, 0, 0);
+	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->image_ptr, 0, 0);
 }

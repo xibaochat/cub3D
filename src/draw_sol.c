@@ -6,38 +6,38 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:24:44 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/07 09:41:11 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/18 10:53:28 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	init_tex_raycasting(t_map *rVar, int y)
+static void	init_tex_raycasting(t_map *rvar, int y)
 {
-    rVar->rayDirX0 = rVar->dirX - rVar->planeX;
-    rVar->rayDirY0 = rVar->dirY - rVar->planeY;
-    rVar->rayDirX1 = rVar->dirX + rVar->planeX;
-    rVar->rayDirY1 = rVar->dirY + rVar->planeY;
-    rVar->p = y - HEIGHT / 2;
-    rVar->posZ = 0.5 * HEIGHT;
-    rVar->rowDistance = rVar->posZ / rVar->p;
-    rVar->floorStepX = rVar->rowDistance * (rVar->rayDirX1 - rVar->rayDirX0) / WIDTH;
-    rVar->floorStepY = rVar->rowDistance * (rVar->rayDirY1 - rVar->rayDirY0) / WIDTH;
-    rVar->floorX = rVar->posX + rVar->rowDistance * rVar->rayDirX0;
-    rVar->floorY = rVar->posY + rVar->rowDistance * rVar->rayDirY0;
+    rvar->rayDirX0 = rvar->dirX - rvar->planeX;
+    rvar->rayDirY0 = rvar->dirY - rvar->planeY;
+    rvar->rayDirX1 = rvar->dirX + rvar->planeX;
+    rvar->rayDirY1 = rvar->dirY + rvar->planeY;
+    rvar->p = y - HEIGHT / 2;
+    rvar->posZ = 0.5 * HEIGHT;
+    rvar->rowDistance = rvar->posZ / rvar->p;
+    rvar->floorStepX = rvar->rowDistance * (rvar->rayDirX1 - rvar->rayDirX0) / WIDTH;
+    rvar->floorStepY = rvar->rowDistance * (rvar->rayDirY1 - rvar->rayDirY0) / WIDTH;
+    rvar->floorX = rvar->posX + rvar->rowDistance * rvar->rayDirX0;
+    rvar->floorY = rvar->posY + rvar->rowDistance * rvar->rayDirY0;
 }
 
-static void	init_tex_raycasting_x_cor(t_map *rVar)
+static void	init_tex_raycasting_x_cor(t_map *rvar)
 {
-    rVar->cellX = (int)(rVar->floorX);
-    rVar->cellY = (int)(rVar->floorY);
-    rVar->tx = (int)(rVar->width_floor * (rVar->floorX - rVar->cellX)) & (rVar->width_floor - 1);
-    rVar->ty = (int)(rVar->height_floor * (rVar->floorY - rVar->cellY)) & (rVar->height_floor - 1);
-    rVar->floorX += rVar->floorStepX;
-    rVar->floorY += rVar->floorStepY;
+    rvar->cellX = (int)(rvar->floorX);
+    rvar->cellY = (int)(rvar->floorY);
+    rvar->tx = (int)(rvar->width_floor * (rvar->floorX - rvar->cellX)) & (rvar->width_floor - 1);
+    rvar->ty = (int)(rvar->height_floor * (rvar->floorY - rvar->cellY)) & (rvar->height_floor - 1);
+    rvar->floorX += rvar->floorStepX;
+    rvar->floorY += rvar->floorStepY;
 }
 
-void	draw_floor(t_map *rVar)
+void	draw_floor(t_map *rvar)
 {
     int				j;
     int				y;
@@ -49,14 +49,14 @@ void	draw_floor(t_map *rVar)
     j = 0;
     while (y++ < HEIGHT - 1)
     {
-        init_tex_raycasting(rVar, y);
+        init_tex_raycasting(rvar, y);
         x = 0;
         while (x++ < WIDTH - 1)
         {
-            init_tex_raycasting_x_cor(rVar);
-            k = rVar->width_floor * (rVar->ty) * (rVar->floor_bpp / 8) + rVar->tx * (rVar->floor_bpp / 8);
-            j = (y * rVar->size_line) + (x * (rVar->bpp/8));
-			replace_pixel_value_floor(rVar, rVar->floor_texture, j, k);
+            init_tex_raycasting_x_cor(rvar);
+            k = rvar->width_floor * (rvar->ty) * (rvar->floor_bpp / 8) + rvar->tx * (rvar->floor_bpp / 8);
+            j = (y * rvar->size_line) + (x * (rvar->bpp/8));
+			replace_pixel_value_floor(rvar, rvar->floor_texture, j, k);
         }
 	}
 }

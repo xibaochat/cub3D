@@ -6,61 +6,69 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 10:26:57 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/08 07:07:10 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/18 12:29:42 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	move_up(t_map	 *rVar)
+void	move_up(t_map *rvar)
 {
-	double new_posX;
-	double new_posY;
+	double new_posx;
+	double new_posy;
 
-	new_posX = rVar->posX + (rVar->dirX) * moveSpeed;
-	new_posY = rVar->posY + (rVar->dirY) * moveSpeed;
-	rVar->new_posX = new_posX;
-	rVar->new_posY = new_posY;
-	if(!wall_collision(new_posX, rVar->posY, rVar->map))
-			rVar->posX = new_posX;
-	if(!wall_collision(rVar->posX, new_posY, rVar->map))
-		rVar->posY = new_posY;
+	new_posx = rvar->posX + (rvar->dirX) * moveSpeed;
+	new_posy = rvar->posY + (rvar->dirY) * moveSpeed;
+	rvar->new_posX = new_posx;
+	rvar->new_posY = new_posy;
+	if (!wall_collision(new_posx, rvar->posY, rvar->map))
+		rvar->posX = new_posx;
+	if (!wall_collision(rvar->posX, new_posy, rvar->map))
+		rvar->posY = new_posy;
 }
 
-void move_down(t_map *rVar)
+void	move_down(t_map *rvar)
 {
-	double new_posX;
-	double new_posY;
+	double new_posx;
+	double new_posy;
 
-	new_posX = rVar->posX - (rVar->dirX) * moveSpeed;
-	new_posY = rVar->posY - (rVar->dirY) * moveSpeed;
-	rVar->new_posX = new_posX;
-	rVar->new_posY = new_posY;
-	if(!wall_collision(new_posX, rVar->posY, rVar->map))
-		rVar->posX = new_posX;
-	if(!wall_collision(rVar->posX, new_posY, rVar->map))
-		rVar->posY = new_posY;
-	if (wall_collision(new_posX, rVar->posY, rVar->map) ||
-		wall_collision(rVar->posX, new_posY, rVar->map))
-		insert_warn(rVar);
+	new_posx = rvar->posX - (rvar->dirX) * moveSpeed;
+	new_posy = rvar->posY - (rvar->dirY) * moveSpeed;
+	rvar->new_posX = new_posx;
+	rvar->new_posY = new_posy;
+	if (!wall_collision(new_posx, rvar->posY, rvar->map))
+		rvar->posX = new_posx;
+	if (!wall_collision(rvar->posX, new_posy, rvar->map))
+		rvar->posY = new_posy;
+	if (wall_collision(new_posx, rvar->posY, rvar->map) ||
+		wall_collision(rvar->posX, new_posy, rvar->map))
+		insert_warn(rvar);
 }
 
-void move_left(t_map *rVar)
+void	move_left(t_map *rvar)
 {
-	rVar->oldDirX = rVar->dirX;
-	rVar->dirX = rVar->dirX * cos(rVar->rotSpeed) - rVar->dirY * sin(rVar->rotSpeed);
-	rVar->dirY = rVar->oldDirX * sin(rVar->rotSpeed) + rVar->dirY * cos(rVar->rotSpeed);
-	rVar->oldPlaneX = rVar->planeX;
-	rVar->planeX = (rVar->planeX) * cos(rVar->rotSpeed) - (rVar->planeY) * sin(rVar->rotSpeed);
-	rVar->planeY = (rVar->oldPlaneX) * sin(rVar->rotSpeed) + (rVar->planeY) * cos(rVar->rotSpeed);
+	rvar->oldDirX = rvar->dirX;
+	rvar->dirX = rvar->dirX * cos(rvar->rotSpeed)\
+	- rvar->dirY * sin(rvar->rotSpeed);
+	rvar->dirY = rvar->oldDirX * sin(rvar->rotSpeed)\
+	+ rvar->dirY * cos(rvar->rotSpeed);
+	rvar->oldPlaneX = rvar->planeX;
+	rvar->planeX = (rvar->planeX) * cos(rvar->rotSpeed)\
+	- (rvar->planeY) * sin(rvar->rotSpeed);
+	rvar->planeY = (rvar->oldPlaneX) * sin(rvar->rotSpeed)\
+	+ (rvar->planeY) * cos(rvar->rotSpeed);
 }
 
-void move_right(t_map *rVar)
+void	move_right(t_map *rvar)
 {
-	rVar->oldDirX = rVar->dirX;
-	rVar->dirX = (rVar->dirX) * cos((rVar->rotSpeed * -1)) - (rVar->dirY) * sin((rVar->rotSpeed * -1));
-	rVar->dirY = (rVar->oldDirX) * sin((rVar->rotSpeed * -1)) + (rVar->dirY) * cos((rVar->rotSpeed * -1));
-	rVar->oldPlaneX = rVar->planeX;
-	rVar->planeX = (rVar->planeX) * cos((rVar->rotSpeed * -1)) - (rVar->planeY) * sin((rVar->rotSpeed * -1));
-	rVar->planeY = (rVar->oldPlaneX) * sin((rVar->rotSpeed * -1)) + (rVar->planeY) * cos((rVar->rotSpeed * -1));
+	rvar->oldDirX = rvar->dirX;
+	rvar->dirX = (rvar->dirX) * cos((rvar->rotSpeed * -1))\
+	- (rvar->dirY) * sin((rvar->rotSpeed * -1));
+	rvar->dirY = (rvar->oldDirX) * sin((rvar->rotSpeed * -1))\
+	+ (rvar->dirY) * cos((rvar->rotSpeed * -1));
+	rvar->oldPlaneX = rvar->planeX;
+	rvar->planeX = (rvar->planeX) * cos((rvar->rotSpeed * -1))\
+	- (rvar->planeY) * sin((rvar->rotSpeed * -1));
+	rvar->planeY = (rvar->oldPlaneX) * sin((rvar->rotSpeed * -1))\
+	+ (rvar->planeY) * cos((rvar->rotSpeed * -1));
 }
