@@ -6,24 +6,11 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 12:25:53 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 12:25:56 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/19 08:02:35 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-void		ft_error(char *str, char *s)
-{
-	if (str && ft_strcmp(str, "The program is closed\n")
-		&& ft_strcmp(str, "Sorry :(\n")
-		&& ft_strcmp(str, "BMP file is saved\n"))
-		ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
-	if (s)
-		ft_putstr_fd(s, 2);
-	if (str || s)
-		exit(-1);
-}
 
 static void	free_texture_path(t_map *rvar)
 {
@@ -75,6 +62,21 @@ static void	free_wall_texture(t_map *rvar)
 	}
 }
 
+void free_secret_door(t_map *r)
+{
+	int	i;
+
+	i = -1;
+	if (r->door)
+	{
+		while (++i < 5)
+			if (r->door[i].path)
+				free(r->door[i].path);
+		free(r->door);
+		r->door = NULL;
+	}
+}
+
 void		free_program_var(t_map *rvar, char *s1, char *s2)
 {
 	if (rvar->win_ptr && rvar->mlx_ptr)
@@ -94,6 +96,7 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 	free_wall_texture(rvar);
 	free_hitpoint(rvar);
 	free_spr_img(rvar);
+	free_secret_door(rvar);
 	if (rvar->round == 0)
 		ft_error(s1, s2);
 	else

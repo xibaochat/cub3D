@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/18 12:48:39 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/18 12:48:43 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/19 07:48:25 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,26 @@ void	free_sprite_order(t_map *rvar)
 
 void	free_spr_img(t_map *rvar)
 {
+	int	i;
+
+	i = -1;
 	if (rvar->bad_cat)
 	{
+		while (++i <= 30)
+			free(rvar->bad_cat[i].path);
 		free(rvar->bad_cat);
 		rvar->bad_cat = NULL;
 	}
+	i = -1;
 	if (rvar->roll_cat)
 	{
+		while (++i <= 15)
+		{
+			free(rvar->roll_cat[i].path);
+			rvar->roll_cat[i].path = NULL;
+		}
 		free(rvar->roll_cat);
 		rvar->roll_cat = NULL;
-	}
-	if (rvar->door)
-	{
-		free(rvar->door);
-		rvar->door = NULL;
 	}
 	free_weapons(rvar);
 	free_sprites_selon_type_spr(rvar);
