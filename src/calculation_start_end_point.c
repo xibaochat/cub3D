@@ -6,50 +6,50 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:56:23 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 14:35:09 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:34:19 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	reset_rayon_var(t_map *rvar, int x)
+void	reset_rayon_var(t_map *r, int x)
 {
-	double	r;
+	double	r0;
 	double	r1;
 
-	r = (rvar->ray_dir_y * rvar->ray_dir_y) / (rvar->ray_dir_x * rvar->ray_dir_x);
-	r1 = (rvar->ray_dir_x * rvar->ray_dir_x) / (rvar->ray_dir_y * rvar->ray_dir_y);
-	rvar->camera_x = 2 * x / (double)rvar->width - 1;
-	rvar->ray_dir_x = rvar->dir_x + (rvar->plane_x) * (rvar->camera_x);
-	rvar->ray_dir_y = rvar->dir_y + (rvar->plane_y) * (rvar->camera_x);
-	rvar->map_x = (int)(rvar->pos_x);
-	rvar->map_y = (int)(rvar->pos_y);
-	rvar->delta_dist_x = sqrt(1 + r);
-	rvar->delta_dist_y = sqrt(1 + r1);
-	rvar->hit = 0;
+	r0 = (r->ray_dir_y * r->ray_dir_y) / (r->ray_dir_x * r->ray_dir_x);
+	r1 = (r->ray_dir_x * r->ray_dir_x) / (r->ray_dir_y * r->ray_dir_y);
+	r->camera_x = 2 * x / (double)r->width - 1;
+	r->ray_dir_x = r->dir_x + (r->plane_x) * (r->camera_x);
+	r->ray_dir_y = r->dir_y + (r->plane_y) * (r->camera_x);
+	r->map_x = (int)(r->pos_x);
+	r->map_y = (int)(r->pos_y);
+	r->delta_dist_x = sqrt(1 + r0);
+	r->delta_dist_y = sqrt(1 + r1);
+	r->hit = 0;
 }
 
-void	calculate_side_dist(t_map *rvar)
+void	calculate_side_dist(t_map *r)
 {
-	if (rvar->ray_dir_x < 0)
+	if (r->ray_dir_x < 0)
 	{
-		rvar->step_x = -1;
-		rvar->side_dist_x = (rvar->pos_x - rvar->map_x) * (rvar->delta_dist_x);
+		r->step_x = -1;
+		r->side_dist_x = (r->pos_x - r->map_x) * (r->delta_dist_x);
 	}
 	else
 	{
-		rvar->step_x = 1;
-		rvar->side_dist_x = (rvar->map_x + 1.0 - rvar->pos_x) * (rvar->delta_dist_x);
+		r->step_x = 1;
+		r->side_dist_x = (r->map_x + 1.0 - r->pos_x) * (r->delta_dist_x);
 	}
-	if (rvar->ray_dir_y < 0)
+	if (r->ray_dir_y < 0)
 	{
-		rvar->step_y = -1;
-		rvar->side_dist_y = (rvar->pos_y - rvar->map_y) * (rvar->delta_dist_y);
+		r->step_y = -1;
+		r->side_dist_y = (r->pos_y - r->map_y) * (r->delta_dist_y);
 	}
 	else
 	{
-		rvar->step_y = 1;
-		rvar->side_dist_y = (rvar->map_y + 1.0 - rvar->pos_y) * (rvar->delta_dist_y);
+		r->step_y = 1;
+		r->side_dist_y = (r->map_y + 1.0 - r->pos_y) * (r->delta_dist_y);
 	}
 }
 
@@ -82,21 +82,21 @@ void	find_hits(t_map *rvar, int x)
 	}
 }
 
-void	calculate_start_end_point(t_map *rvar)
+void	calculate_start_end_point(t_map *rv)
 {
-	if (rvar->side == 0)
-		rvar->perp_wall_dist = (rvar->map_x - rvar->pos_x + (1 - rvar->step_x) / 2)
-		/ rvar->ray_dir_x;
+	if (rv->side == 0)
+		rv->perp_wall_dist = (rv->map_x - rv->pos_x + (1 - rv->step_x) / 2)
+		/ rv->ray_dir_x;
 	else
-		rvar->perp_wall_dist = (rvar->map_y - rvar->pos_y + (1 - rvar->step_y) / 2)
-		/ rvar->ray_dir_y;
-	rvar->line_height = (int)(rvar->height / rvar->perp_wall_dist);
-	rvar->draw_start = ((rvar->line_height) * -1) / 2 + rvar->height / 2;
-	if (rvar->draw_start < 0)
-		rvar->draw_start = 0;
-	rvar->draw_end = rvar->line_height / 2 + rvar->height / 2;
-	if (rvar->draw_end >= rvar->height)
-		rvar->draw_end = rvar->height - 1;
+		rv->perp_wall_dist = (rv->map_y - rv->pos_y + (1 - rv->step_y) / 2)
+		/ rv->ray_dir_y;
+	rv->line_height = (int)(rv->height / rv->perp_wall_dist);
+	rv->draw_start = ((rv->line_height) * -1) / 2 + rv->height / 2;
+	if (rv->draw_start < 0)
+		rv->draw_start = 0;
+	rv->draw_end = rv->line_height / 2 + rv->height / 2;
+	if (rv->draw_end >= rv->height)
+		rv->draw_end = rv->height - 1;
 }
 
 int		get_wall_texture(t_map *rvar)

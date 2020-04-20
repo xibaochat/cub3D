@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 09:34:17 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 09:34:20 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:18:51 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void	calculation_drawing_sprite(t_spr *spr, t_map *rvar)
 {
 	spr->sprite_x = spr->x - rvar->pos_x;
 	spr->sprite_y = spr->y - rvar->pos_y;
-	spr->inv_det = 1.0 / (rvar->plane_x * rvar->dir_y - rvar->dir_x * rvar->plane_y);
+	spr->inv_det = 1.0 / (rvar->plane_x * rvar->dir_y - \
+	rvar->dir_x * rvar->plane_y);
 	spr->transform_x = spr->inv_det * \
 	(rvar->dir_y * spr->sprite_x - rvar->dir_x * spr->sprite_y);
 	spr->transform_y = spr->inv_det * (-rvar->plane_y * spr->sprite_x\
