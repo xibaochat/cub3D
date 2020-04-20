@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static int	color_index_in_str(int x, int y, int s_l, t_map *rvar)
 {

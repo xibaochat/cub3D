@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {

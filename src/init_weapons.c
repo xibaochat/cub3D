@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static void	init_weapons_textures(t_map *rvar, t_weap *weap, int i)
 {

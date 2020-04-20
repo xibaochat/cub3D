@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *rvar)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static int	click_to_enter(int mouse_code, int x, int y, t_map *rvar)
 {
