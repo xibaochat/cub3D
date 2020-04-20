@@ -6,15 +6,15 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 13:45:04 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 20:30:57 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 20:48:05 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	click_to_enter(int mouse_code, t_map *rvar)
+static int	click_to_enter(int mouse_code, int x, int y, t_map *rvar)
 {
-	if (mouse_code > 0)
+	if (mouse_code > 0 && x && y)
 	{
 		mlx_destroy_window(rvar->mlx_ptr, rvar->win_ptr);
 		start(rvar);
@@ -24,9 +24,11 @@ static int	click_to_enter(int mouse_code, t_map *rvar)
 
 int			close_red_button(t_map *rvar, void *p)
 {
-	(void)p;
-	system("pkill -9 afplay");
-	free_program_var(rvar, "The program is closed\n", NULL);
+	if (p)
+	{
+		system("pkill -9 afplay");
+		free_program_var(rvar, "The program is closed\n", NULL);
+	}
 	return (-1);
 }
 
