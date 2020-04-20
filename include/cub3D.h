@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 18:09:25 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/04/20 18:11:48 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@
 # define POTATO_ID 2
 # define BAD_CAT_ID 4
 # define TNT 7
-# define wall 1
+# define WALL_ID 1
 
 typedef struct		s_color
 {
