@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 13:45:04 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 20:02:22 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 20:30:57 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ static int	click_to_enter(int mouse_code, t_map *rvar)
 	return (0);
 }
 
-int			close_red_button(t_map *rvar)
+int			close_red_button(t_map *rvar, void *p)
 {
+	(void)p;
 	system("pkill -9 afplay");
 	free_program_var(rvar, "The program is closed\n", NULL);
 	return (-1);

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 20:24:16 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 20:28:53 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -372,7 +372,7 @@ int					is_resolution_id(char *line);
 int					press(int keycode, t_map *r);
 void				get_all_texture_path(char *s, char *path, t_map *r);
 void				show_cover_menu(t_map *r);
-int					close_red_button(t_map *r);
+int					close_red_button(t_map *r, void *p);
 void				start(t_map *r);
 void				init_raycasting_var(t_map *r);
 void				change_char_in_addr_value(t_map *r, char *s2, int j, int k);
@@ -399,7 +399,7 @@ void				manage_sound_based_on_pos(t_map *r);
 int					get_wall_texture(t_map *r);
 void				init_mutant(t_map *r);
 void				init_weapons(t_map *r);
-void				init_weapon_texture(t_map *r, t_weap *w, int nt, char *w);
+void				init_weapon_texture(t_map *r, t_weap *w, int nt, char *s);
 void				put_weapon_to_win(t_map *r);
 void				manage_damage(t_map *r);
 void				init_enemy_die(t_map *r);
