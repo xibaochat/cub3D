@@ -17,9 +17,9 @@ int		player_is_knocking_on_wall_or_barrier(t_map *r, double new_pos_x,\
 {
 	return (((wall_collision(new_pos_x, r->posY, r->map) ||
 			wall_collision(r->posX, new_pos_y, r->map)) &&
-			((r->map[(int)new_pos_x][(int)new_pos_y] == petit_bomb) ||
+			((r->map[(int)new_pos_x][(int)new_pos_y] == POTATO_ID) ||
 			(r->map[(int)new_pos_x][(int)new_pos_y] == TNT) ||
-			(r->map[(int)new_pos_x][(int)new_pos_y] == crazy_cat) ||
+			(r->map[(int)new_pos_x][(int)new_pos_y] == BAD_CAT_ID) ||
 			(r->map[(int)new_pos_x][(int)new_pos_y] == wall))));
 }
 

@@ -17,20 +17,20 @@ void	move_vertical_left(t_map *rvar)
 	double	new_pos_x;
 	double	new_pos_y;
 
-	if (!rvar->map[(int)(rvar->posX - rvar->planeX * moveSpeed)]\
+	if (!rvar->map[(int)(rvar->posX - rvar->planeX * MOVE_SPEED)]\
 		[(int)rvar->posY])
-		rvar->posX -= rvar->planeX * moveSpeed;
+		rvar->posX -= rvar->planeX * MOVE_SPEED;
 	if (!rvar->map[(int)rvar->posX]\
-		[(int)(rvar->posY - rvar->planeY * moveSpeed)])
-		rvar->posY -= rvar->planeY * moveSpeed;
+		[(int)(rvar->posY - rvar->planeY * MOVE_SPEED)])
+		rvar->posY -= rvar->planeY * MOVE_SPEED;
 }
 
 void	move_vertical_right(t_map *rvar)
 {
-	if (!rvar->map[(int)(rvar->posX + rvar->planeX * moveSpeed)]\
+	if (!rvar->map[(int)(rvar->posX + rvar->planeX * MOVE_SPEED)]\
 	[(int)rvar->posY])
-		rvar->posX += rvar->planeX * moveSpeed;
+		rvar->posX += rvar->planeX * MOVE_SPEED;
 	if (!rvar->map[(int)rvar->posX]\
-		[(int)(rvar->posY + rvar->planeY * moveSpeed)])
-		rvar->posY += rvar->planeY * moveSpeed;
+		[(int)(rvar->posY + rvar->planeY * MOVE_SPEED)])
+		rvar->posY += rvar->planeY * MOVE_SPEED;
 }

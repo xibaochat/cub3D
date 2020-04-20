@@ -32,7 +32,7 @@
 # define ORIGIN_SIZE 20
 
 # if __APPLE__
-#  define moveSpeed 0.065
+#  define MOVE_SPEED 0.065
 #  define ROT_SPEED 0.040
 #  define W_KEY 13
 #  define A_KEY 0
@@ -44,7 +44,7 @@
 #  define SHOOTING 256
 #  define COUTEAU 12
 # elif __linux__
-#  define moveSpeed 0.045
+#  define MOVE_SPEED 0.045
 #  define ROT_SPEED 0.015
 #  define W_KEY 119
 #  define A_KEY 97
@@ -58,8 +58,8 @@
 # define NB_WEAPONS 2
 # define MACHINE_GUN_ID 0
 # define COUTEAU_ID 1
-# define petit_bomb 2
-# define crazy_cat 4
+# define POTATO_ID 2
+# define BAD_CAT_ID 4
 # define TNT 7
 # define wall 1
 

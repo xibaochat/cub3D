@@ -17,8 +17,8 @@ void	move_up(t_map *rvar)
 	double new_posx;
 	double new_posy;
 
-	new_posx = rvar->posX + (rvar->dirX) * moveSpeed;
-	new_posy = rvar->posY + (rvar->dirY) * moveSpeed;
+	new_posx = rvar->posX + (rvar->dirX) * MOVE_SPEED;
+	new_posy = rvar->posY + (rvar->dirY) * MOVE_SPEED;
 	rvar->new_posX = new_posx;
 	rvar->new_posY = new_posy;
 	if (!wall_collision(new_posx, rvar->posY, rvar->map))
@@ -32,8 +32,8 @@ void	move_down(t_map *rvar)
 	double new_posx;
 	double new_posy;
 
-	new_posx = rvar->posX - (rvar->dirX) * moveSpeed;
-	new_posy = rvar->posY - (rvar->dirY) * moveSpeed;
+	new_posx = rvar->posX - (rvar->dirX) * MOVE_SPEED;
+	new_posy = rvar->posY - (rvar->dirY) * MOVE_SPEED;
 	rvar->new_posX = new_posx;
 	rvar->new_posY = new_posy;
 	if (!wall_collision(new_posx, rvar->posY, rvar->map))
