@@ -14,30 +14,30 @@
 
 static void	calculation_drawing_sprite(t_spr *spr, t_map *rvar)
 {
-	spr->spriteX = spr->x - rvar->posX;
-	spr->spriteY = spr->y - rvar->posY;
-	spr->invDet = 1.0 / (rvar->planeX * rvar->dirY - rvar->dirX * rvar->planeY);
-	spr->transformX = spr->invDet * \
-	(rvar->dirY * spr->spriteX - rvar->dirX * spr->spriteY);
-	spr->transformY = spr->invDet * (-rvar->planeY * spr->spriteX\
-	+ rvar->planeX * spr->spriteY);
-	spr->spriteScreenX = ((rvar->width / 2) * \
-	(1 + spr->transformX / spr->transformY));
-	spr->spriteHeight = abs((int)(rvar->height / (spr->transformY)));
-	spr->drawStartY = -spr->spriteHeight / 2 + rvar->height / 2;
-	if (spr->drawStartY < 0)
-		spr->drawStartY = 0;
-	spr->drawEndY = spr->spriteHeight / 2 + rvar->height / 2;
-	if (spr->drawEndY >= rvar->height)
-		spr->drawEndY = rvar->height - 1;
-	spr->spriteWidth = abs((int)(rvar->height / spr->transformY));
-	spr->drawStartX = -spr->spriteWidth / 2 + spr->spriteScreenX;
-	if (spr->drawStartX < 0)
-		spr->drawStartX = 0;
-	spr->drawEndX = spr->spriteWidth / 2 + spr->spriteScreenX;
-	if (spr->drawEndX >= rvar->width)
-		spr->drawEndX = rvar->width - 1;
-	spr->stripe = spr->drawStartX;
+	spr->sprite_x = spr->x - rvar->posX;
+	spr->sprite_y = spr->y - rvar->posY;
+	spr->inv_det = 1.0 / (rvar->planeX * rvar->dirY - rvar->dirX * rvar->planeY);
+	spr->transform_x = spr->inv_det * \
+	(rvar->dirY * spr->sprite_x - rvar->dirX * spr->sprite_y);
+	spr->transformY = spr->inv_det * (-rvar->planeY * spr->sprite_x\
+	+ rvar->planeX * spr->sprite_y);
+	spr->sprite_screen_x = ((rvar->width / 2) * \
+	(1 + spr->transform_x / spr->transformY));
+	spr->sprite_height = abs((int)(rvar->height / (spr->transformY)));
+	spr->draw_start_y = -spr->sprite_height / 2 + rvar->height / 2;
+	if (spr->draw_start_y < 0)
+		spr->draw_start_y = 0;
+	spr->draw_end_y = spr->sprite_height / 2 + rvar->height / 2;
+	if (spr->draw_end_y >= rvar->height)
+		spr->draw_end_y = rvar->height - 1;
+	spr->sprite_width = abs((int)(rvar->height / spr->transformY));
+	spr->draw_start_x = -spr->sprite_width / 2 + spr->sprite_screen_x;
+	if (spr->draw_start_x < 0)
+		spr->draw_start_x = 0;
+	spr->draw_end_x = spr->sprite_width / 2 + spr->sprite_screen_x;
+	if (spr->draw_end_x >= rvar->width)
+		spr->draw_end_x = rvar->width - 1;
+	spr->stripe = spr->draw_start_x;
 }
 
 static int	get_total_nb_sprites(t_map *rvar)

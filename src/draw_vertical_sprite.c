@@ -52,21 +52,21 @@ void		draw_vertical_sprite(t_spr *indi_spr, t_map *rvar)
 	int tex_x;
 	int tex_y;
 
-	while (indi_spr->stripe++ < indi_spr->drawEndX - 1)
+	while (indi_spr->stripe++ < indi_spr->draw_end_x - 1)
 	{
 		tex_x = (int)((256 * (indi_spr->stripe -
-		(-indi_spr->spriteWidth / 2 + indi_spr->spriteScreenX)) *
-		indi_spr->origin_sprite->width / indi_spr->spriteWidth) / 256);
+		(-indi_spr->sprite_width / 2 + indi_spr->sprite_screen_x)) *
+		indi_spr->origin_sprite->width / indi_spr->sprite_width) / 256);
 		if (indi_spr->transformY > 0 && indi_spr->stripe > 0 &&
 			indi_spr->stripe < rvar->width
 			&& indi_spr->transformY < rvar->spr_buffer[indi_spr->stripe])
 		{
-			y = indi_spr->drawStartY;
-			while (y++ < indi_spr->drawEndY - 1)
+			y = indi_spr->draw_start_y;
+			while (y++ < indi_spr->draw_end_y - 1)
 			{
-				rvar->d = y * 256 - rvar->height * 128 + indi_spr->spriteHeight * 128;
+				rvar->d = y * 256 - rvar->height * 128 + indi_spr->sprite_height * 128;
 				tex_y = ((rvar->d * indi_spr->origin_sprite->height)
-				/ indi_spr->spriteHeight) / 256;
+				/ indi_spr->sprite_height) / 256;
 				rvar->k = color_index_in_str(tex_x, tex_y,
 				indi_spr->origin_sprite->s_l, rvar);
 				replace_color(*indi_spr, y, rvar->k, rvar);
