@@ -27,9 +27,9 @@ void		move_action(t_map *r)
 		move_left(r);
 	if (r->open_right == 1)
 		move_right(r);
-	if (r->open_A == 1)
+	if (r->open_a == 1)
 		move_vertical_left(r);
-	if (r->open_D == 1)
+	if (r->open_d == 1)
 		move_vertical_right(r);
 }
 
@@ -37,7 +37,7 @@ static int	has_moved(t_map *r)
 {
 	return (r->open_up == 1 || r->open_down == 1 ||
 			r->open_left == 1 || r->open_right == 1 ||
-			r->open_A == 1 || r->open_D == 1);
+			r->open_a == 1 || r->open_d == 1);
 }
 
 int			movement(t_map *r)

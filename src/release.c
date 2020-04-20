@@ -24,9 +24,9 @@ int	release(int keycode, t_map *rvar)
 	else if (keycode == S_KEY)
 		rvar->open_down = 0;
 	else if (keycode == A_KEY)
-		rvar->open_A = 0;
+		rvar->open_a = 0;
 	else if (keycode == D_KEY)
-		rvar->open_D = 0;
+		rvar->open_d = 0;
 	else if (keycode == LEFT_ARROW_KEY)
 		rvar->open_left = 0;
 	else if (keycode == RIGHT_ARROW_KEY)

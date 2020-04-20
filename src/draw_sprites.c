@@ -19,18 +19,18 @@ static void	calculation_drawing_sprite(t_spr *spr, t_map *rvar)
 	spr->inv_det = 1.0 / (rvar->plane_x * rvar->dir_y - rvar->dir_x * rvar->plane_y);
 	spr->transform_x = spr->inv_det * \
 	(rvar->dir_y * spr->sprite_x - rvar->dir_x * spr->sprite_y);
-	spr->transformY = spr->inv_det * (-rvar->plane_y * spr->sprite_x\
+	spr->transform_y = spr->inv_det * (-rvar->plane_y * spr->sprite_x\
 	+ rvar->plane_x * spr->sprite_y);
 	spr->sprite_screen_x = ((rvar->width / 2) * \
-	(1 + spr->transform_x / spr->transformY));
-	spr->sprite_height = abs((int)(rvar->height / (spr->transformY)));
+	(1 + spr->transform_x / spr->transform_y));
+	spr->sprite_height = abs((int)(rvar->height / (spr->transform_y)));
 	spr->draw_start_y = -spr->sprite_height / 2 + rvar->height / 2;
 	if (spr->draw_start_y < 0)
 		spr->draw_start_y = 0;
 	spr->draw_end_y = spr->sprite_height / 2 + rvar->height / 2;
 	if (spr->draw_end_y >= rvar->height)
 		spr->draw_end_y = rvar->height - 1;
-	spr->sprite_width = abs((int)(rvar->height / spr->transformY));
+	spr->sprite_width = abs((int)(rvar->height / spr->transform_y));
 	spr->draw_start_x = -spr->sprite_width / 2 + spr->sprite_screen_x;
 	if (spr->draw_start_x < 0)
 		spr->draw_start_x = 0;

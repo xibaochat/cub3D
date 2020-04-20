@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 18:07:12 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/04/20 18:09:25 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ typedef struct		s_spr
 	double			sprite_y;
 	double			inv_det;
 	double			transform_x;
-	double			transformY;
+	double			transform_y;
 	int				sprite_screen_x;
 	int				sprite_height;
 	int				draw_start_y;
@@ -241,8 +241,8 @@ typedef	struct		s_map
 	int				open_down;
 	int				open_left;
 	int				open_right;
-	int				open_A;
-	int				open_D;
+	int				open_a;
+	int				open_d;
 	int				look_up;
 	int				look_down;
 	double			rot_speed;
@@ -281,8 +281,8 @@ typedef	struct		s_map
 	float			floor_step_y;
 	float			floor_x;
 	float			floor_y;
-	int				cellX;
-	int				cellY;
+	int				cell_x;
+	int				cell_y;
 	int				tx;
 	int				ty;
 	unsigned int	tex_color;

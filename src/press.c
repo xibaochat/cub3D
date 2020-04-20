@@ -28,9 +28,9 @@ int		press(int keycode, t_map *r)
 	if (keycode == S_KEY)
 		r->open_down = 1;
 	if (keycode == A_KEY)
-		r->open_A = 1;
+		r->open_a = 1;
 	if (keycode == D_KEY)
-		r->open_D = 1;
+		r->open_d = 1;
 	if (keycode == LEFT_ARROW_KEY)
 		r->open_left = 1;
 	if (keycode == RIGHT_ARROW_KEY)

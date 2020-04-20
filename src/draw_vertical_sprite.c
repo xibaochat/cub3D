@@ -57,9 +57,9 @@ void		draw_vertical_sprite(t_spr *indi_spr, t_map *rvar)
 		tex_x = (int)((256 * (indi_spr->stripe -
 		(-indi_spr->sprite_width / 2 + indi_spr->sprite_screen_x)) *
 		indi_spr->origin_sprite->width / indi_spr->sprite_width) / 256);
-		if (indi_spr->transformY > 0 && indi_spr->stripe > 0 &&
+		if (indi_spr->transform_y > 0 && indi_spr->stripe > 0 &&
 			indi_spr->stripe < rvar->width
-			&& indi_spr->transformY < rvar->spr_buffer[indi_spr->stripe])
+			&& indi_spr->transform_y < rvar->spr_buffer[indi_spr->stripe])
 		{
 			y = indi_spr->draw_start_y;
 			while (y++ < indi_spr->draw_end_y - 1)

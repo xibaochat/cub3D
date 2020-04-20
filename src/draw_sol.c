@@ -31,11 +31,11 @@ static void		init_tex_raycasting(t_map *r, int y)
 
 static void		init_tex_raycasting_x_cor(t_map *r)
 {
-	r->cellX = (int)(r->floor_x);
-	r->cellY = (int)(r->floor_y);
+	r->cell_x = (int)(r->floor_x);
+	r->cell_y = (int)(r->floor_y);
 	r->tx = (int)(r->width_floor * \
-	(r->floor_x - r->cellX)) & (r->width_floor - 1);
-	r->ty = (int)(r->height_floor * (r->floor_y - r->cellY)) \
+	(r->floor_x - r->cell_x)) & (r->width_floor - 1);
+	r->ty = (int)(r->height_floor * (r->floor_y - r->cell_y)) \
 	& (r->height_floor - 1);
 	r->floor_x += r->floor_step_x;
 	r->floor_y += r->floor_step_y;
