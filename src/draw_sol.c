@@ -6,57 +6,62 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:24:44 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/18 10:53:28 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 11:22:17 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	init_tex_raycasting(t_map *rvar, int y)
+static void		init_tex_raycasting(t_map *r, int y)
 {
-    rvar->rayDirX0 = rvar->dirX - rvar->planeX;
-    rvar->rayDirY0 = rvar->dirY - rvar->planeY;
-    rvar->rayDirX1 = rvar->dirX + rvar->planeX;
-    rvar->rayDirY1 = rvar->dirY + rvar->planeY;
-    rvar->p = y - HEIGHT / 2;
-    rvar->posZ = 0.5 * HEIGHT;
-    rvar->rowDistance = rvar->posZ / rvar->p;
-    rvar->floorStepX = rvar->rowDistance * (rvar->rayDirX1 - rvar->rayDirX0) / WIDTH;
-    rvar->floorStepY = rvar->rowDistance * (rvar->rayDirY1 - rvar->rayDirY0) / WIDTH;
-    rvar->floorX = rvar->posX + rvar->rowDistance * rvar->rayDirX0;
-    rvar->floorY = rvar->posY + rvar->rowDistance * rvar->rayDirY0;
+	r->rayDirX0 = r->dirX - r->planeX;
+	r->rayDirY0 = r->dirY - r->planeY;
+	r->rayDirX1 = r->dirX + r->planeX;
+	r->rayDirY1 = r->dirY + r->planeY;
+	r->p = y - r->height / 2;
+	r->posZ = 0.5 * r->height;
+	r->rowDistance = r->posZ / r->p;
+	r->floorStepX = r->rowDistance * \
+	(r->rayDirX1 - r->rayDirX0) / r->width;
+	r->floorStepY = r->rowDistance * \
+	(r->rayDirY1 - r->rayDirY0) / r->width;
+	r->floorX = r->posX + r->rowDistance * r->rayDirX0;
+	r->floorY = r->posY + r->rowDistance * r->rayDirY0;
 }
 
-static void	init_tex_raycasting_x_cor(t_map *rvar)
+static void		init_tex_raycasting_x_cor(t_map *r)
 {
-    rvar->cellX = (int)(rvar->floorX);
-    rvar->cellY = (int)(rvar->floorY);
-    rvar->tx = (int)(rvar->width_floor * (rvar->floorX - rvar->cellX)) & (rvar->width_floor - 1);
-    rvar->ty = (int)(rvar->height_floor * (rvar->floorY - rvar->cellY)) & (rvar->height_floor - 1);
-    rvar->floorX += rvar->floorStepX;
-    rvar->floorY += rvar->floorStepY;
+	r->cellX = (int)(r->floorX);
+	r->cellY = (int)(r->floorY);
+	r->tx = (int)(r->width_floor * \
+	(r->floorX - r->cellX)) & (r->width_floor - 1);
+	r->ty = (int)(r->height_floor * (r->floorY - r->cellY)) \
+	& (r->height_floor - 1);
+	r->floorX += r->floorStepX;
+	r->floorY += r->floorStepY;
 }
 
-void	draw_floor(t_map *rvar)
+void			draw_floor(t_map *r)
 {
-    int				j;
-    int				y;
-    int				x;
-    int				k;
-    unsigned int	color;
+	int				j;
+	int				y;
+	int				x;
+	int				k;
+	unsigned int	color;
 
-    y = HEIGHT / 2;
-    j = 0;
-    while (y++ < HEIGHT - 1)
-    {
-        init_tex_raycasting(rvar, y);
-        x = 0;
-        while (x++ < WIDTH - 1)
-        {
-            init_tex_raycasting_x_cor(rvar);
-            k = rvar->width_floor * (rvar->ty) * (rvar->floor_bpp / 8) + rvar->tx * (rvar->floor_bpp / 8);
-            j = (y * rvar->size_line) + (x * (rvar->bpp/8));
-			replace_pixel_value_floor(rvar, rvar->floor_texture, j, k);
-        }
+	y = r->height / 2;
+	j = 0;
+	while (y++ < r->height - 1)
+	{
+		init_tex_raycasting(r, y);
+		x = 0;
+		while (x++ < r->width - 1)
+		{
+			init_tex_raycasting_x_cor(r);
+			k = r->width_floor * (r->ty) * (r->floor_bpp / 8) \
+			+ r->tx * (r->floor_bpp / 8);
+			j = (y * r->size_line) + (x * (r->bpp / 8));
+			replace_pixel_value_floor(r, r->floor_texture, j, k);
+		}
 	}
 }

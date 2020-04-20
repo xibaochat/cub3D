@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 09:59:28 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 11:11:35 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -408,7 +408,7 @@ void set_sprite_img(t_map *rVar, t_prop *spr, int i);
 void set_curr_sprites_tex(t_map *rVar);
 
 void get_indi_sprite_coord(t_spr *spr, t_map *rVar, int n);
-void set_entity_hitpoint(t_map *rVar, int i_sprite, int x, int y, int hitpoint);
+void set_entity_hitpoint_as_zero(t_map *rVar, int i_sprite, int x, int y);
 t_spr **get_sprites_order(t_map *rVar, t_spr  **sprite_order, int total_nb_sprite);
 void manage_sound_based_on_pos(t_map *rVar);
 int get_wall_texture(t_map *rVar);

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_info.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/20 11:14:12 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 11:16:55 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void get_line(t_map *rVar, char *str)
+void	get_line(t_map *rvar, char *str)
 {
 	int i;
 	int line;
@@ -13,10 +25,10 @@ void get_line(t_map *rVar, char *str)
 			line++;
 		i++;
 	}
-	rVar->line = line + 1;
+	rvar->line = line + 1;
 }
 
-void  get_column(t_map *rVar, char *str)
+void	get_column(t_map *rvar, char *str)
 {
 	int i;
 	int column;
@@ -29,16 +41,16 @@ void  get_column(t_map *rVar, char *str)
 			column++;
 		i++;
 	}
-	rVar->column = column + 1;;
+	rvar->column = column + 1;
 }
 
-int get_next_line_from_str(t_map *rVar, char **str, char **line)
+int		get_next_line_from_str(t_map *rvar, char **str, char **line)
 {
-	char    *s;
-	char    *s1;
-	char    *tmp;
-	int     i;
-	int     j;
+	char	*s;
+	char	*s1;
+	char	*tmp;
+	int		i;
+	int		j;
 
 	if (!*str || !*str[0])
 		return (0);
@@ -57,32 +69,35 @@ int get_next_line_from_str(t_map *rVar, char **str, char **line)
 		*str = tmp;
 		return (1);
 	}
-	free_program_var(rVar, "malloc fail", NULL);
+	free_program_var(rvar, "malloc fail", NULL);
 	return (-1);
 }
 
-void valid_map_on_everyline(t_map *rVar, char *str)
+void	valid_map_on_everyline(t_map *rvar, char *str)
 {
-	char *line;
-	int nb_elem;
-	int tmp;
-	int mark;
+	char	*line;
+	int		nb_elem;
+	int		tmp;
+	int		mark;
 
 	mark = 0;
-	get_next_line_from_str(rVar, &str, &line);
-	is_all_wall(rVar, line);
+	get_next_line_from_str(rvar, &str, &line);
+	is_all_wall(rvar, line);
 	nb_elem = cal_nb_elem(line, &mark);
-	while (get_next_line_from_str(rVar, &str, &line) > 0)
+	while (get_next_line_from_str(rvar, &str, &line) > 0)
 	{
 		tmp = cal_nb_elem(line, &mark);
 		if (nb_elem != tmp)
-			free_program_var(rVar, "the column of eachlinein the map is not equal\n", NULL);
-		start_end_has_wall(rVar, line);
-		has_invalid_alpha(rVar, line);
+			free_program_var(rvar, \
+		"the column of eachlinein the map is not equal\n", NULL);
+		start_end_has_wall(rvar, line);
+		has_invalid_alpha(rvar, line);
 	}
-	is_all_wall(rVar, line);
+	is_all_wall(rvar, line);
 	if (mark == 0)
-		free_program_var(rVar, "player position is not showed in the map\n", NULL);
+		free_program_var(rvar, \
+	"player position is not showed in the map\n", NULL);
 	if (mark > 1)
-		free_program_var(rVar, "player position is showed multiple times\n", NULL);
+		free_program_var(rvar, \
+	"player position is showed multiple times\n", NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 12:25:53 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/19 08:02:35 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 11:53:25 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	free_wall_texture(t_map *rvar)
 	}
 }
 
-void free_secret_door(t_map *r)
+void		free_secret_door(t_map *r)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 09:42:17 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 09:42:20 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 11:12:08 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void		set_new_pos_and_value_after_pick_spr(t_map *rvar)
 	{
 		rvar->score += 50;
 		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
-		set_entity_hitpoint(rvar, 1, \
-		(int)rvar->new_posX, (int)rvar->new_posY, 0);
+		set_entity_hitpoint_as_zero(rvar, 1, \
+		(int)rvar->new_posX, (int)rvar->new_posY);
 	}
 	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 5)
 	{
 		rvar->lucky_value++;
 		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
-		set_entity_hitpoint(rvar, 3, (int)rvar->new_posX, \
-		(int)rvar->new_posY, 0);
+		set_entity_hitpoint_as_zero(rvar, 3, (int)rvar->new_posX, \
+		(int)rvar->new_posY);
 	}
 	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] != 4)
 		re_init_animated_sprites(rvar);
