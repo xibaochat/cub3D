@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 12:54:56 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/18 10:49:09 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 14:36:45 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		write_header(int fd, int filesize, t_map *rvar)
 	header[14] = 40;
 	header[26] = 1;
 	header[28] = 24;
-	put_int_in_char(header, 18, WIDTH);
-	put_int_in_char(header, 22, HEIGHT);
+	put_int_in_char(header, 18, rvar->width);
+	put_int_in_char(header, 22, rvar->height);
 	return (write(fd, header, 54));
 }
 
@@ -53,11 +53,11 @@ int		write_data(int fd, t_map *rvar)
 	int j;
 	int i;
 
-	i = HEIGHT;
+	i = rvar->height;
 	while (i-- > 0)
 	{
 		j = 0;
-		while (j < WIDTH)
+		while (j < rvar->width)
 		{
 			color = get_pixel(rvar, j, i);
 			write(fd, &color, 3);
@@ -72,7 +72,7 @@ int		save_bmp(t_map *rvar)
 	int fd;
 	int filesize;
 
-	filesize = 54 + 3 * WIDTH * HEIGHT;
+	filesize = 54 + 3 * rvar->width * rvar->height;
 	ft_putstr("BMP is ongoing saving...\n");
 	if ((fd = open("my_image.bmp", O_WRONLY | O_CREAT | O_TRUNC,
 	S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0)

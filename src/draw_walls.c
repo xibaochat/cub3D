@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 09:46:33 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/18 10:50:41 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 14:35:36 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *rvar)
 	int	x;
 
 	x = -1;
-	while (++x < WIDTH)
+	while (++x < rvar->width)
 	{
 		reset_rayon_var(rvar, x);
 		calculate_side_dist(rvar);

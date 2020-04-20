@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 11:11:35 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 15:35:52 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@
 # include <errno.h>
 # include "libft.h"
 
-# define WIDTH  rvar->width
 # define MAX_VALID_WIDTH 1920
 # define MIN_VALID_WIDTH 250
 # define MAX_VALID_HEIGHT 1080
 # define MIN_VALID_HEIGHT 250
-# define HEIGHT rvar->height
 # define NB_SPRITE 6
 # define BUFFER_SIZE 1
-# define sign(x) ((x > 0)? 1 : ((x < 0)? -1: 0))
 # define ORIGIN_SIZE 20
 
 # if __APPLE__

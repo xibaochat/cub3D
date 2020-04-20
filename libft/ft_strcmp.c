@@ -6,18 +6,18 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 06:25:13 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/04 06:25:31 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 14:22:15 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-    while (*s1 && *s2)
-    {
-        if (*s1 != *s2)
-            return (*s1 - *s2);
-        s1++;
-        s2++;
-    }
-    return (*s1 - *s2);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }

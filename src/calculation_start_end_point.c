@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:56:23 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/18 10:48:03 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 14:35:09 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	reset_rayon_var(t_map *rvar, int x)
 
 	r = (rvar->rayDirY * rvar->rayDirY) / (rvar->rayDirX * rvar->rayDirX);
 	r1 = (rvar->rayDirX * rvar->rayDirX) / (rvar->rayDirY * rvar->rayDirY);
-	rvar->cameraX = 2 * x / (double)WIDTH - 1;
+	rvar->cameraX = 2 * x / (double)rvar->width - 1;
 	rvar->rayDirX = rvar->dirX + (rvar->planeX) * (rvar->cameraX);
 	rvar->rayDirY = rvar->dirY + (rvar->planeY) * (rvar->cameraX);
 	rvar->mapX = (int)(rvar->posX);
@@ -73,7 +73,7 @@ void	find_hits(t_map *rvar, int x)
 			rvar->hit = 1;
 		else if ((rvar->map[rvar->mapX][rvar->mapY] == 7 ||
 					rvar->map[rvar->mapX][rvar->mapY] == 2) &&
-					x >= WIDTH / 2 - 15 && x <= WIDTH / 2 + 15)
+					x >= rvar->width / 2 - 15 && x <= rvar->width / 2 + 15)
 		{
 			rvar->enemy.hit = 1;
 			rvar->enemy.x = rvar->mapX;
@@ -90,13 +90,13 @@ void	calculate_start_end_point(t_map *rvar)
 	else
 		rvar->perpWallDist = (rvar->mapY - rvar->posY + (1 - rvar->stepY) / 2)
 		/ rvar->rayDirY;
-	rvar->lineHeight = (int)(HEIGHT / rvar->perpWallDist);
-	rvar->drawStart = ((rvar->lineHeight) * -1) / 2 + HEIGHT / 2;
+	rvar->lineHeight = (int)(rvar->height / rvar->perpWallDist);
+	rvar->drawStart = ((rvar->lineHeight) * -1) / 2 + rvar->height / 2;
 	if (rvar->drawStart < 0)
 		rvar->drawStart = 0;
-	rvar->drawEnd = rvar->lineHeight / 2 + HEIGHT / 2;
-	if (rvar->drawEnd >= HEIGHT)
-		rvar->drawEnd = HEIGHT - 1;
+	rvar->drawEnd = rvar->lineHeight / 2 + rvar->height / 2;
+	if (rvar->drawEnd >= rvar->height)
+		rvar->drawEnd = rvar->height - 1;
 }
 
 int		get_wall_texture(t_map *rvar)
