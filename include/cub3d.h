@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 18:11:48 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/04/20 20:02:49 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -306,7 +306,7 @@ void	print_map(int **map, char *map_str);
 void	get_line(t_map *r, char *str);
 void	get_column(t_map *r, char *str);
 void	new_graph(t_map	*r);
-void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *r);
+void	draw_walls(t_map *r);
 void	init_all_path_and_ind_spr_value(t_map *r);
 void	init_wall_tex_info(t_map *r);
 void	init_hitpoint_imgs(t_map *r);
@@ -363,15 +363,15 @@ void	init_spr(t_map *r);
 void	draw_sprites(t_map *r);
 int		get_sprites_num(t_map *r);
 void	draw_ceil(int x, t_map *r);
-int		mouse_press_hook(int mouse_code, int x, int y, t_map *r);
-int		mouse_release_hook(int mouse_code, int x, int y, t_map *r);
+int		mouse_press_hook(int mouse_code, t_map *r);
+int		mouse_release_hook(int mouse_code, t_map *r);
 void	check_space_before_id(t_map *r, char *line);
 void	validate_all_id_are_set(t_map *r);
 int		is_resolution_id(char *line);
 int		press(int keycode, t_map *r);
 void	get_all_texture_path(char *s, char *path, t_map *r);
 void	show_cover_menu(t_map *r);
-int		close_red_button(t_map *r, void *param);
+int		close_red_button(t_map *r);
 void	start(t_map *r);
 void	init_raycasting_var(t_map *r);
 void	change_char_in_addr_value(t_map *r, char *s2, int j, int k);

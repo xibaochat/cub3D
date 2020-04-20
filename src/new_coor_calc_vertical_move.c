@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/18 12:06:11 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/18 12:10:49 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:46:01 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	move_vertical_left(t_map *rvar)
 {
-	double	new_pos_x;
-	double	new_pos_y;
-
-	if (!rvar->map[(int)(rvar->pos_x - rvar->plane_x * MOVE_SPEED)]\
+	if (!rvar->map[(int)(rvar->pos_x - rvar->plane_x * MOVE_SPEED)]	\
 		[(int)rvar->pos_y])
 		rvar->pos_x -= rvar->plane_x * MOVE_SPEED;
 	if (!rvar->map[(int)rvar->pos_x]\

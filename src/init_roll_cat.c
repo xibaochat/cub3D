@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/19 07:38:28 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/19 07:39:35 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:42:59 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_roll_cat(t_map *rvar)
 {
-	int		w;
-	int		h;
 	int		i;
 	char	*s;
 	char	*s1;

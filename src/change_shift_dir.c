@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 09:34:30 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 09:35:33 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:45:31 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	change_left_rotation_dir(t_map *rvar)
 		d = 'W';
 	else if (c == 'W')
 		d = 'S';
-	else if (c == 'S')
+	else
 		d = 'E';
 	init_player_dir(d, rvar);
 }
@@ -41,7 +41,7 @@ void	change_right_rotation_dir(t_map *rvar)
 		d = 'E';
 	else if (c == 'W')
 		d = 'N';
-	else if (c == 'S')
+	else
 		d = 'W';
 	init_player_dir(d, rvar);
 }

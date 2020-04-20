@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 12:39:40 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 12:39:43 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:49:16 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 			filepath = rvar->bad_cat[rvar->nb_bad_cat].path;
 		else if (i == 3)
 			filepath = rvar->roll_cat[rvar->nb_roll_cat].path;
-		else if (i == 4)
+		else
 			filepath = rvar->door[rvar->nb_door].path;
 		spr->img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 		filepath, &spr->width, &spr->height);

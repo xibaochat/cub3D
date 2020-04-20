@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/19 07:48:48 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/19 07:50:00 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:42:45 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_bad_cat(t_map *rvar)
 {
-	int		w;
-	int		h;
 	int		i;
 	char	*s;
 	char	*s1;

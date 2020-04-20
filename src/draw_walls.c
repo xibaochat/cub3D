@@ -6,13 +6,13 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 09:46:33 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 14:35:36 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:01:14 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *rvar)
+void	draw_walls(t_map *rvar)
 {
 	int	x;
 

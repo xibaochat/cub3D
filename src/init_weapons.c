@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 21:26:07 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 08:21:18 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:00:58 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	init_weapons_textures(t_map *rvar, t_weap *weap, int i)
 void		init_weapons(t_map *rvar)
 {
 	int i;
-	int j;
 
 	i = -1;
 	rvar->couteau = 0;

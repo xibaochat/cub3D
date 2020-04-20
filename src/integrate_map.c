@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 10:16:26 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 10:19:38 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:48:51 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static void	cpy_column(int **map, int i, int *k, t_map *r)
 
 void		integrate_map(t_map *r)
 {
-	int **map;
 	int i;
 	int k;
 

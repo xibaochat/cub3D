@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 20:43:15 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 11:43:50 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:47:38 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		get_tex_dir_path(char *line, t_map *r)
 {
 	int		i;
 	char	*s;
-	char	*path;
 
 	i = 0;
 	while (line[i] && !is_space(line[i]))

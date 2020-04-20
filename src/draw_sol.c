@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:24:44 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 11:22:17 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:36:45 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void			draw_floor(t_map *r)
 	int				y;
 	int				x;
 	int				k;
-	unsigned int	color;
 
 	y = r->height / 2;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/18 12:48:39 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/19 07:48:25 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:45:29 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	free_hitpoint(t_map *rvar)
 void	free_weapons(t_map *rvar)
 {
 	int i;
-	int j;
 
 	i = -1;
 	if (rvar->weaps)

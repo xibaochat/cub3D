@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/19 07:30:47 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/19 07:31:01 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:45:09 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	init_door(t_map *rvar)
 	int		i;
 	char	*s;
 	char	*s1;
-	int		w;
-	int		h;
 
 	i = -1;
 	rvar->nb_door = 0;

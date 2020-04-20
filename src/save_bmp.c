@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 13:18:20 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 13:19:06 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:47:54 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	write_bmp(t_map *rvar)
 {
-	int fd;
-
 	if (rvar->save_bmp)
 		rvar->save_bmp = 0;
 	if (!save_bmp(rvar))

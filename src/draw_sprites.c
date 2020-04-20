@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 09:34:17 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 18:18:51 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:43:28 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void		store_chaque_indi_spr_addr_in_an_array(t_map *rvar,\
 
 void		draw_sprites(t_map *rvar)
 {
-	t_prop	*current_prop;
 	int		i;
 	int		total_nb_sprite;
 

@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 09:46:29 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 09:48:58 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 19:01:43 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		new_graph(t_map *r)
 		set_curr_sprites_tex(r);
 		init_enemy_die(r);
 		draw_floor(r);
-		draw_walls(r->mlx_ptr, r->win_ptr, r);
+		draw_walls(r);
 		draw_sprites(r);
 		if (r->save_bmp)
 			write_bmp(r);

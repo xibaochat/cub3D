@@ -6,7 +6,7 @@
 #    By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 01:08:01 by xinwang           #+#    #+#              #
-#    Updated: 2020/04/20 10:56:04 by osshit           ###   ########.fr        #
+#    Updated: 2020/04/20 19:58:44 by osshit           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -49,7 +49,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = gcc
 
-CC_FLAGS = # -Wall -Werror -Wextra -g
+CC_FLAGS =  -Wall -Werror -Wextra
 
 MLX_FLAGS_DEBIAN = -lmlx -lXext -lX11 -lm
 MLX_FLAGS_XIBAO = -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm

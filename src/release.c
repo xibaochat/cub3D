@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 03:32:29 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/17 09:38:31 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:43:17 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	release(int keycode, t_map *rvar)
 	return (0);
 }
 
-int	mouse_press_hook(int mouse_code, int x, int y, t_map *rvar)
+int	mouse_press_hook(int mouse_code, t_map *rvar)
 {
 	if (mouse_code == 1)
 		rvar->shooting = 1;
@@ -48,7 +48,7 @@ int	mouse_press_hook(int mouse_code, int x, int y, t_map *rvar)
 	return (0);
 }
 
-int	mouse_release_hook(int mouse_code, int x, int y, t_map *rvar)
+int	mouse_release_hook(int mouse_code, t_map *rvar)
 {
 	if (mouse_code == 1)
 		rvar->shooting = 0;

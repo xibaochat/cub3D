@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 21:41:42 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 09:28:01 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:56:39 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void	init_chaque_type_spr(t_map *r, t_prop *spr, int i)
 void		init_all_sprites(t_map *r)
 {
 	int i;
-	int j;
 
 	i = -1;
 	if (!(r->all_spr = (t_prop *)malloc(sizeof(t_prop) * NB_SPRITE)))

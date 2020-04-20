@@ -6,7 +6,7 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/17 08:30:04 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/17 08:33:39 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:48:21 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void		draw_ceil(int x, t_map *rvar)
 {
 	int				y;
 	int				j;
-	unsigned int	color;
 
 	y = 0;
 	while (y++ < rvar->draw_start)

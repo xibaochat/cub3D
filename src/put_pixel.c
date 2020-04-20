@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 15:02:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 09:23:13 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:41:58 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	get_tex_x(t_map *rvar, int tex_num)
 		rvar->tex_x = rvar->textures[tex_num].w - rvar->tex_x - 1;
 }
 
-static void	calculate_index_in_img(t_map *rvar, int x, int i, int tex_num)
+static void	calculate_index_in_img(t_map *rvar, int tex_num)
 {
 	rvar->tex_y = (int)rvar->tex_pos & (rvar->textures[tex_num].h - 1);
 	rvar->tex_pos += rvar->step;
@@ -86,7 +86,7 @@ void		put_pixel(int x, t_map *rvar)
 	get_tex_x(rvar, tex_num);
 	while (i++ < rvar->draw_end)
 	{
-		calculate_index_in_img(rvar, x, i, tex_num);
+		calculate_index_in_img(rvar, tex_num);
 		k = (rvar->tex_y * rvar->s_l + rvar->tex_x * (rvar->bpp / 8));
 		j = (i * rvar->size_line) + (x * (rvar->bpp) / 8);
 		change_char_in_addr_value(rvar, rvar->textures[tex_num].addr, j, k);
