@@ -1,12 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_door.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/19 10:12:53 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/19 10:13:33 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void move_door(t_map *rVar)
+void	move_door(t_map *r)
 {
-	rVar->nb_door++;
-	if (rVar->nb_door == 5)
-		rVar->nb_door = 4;
-	if (rVar->lucky_value != (rVar->all_spr + 3)->nb_occur)
-		rVar->nb_door = 0;
-
-
+	r->nb_door++;
+	if (r->nb_door == 5)
+		r->nb_door = 4;
+	if (r->lucky_value != (r->all_spr + 3)->nb_occur)
+		r->nb_door = 0;
 }

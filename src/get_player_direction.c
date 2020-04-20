@@ -6,13 +6,13 @@
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 04:43:57 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/07 04:43:59 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 08:27:29 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int is_dir_mark(char c)
+int	is_dir_mark(char c)
 {
-    return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
+	return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
 }

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/18 10:24:20 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 08:17:41 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -338,7 +338,6 @@ void	find_hits(t_map *rVar, int x);
 void	calculate_start_end_point(t_map *rVar);
 void	set_color(t_map *rVar);
 void	put_pixel(int x, t_map *rVar);
-void	draw_line(void *mlx_ptr, void *win_ptr, int x1, int x2, int y1, int y2, int distance);
 void	draw_sol(t_map rVar, int x);
 void	display_image(int x, t_map *rVar);
 void    move_up(t_map    *rVar);

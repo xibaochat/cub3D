@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 19:10:21 by xinwang           #+#    #+#             */
-/*   Updated: 2020/02/28 05:54:31 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/04/20 08:19:46 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int			extract_line(char **line, char **str, int *i, int *j)
 	if (!*j)
 	{
 		*line = *str;
-		return 0;
+		return (0);
 	}
 	if ((s1 = ft_strnew(*j)))
 	{
