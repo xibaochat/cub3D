@@ -6,13 +6,13 @@
 #    By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 01:08:01 by xinwang           #+#    #+#              #
-#    Updated: 2020/04/19 08:07:21 by osshit           ###   ########.fr        #
+#    Updated: 2020/04/20 10:56:04 by osshit           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = cub3D
 
-SRCS_NAME = calculation_start_end_point.c  draw_sol.c\
+SRCS_NAME = calculation_start_end_point.c  draw_sol.c \
 			main.c display_image.c   error_message.c\
 			put_pixel.c  movement.c release.c manage_map.c \
 			utils.c get_next_line.c get_next_line_utils.c player_info.c\

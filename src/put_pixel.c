@@ -6,36 +6,35 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 15:02:48 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/18 10:53:04 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 09:23:13 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void get_tex_x(t_map	*rvar, int texNum)
+static void	get_tex_x(t_map *rvar, int tex_num)
 {
-	double wallX;
+	double	wallx;
 
 	if (rvar->side == 0)
-		wallX = rvar->posY + rvar->perpWallDist * rvar->rayDirY;
+		wallx = rvar->posY + rvar->perpWallDist * rvar->rayDirY;
 	else
-		wallX = rvar->posX + rvar->perpWallDist * rvar->rayDirX;
-	wallX -= floor((wallX));
-	rvar->tex_x = (int)(wallX * (double)(rvar->textures[texNum].w));
+		wallx = rvar->posX + rvar->perpWallDist * rvar->rayDirX;
+	wallx -= floor((wallx));
+	rvar->tex_x = (int)(wallx * (double)(rvar->textures[tex_num].w));
 	if (rvar->side == 0 && rvar->rayDirX > 0)
-		rvar->tex_x = rvar->textures[texNum].w - rvar->tex_x - 1;
+		rvar->tex_x = rvar->textures[tex_num].w - rvar->tex_x - 1;
 	if (rvar->side == 1 && rvar->rayDirY < 0)
-		rvar->tex_x = rvar->textures[texNum].w - rvar->tex_x - 1;
+		rvar->tex_x = rvar->textures[tex_num].w - rvar->tex_x - 1;
 }
 
-static void calculate_index_in_img(t_map *rvar, int x, int i, int texNum)
+static void	calculate_index_in_img(t_map *rvar, int x, int i, int tex_num)
 {
-
-	rvar->tex_y = (int)rvar->tex_pos & (rvar->textures[texNum].h - 1);
+	rvar->tex_y = (int)rvar->tex_pos & (rvar->textures[tex_num].h - 1);
 	rvar->tex_pos += rvar->step;
 }
 
-void replace_pixel_value_floor(t_map *rvar, char *s2, int j, int k)
+void		replace_pixel_value_floor(t_map *rvar, char *s2, int j, int k)
 {
 	if (rvar->endian == 0)
 	{
@@ -51,7 +50,7 @@ void replace_pixel_value_floor(t_map *rvar, char *s2, int j, int k)
 	}
 }
 
-void change_char_in_addr_value(t_map *rvar, char *s2, int j, int k)
+void		change_char_in_addr_value(t_map *rvar, char *s2, int j, int k)
 {
 	int color;
 
@@ -59,36 +58,37 @@ void change_char_in_addr_value(t_map *rvar, char *s2, int j, int k)
 	if (rvar->side)
 		color = (color >> 1) & 8355711;
 	if (rvar->endian == 0)
-    {
+	{
 		rvar->addr[j] = color;
 		rvar->addr[j + 1] = color >> 8;
 		rvar->addr[j + 2] = color >> 16;
 	}
 	else
-    {
+	{
 		rvar->addr[j] = color >> 16;
 		rvar->addr[j + 1] = color >> 8;
 		rvar->addr[j + 2] = color;
 	}
 }
 
-void put_pixel(int x, t_map *rvar)
+void		put_pixel(int x, t_map *rvar)
 {
-	int   i;
-	int   j;
-	int k;
-	int texNum;
+	int		i;
+	int		j;
+	int		k;
+	int		tex_num;
 
-	texNum = get_wall_texture(rvar);
+	tex_num = get_wall_texture(rvar);
 	i = rvar->drawStart;
-	rvar->step = 1.0 * (rvar->textures[texNum].h) / rvar->lineHeight;
-	rvar->tex_pos = (rvar->drawStart - HEIGHT / 2 + rvar->lineHeight / 2) * rvar->step;
-	get_tex_x(rvar, texNum);
+	rvar->step = 1.0 * (rvar->textures[tex_num].h) / rvar->lineHeight;
+	rvar->tex_pos = (rvar->drawStart - rvar->height / 2\
+	+ rvar->lineHeight / 2) * rvar->step;
+	get_tex_x(rvar, tex_num);
 	while (i++ < rvar->drawEnd)
 	{
-		calculate_index_in_img(rvar, x, i, texNum);
+		calculate_index_in_img(rvar, x, i, tex_num);
 		k = (rvar->tex_y * rvar->s_l + rvar->tex_x * (rvar->bpp / 8));
 		j = (i * rvar->size_line) + (x * (rvar->bpp) / 8);
-		change_char_in_addr_value(rvar, rvar->textures[texNum].addr, j, k);
+		change_char_in_addr_value(rvar, rvar->textures[tex_num].addr, j, k);
 	}
 }

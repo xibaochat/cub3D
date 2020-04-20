@@ -1,98 +1,110 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   integrate_map.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/20 10:16:26 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 10:19:38 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-void	init_rVar_tex_path(t_map	*rVar)
+void		init_r_tex_path(t_map *r)
 {
-    rVar->NO = NULL;
-    rVar->SO = NULL;
-    rVar->WE = NULL;
-    rVar->EA = NULL;
-    rVar->S = NULL;
-    rVar->F = NULL;
-    rVar->C = NULL;
+	r->NO = NULL;
+	r->SO = NULL;
+	r->WE = NULL;
+	r->EA = NULL;
+	r->S = NULL;
+	r->F = NULL;
+	r->C = NULL;
 }
 
-static void cpy_column(int  **map, int i, int   *k, t_map   *rVar)
+static void	cpy_column(int **map, int i, int *k, t_map *r)
 {
-    int j;
+	int	j;
 
-    j = 0;
-    while (j < rVar->column)
-    {
-        if (ft_isdigit(rVar->map_str[*k]))
-        {
-            map[i][j++] = rVar->map_str[*k] - '0';
-        }
-        else if (rVar->map_str[*k] == 'N' || rVar->map_str[*k] == 'S' ||
-                 rVar->map_str[*k] == 'W' || rVar->map_str[*k] == 'E')
-        {
-            rVar->player_dir = rVar->map_str[*k];
-            map[i][j++] = 0;
-        }
-        (*k)++;
-    }
+	j = 0;
+	while (j < r->column)
+	{
+		if (ft_isdigit(r->map_str[*k]))
+		{
+			map[i][j++] = r->map_str[*k] - '0';
+		}
+		else if (r->map_str[*k] == 'N' || r->map_str[*k] == 'S' ||
+				r->map_str[*k] == 'W' || r->map_str[*k] == 'E')
+		{
+			r->player_dir = r->map_str[*k];
+			map[i][j++] = 0;
+		}
+		(*k)++;
+	}
 }
 
-void integrate_map(t_map *rVar)
+void		integrate_map(t_map *r)
 {
-    int **map;
-    int i;
-    int k;
+	int **map;
+	int i;
+	int k;
 
-    i = -1;
-    k = 0;
-    if (!(rVar->map = (int **)malloc(sizeof(int *) * (rVar->line))))
-    {
-		free_program_var(rVar, "malloc fail:", "rVar->map");
-        return ;
-    }
 	i = -1;
-	while (++i < rVar->line)
-		rVar->map[i] = NULL;
+	k = 0;
+	if (!(r->map = (int **)malloc(sizeof(int *) * (r->line))))
+	{
+		free_program_var(r, "malloc fail:", "r->map");
+		return ;
+	}
 	i = -1;
-    while (++i < rVar->line)
-    {
-        if (!(rVar->map[i] = (int *)malloc(sizeof(int) * (rVar->column))))
-			free_program_var(rVar, "malloc fail:", "rVar->map[i]");
-        cpy_column(rVar->map, i, &k, rVar);
-        if (rVar->map_str[k] && rVar->map_str[k] == '\n')
-            k++;
-    }
+	while (++i < r->line)
+		r->map[i] = NULL;
+	i = -1;
+	while (++i < r->line)
+	{
+		if (!(r->map[i] = (int *)malloc(sizeof(int) * (r->column))))
+			free_program_var(r, "malloc fail:", "r->map[i]");
+		cpy_column(r->map, i, &k, r);
+		if (r->map_str[k] && r->map_str[k] == '\n')
+			k++;
+	}
 }
 
-void	get_info_from_map(t_map *rVar)
+void		get_info_from_map(t_map *r)
 {
-    char    *line;
-	int value;
+	char	*line;
+	int		value;
 
 	line = NULL;
-    while ((value = get_next_line(rVar->fd, &line)) > 0)
-    {
+	while ((value = get_next_line(r->fd, &line)) > 0)
+	{
 		if (line && line[0])
-        {
-            check_space_before_id(rVar, line);
-            if (ft_isdigit(line[0]))
-            {
-             	get_map_as_str(rVar, line);
-                break;
-            }
-            if (is_resolution_id(line))
-                get_map_taille(rVar, line);
-            else
-				get_tex_dir_path(line, rVar);
+		{
+			check_space_before_id(r, line);
+			if (ft_isdigit(line[0]))
+			{
+				get_map_as_str(r, line);
+				break ;
+			}
+			if (is_resolution_id(line))
+				get_map_taille(r, line);
+			else
+				get_tex_dir_path(line, r);
 		}
-    }
+	}
 	if (!value)
-		free_program_var(rVar, "The map is empty\n", NULL);
+		free_program_var(r, "The map is empty\n", NULL);
 }
 
-void    get_final_map(t_map *rVar, char *file)
+void		get_final_map(t_map *r, char *file)
 {
-    map_is_readable(rVar, file);
-	init_rVar_tex_path(rVar);
-    get_info_from_map(rVar);
-    valid_map_on_everyline(rVar, rVar->map_str);
-    validate_all_id_are_set(rVar);
-	get_line(rVar,rVar ->map_str);
-    get_column(rVar, rVar->map_str);
-    integrate_map(rVar);
+	map_is_readable(r, file);
+	init_r_tex_path(r);
+	get_info_from_map(r);
+	valid_map_on_everyline(r, r->map_str);
+	validate_all_id_are_set(r);
+	get_line(r, r->map_str);
+	get_column(r, r->map_str);
+	integrate_map(r);
 }

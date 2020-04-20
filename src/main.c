@@ -6,18 +6,19 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:46:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/19 06:51:58 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 10:04:00 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void start(t_map *rvar)
+void	start(t_map *rvar)
 {
 	init_player_stats(rvar);
 	init_all_path_and_ind_spr_value(rvar);
-	if (!(rvar->win_ptr = mlx_new_window(rvar->mlx_ptr, WIDTH, HEIGHT, "CAT BATTLE")))
-        free_program_var(rvar, "Mlx new win failed\n", NULL);
+	if (!(rvar->win_ptr = mlx_new_window(rvar->mlx_ptr, \
+	rvar->width, rvar->height, "CAT BATTLE")))
+		free_program_var(rvar, "Mlx new win failed\n", NULL);
 	new_graph(rvar);
 	mlx_hook(rvar->win_ptr, 4, 0, mouse_press_hook, rvar);
 	mlx_hook(rvar->win_ptr, 5, 0, mouse_release_hook, rvar);
@@ -27,24 +28,23 @@ void start(t_map *rvar)
 	mlx_loop_hook(rvar->mlx_ptr, movement, rvar);
 }
 
-void check_argument(t_map *rvar, int ac, char **av)
+void	check_argument(t_map *rvar, int ac, char **av)
 {
 	char *str;
 
-    if (ac == 3 && ft_strcmp(av[2], "--save") == 0)
-        rvar->save_bmp =1;
+	if (ac == 3 && ft_strcmp(av[2], "--save") == 0)
+		rvar->save_bmp = 1;
 	else
 		rvar->save_bmp = 0;
-    if (!(ac == 2 || rvar->save_bmp == 1))
-        ft_error("the program argument is invalid\n", NULL);
-    if (!(str = ft_strnstr(av[1], ".cub", ft_strlen(av[1]))) || ft_strncmp(str, ".cub", 5) != 0)
-        ft_error("First argument must end in .cub\nThis is invalid :", ft_strjoin(av[1], "\n"));
+	if (!(ac == 2 || rvar->save_bmp == 1))
+		ft_error("the program argument is invalid\n", NULL);
+	if (!(str = ft_strnstr(av[1], ".cub", ft_strlen(av[1])))
+		|| ft_strncmp(str, ".cub", 5) != 0)
+		ft_error("First argument must end in .cub\nThis is invalid :",\
+		ft_strjoin(av[1], "\n"));
 }
 
-
-
-
-int main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_map	rvar;
 

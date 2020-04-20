@@ -1,40 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_graph.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/20 09:46:29 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 09:48:58 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-static void init_img_to_draw(t_map *rvar)
+static void	init_img_to_draw(t_map *r)
 {
-	rvar->image_ptr = mlx_new_image(rvar->mlx_ptr, WIDTH, HEIGHT);
-	rvar->addr  = mlx_get_data_addr(rvar->image_ptr, &(rvar->bpp),
-									&(rvar->size_line), &(rvar->endian));
+	r->image_ptr = mlx_new_image(r->mlx_ptr, r->width, r->height);
+	r->addr = mlx_get_data_addr(r->image_ptr, &(r->bpp),
+									&(r->size_line), &(r->endian));
 }
 
-static void put_drawed_img_to_win(t_map *rvar)
+static void	put_drawed_img_to_win(t_map *r)
 {
-
-	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->image_ptr, 0, 0);
-	put_score_to_window(rvar);
-	put_lucky_value_to_window(rvar);
-	put_weapon_to_win(rvar);
-	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, rvar->cat_img, 200, HEIGHT - 25);
-
+	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->image_ptr, 0, 0);
+	put_score_to_window(r);
+	put_lucky_value_to_window(r);
+	put_weapon_to_win(r);
+	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, \
+	r->cat_img, 200, r->height - 25);
 }
 
-void new_graph(t_map *rvar)
+void		new_graph(t_map *r)
 {
-	if (rvar->hitpoint <= 0)
-		game_over(rvar);
-	if (rvar->round && rvar->score >= 300 && rvar->lucky_value == (rvar->all_spr + 3)->nb_occur)
-		nice_job(rvar);
+	if (r->hitpoint <= 0)
+		game_over(r);
+	if (r->round && r->score >= 300 &&
+		r->lucky_value == (r->all_spr + 3)->nb_occur)
+		nice_job(r);
 	else
 	{
-		init_img_to_draw(rvar);
-		set_curr_sprites_tex(rvar);
-		init_enemy_die(rvar);
-		draw_floor(rvar);
-		draw_walls(rvar->mlx_ptr, rvar->win_ptr, rvar);
-		draw_sprites(rvar);
-		if (rvar->save_bmp)
-			write_bmp(rvar);
-		put_drawed_img_to_win(rvar);
-		change_sprite_tex_index(rvar);
+		init_img_to_draw(r);
+		set_curr_sprites_tex(r);
+		init_enemy_die(r);
+		draw_floor(r);
+		draw_walls(r->mlx_ptr, r->win_ptr, r);
+		draw_sprites(r);
+		if (r->save_bmp)
+			write_bmp(r);
+		put_drawed_img_to_win(r);
+		change_sprite_tex_index(r);
 	}
 }

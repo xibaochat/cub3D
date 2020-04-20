@@ -1,39 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   detect_enemy_to_damage.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/20 10:20:32 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 10:21:45 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-int find_enemy(t_map *rVar)
+int		find_enemy(t_map *rvar)
 {
-	int enemy_hit;
+	int	enemy_hit;
 
 	enemy_hit = 0;
 	while (enemy_hit == 0)
-    {
-		if(rVar->sideDistX < rVar->sideDistY)
+	{
+		if (rvar->sideDistX < rvar->sideDistY)
 		{
-			rVar->sideDistX = rVar->sideDistX + rVar->deltaDistX;
-			rVar->mapX = rVar->mapX + rVar->stepX;
-			rVar->side = 0;
+			rvar->sideDistX = rvar->sideDistX + rvar->deltaDistX;
+			rvar->mapX = rvar->mapX + rvar->stepX;
+			rvar->side = 0;
 		}
 		else
 		{
-			rVar->sideDistY = rVar->sideDistY + rVar->deltaDistY;
-			rVar->mapY = rVar->mapY + rVar->stepY;
-			rVar->side = 1;
+			rvar->sideDistY = rvar->sideDistY + rvar->deltaDistY;
+			rvar->mapY = rvar->mapY + rvar->stepY;
+			rvar->side = 1;
 		}
-		if(rVar->map[rVar->mapX][rVar->mapY] == 1)
-			rVar->hit = 1;
-    }
+		if (rvar->map[rvar->mapX][rvar->mapY] == 1)
+			rvar->hit = 1;
+	}
 }
 
-t_spr *detect_enemy_to_damage(t_map *rVar)
+t_spr	*detect_enemy_to_damage(t_map *rvar)
 {
-    int x;
+	int x;
 
-    x = -1;
-    while (++x < WIDTH)
-    {
-        reset_rayon_var(rVar, x);
-        calculate_side_dist(rVar);
-        find_wall(rVar);
-    }
-
+	x = -1;
+	while (++x < rvar->width)
+	{
+		reset_rayon_var(rvar, x);
+		calculate_side_dist(rvar);
+		find_wall(rvar);
+	}
 }

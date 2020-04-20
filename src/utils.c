@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/20 09:55:51 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 09:57:16 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-char *ft_strnew(int n)
+char	*ft_strnew(int n)
 {
-	int i;
-	char *s;
+	int		i;
+	char	*s;
 
 	i = 0;
-	s = (char *)malloc(sizeof(char) * n);
+	s = (char	*)malloc(sizeof(char) * n);
 	while (i < n)
 	{
 		s[i] = '\0';
@@ -15,10 +27,10 @@ char *ft_strnew(int n)
 	return (s);
 }
 
-char *ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
-	int lens;
-	int i;
+	int	lens;
+	int	i;
 
 	i = 0;
 	lens = ft_strlen(dest);
@@ -28,9 +40,9 @@ char *ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-int path_dir_is_validate(char *line, char *path_dir)
+int		path_dir_is_validate(char *line, char *path_dir)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (path_dir[i])

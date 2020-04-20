@@ -6,50 +6,50 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:21:23 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/08 07:07:03 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 09:37:20 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int wall_collision(double x, double y, int **map)
+int			wall_collision(double x, double y, int **map)
 {
 	return (map[(int)(x)][(int)y] != 0);
 }
 
-void	move_action(t_map	*rVar)
+void		move_action(t_map *r)
 {
-	if (rVar->open_up == 1)
-		move_up(rVar);
-	if (rVar->open_down == 1)
-		move_down(rVar);
-	if (rVar->open_left == 1)
-		move_left(rVar);
-	if (rVar->open_right == 1)
-		move_right(rVar);
-	if (rVar->open_A == 1)
-		move_vertical_left(rVar);
-	if (rVar->open_D == 1)
-		move_vertical_right(rVar);
+	if (r->open_up == 1)
+		move_up(r);
+	if (r->open_down == 1)
+		move_down(r);
+	if (r->open_left == 1)
+		move_left(r);
+	if (r->open_right == 1)
+		move_right(r);
+	if (r->open_A == 1)
+		move_vertical_left(r);
+	if (r->open_D == 1)
+		move_vertical_right(r);
 }
 
-static int has_moved(t_map *rVar)
+static int	has_moved(t_map *r)
 {
-	return (rVar->open_up == 1 || rVar->open_down == 1 ||
-			rVar->open_left == 1 || rVar->open_right == 1 ||
-			rVar->open_A == 1 || rVar->open_D == 1);
+	return (r->open_up == 1 || r->open_down == 1 ||
+			r->open_left == 1 || r->open_right == 1 ||
+			r->open_A == 1 || r->open_D == 1);
 }
 
-int movement(t_map *rVar)
+int			movement(t_map *r)
 {
-	if (has_moved(rVar))
+	if (has_moved(r))
 	{
-		mlx_destroy_image (rVar->mlx_ptr, rVar->image_ptr );
-		move_action(rVar);
-		manage_sound_based_on_pos(rVar);
-		set_new_pos_and_value_after_pick_spr(rVar);
-		inser_hurt(rVar, rVar->new_posX, rVar->new_posY);
+		mlx_destroy_image(r->mlx_ptr, r->image_ptr);
+		move_action(r);
+		manage_sound_based_on_pos(r);
+		set_new_pos_and_value_after_pick_spr(r);
+		inser_hurt(r, r->new_posX, r->new_posY);
 	}
-	new_graph(rVar);
+	new_graph(r);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 08:17:41 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 09:59:28 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -415,7 +415,6 @@ int get_wall_texture(t_map *rVar);
 
 // Mutants
 void init_mutant(t_map *rVar);
-void mutant_attack_sound(t_map *rVar);
 // WEAPONS
 void init_weapons(t_map *rVar);
 void init_weapon_texture(t_map *rVar, t_weap *weap, int nb_tex, char *weapon_name);
