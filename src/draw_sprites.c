@@ -14,13 +14,13 @@
 
 static void	calculation_drawing_sprite(t_spr *spr, t_map *rvar)
 {
-	spr->sprite_x = spr->x - rvar->posX;
-	spr->sprite_y = spr->y - rvar->posY;
-	spr->inv_det = 1.0 / (rvar->planeX * rvar->dirY - rvar->dirX * rvar->planeY);
+	spr->sprite_x = spr->x - rvar->pos_x;
+	spr->sprite_y = spr->y - rvar->pos_y;
+	spr->inv_det = 1.0 / (rvar->plane_x * rvar->dir_y - rvar->dir_x * rvar->plane_y);
 	spr->transform_x = spr->inv_det * \
-	(rvar->dirY * spr->sprite_x - rvar->dirX * spr->sprite_y);
-	spr->transformY = spr->inv_det * (-rvar->planeY * spr->sprite_x\
-	+ rvar->planeX * spr->sprite_y);
+	(rvar->dir_y * spr->sprite_x - rvar->dir_x * spr->sprite_y);
+	spr->transformY = spr->inv_det * (-rvar->plane_y * spr->sprite_x\
+	+ rvar->plane_x * spr->sprite_y);
 	spr->sprite_screen_x = ((rvar->width / 2) * \
 	(1 + spr->transform_x / spr->transformY));
 	spr->sprite_height = abs((int)(rvar->height / (spr->transformY)));

@@ -19,19 +19,19 @@ int		find_enemy(t_map *rvar)
 	enemy_hit = 0;
 	while (enemy_hit == 0)
 	{
-		if (rvar->sideDistX < rvar->sideDistY)
+		if (rvar->side_dist_x < rvar->side_dist_y)
 		{
-			rvar->sideDistX = rvar->sideDistX + rvar->deltaDistX;
-			rvar->mapX = rvar->mapX + rvar->stepX;
+			rvar->side_dist_x = rvar->side_dist_x + rvar->delta_dist_x;
+			rvar->map_x = rvar->map_x + rvar->step_x;
 			rvar->side = 0;
 		}
 		else
 		{
-			rvar->sideDistY = rvar->sideDistY + rvar->deltaDistY;
-			rvar->mapY = rvar->mapY + rvar->stepY;
+			rvar->side_dist_y = rvar->side_dist_y + rvar->delta_dist_y;
+			rvar->map_y = rvar->map_y + rvar->step_y;
 			rvar->side = 1;
 		}
-		if (rvar->map[rvar->mapX][rvar->mapY] == 1)
+		if (rvar->map[rvar->map_x][rvar->map_y] == 1)
 			rvar->hit = 1;
 	}
 }

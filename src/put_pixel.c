@@ -17,14 +17,14 @@ static void	get_tex_x(t_map *rvar, int tex_num)
 	double	wallx;
 
 	if (rvar->side == 0)
-		wallx = rvar->posY + rvar->perpWallDist * rvar->rayDirY;
+		wallx = rvar->pos_y + rvar->perp_wall_dist * rvar->ray_dir_y;
 	else
-		wallx = rvar->posX + rvar->perpWallDist * rvar->rayDirX;
+		wallx = rvar->pos_x + rvar->perp_wall_dist * rvar->ray_dir_x;
 	wallx -= floor((wallx));
 	rvar->tex_x = (int)(wallx * (double)(rvar->textures[tex_num].w));
-	if (rvar->side == 0 && rvar->rayDirX > 0)
+	if (rvar->side == 0 && rvar->ray_dir_x > 0)
 		rvar->tex_x = rvar->textures[tex_num].w - rvar->tex_x - 1;
-	if (rvar->side == 1 && rvar->rayDirY < 0)
+	if (rvar->side == 1 && rvar->ray_dir_y < 0)
 		rvar->tex_x = rvar->textures[tex_num].w - rvar->tex_x - 1;
 }
 
@@ -79,12 +79,12 @@ void		put_pixel(int x, t_map *rvar)
 	int		tex_num;
 
 	tex_num = get_wall_texture(rvar);
-	i = rvar->drawStart;
-	rvar->step = 1.0 * (rvar->textures[tex_num].h) / rvar->lineHeight;
-	rvar->tex_pos = (rvar->drawStart - rvar->height / 2\
-	+ rvar->lineHeight / 2) * rvar->step;
+	i = rvar->draw_start;
+	rvar->step = 1.0 * (rvar->textures[tex_num].h) / rvar->line_height;
+	rvar->tex_pos = (rvar->draw_start - rvar->height / 2\
+	+ rvar->line_height / 2) * rvar->step;
 	get_tex_x(rvar, tex_num);
-	while (i++ < rvar->drawEnd)
+	while (i++ < rvar->draw_end)
 	{
 		calculate_index_in_img(rvar, x, i, tex_num);
 		k = (rvar->tex_y * rvar->s_l + rvar->tex_x * (rvar->bpp / 8));

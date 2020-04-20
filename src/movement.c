@@ -48,7 +48,7 @@ int			movement(t_map *r)
 		move_action(r);
 		manage_sound_based_on_pos(r);
 		set_new_pos_and_value_after_pick_spr(r);
-		inser_hurt(r, r->new_posX, r->new_posY);
+		inser_hurt(r, r->new_pos_x, r->new_pos_y);
 	}
 	new_graph(r);
 	return (0);

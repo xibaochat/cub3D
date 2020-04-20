@@ -25,6 +25,6 @@ void	draw_walls(void *mlx_ptr, void *win_ptr, t_map *rvar)
 		calculate_start_end_point(rvar);
 		draw_ceil(x, rvar);
 		put_pixel(x, rvar);
-		rvar->spr_buffer[x] = rvar->perpWallDist;
+		rvar->spr_buffer[x] = rvar->perp_wall_dist;
 	}
 }

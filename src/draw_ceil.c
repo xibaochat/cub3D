@@ -19,7 +19,7 @@ void		draw_ceil(int x, t_map *rvar)
 	unsigned int	color;
 
 	y = 0;
-	while (y++ < rvar->drawStart)
+	while (y++ < rvar->draw_start)
 	{
 		j = y * rvar->size_line + x * (rvar->bpp / 8);
 		if (rvar->endian == 0)

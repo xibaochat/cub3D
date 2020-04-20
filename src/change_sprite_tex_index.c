@@ -15,9 +15,9 @@
 void	change_sprite_tex_index(t_map *rvar)
 {
 	move_roll_cat(rvar);
-	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 4)
+	if (rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] == 4)
 		move_bad_cat(rvar);
-	if (!rvar->round && (int)rvar->posX == 19 &&
-		((int)rvar->posY == 4 || (int)rvar->posY == 6 || (int)rvar->posY == 5))
+	if (!rvar->round && (int)rvar->pos_x == 19 &&
+		((int)rvar->pos_y == 4 || (int)rvar->pos_y == 6 || (int)rvar->pos_y == 5))
 		move_door(rvar);
 }

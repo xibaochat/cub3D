@@ -19,20 +19,20 @@ static void	re_init_animated_sprites(t_map *rvar)
 
 void		set_new_pos_and_value_after_pick_spr(t_map *rvar)
 {
-	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 3)
+	if (rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] == 3)
 	{
 		rvar->score += 50;
-		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
+		rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] = 0;
 		set_entity_hitpoint_as_zero(rvar, 1, \
-		(int)rvar->new_posX, (int)rvar->new_posY);
+		(int)rvar->new_pos_x, (int)rvar->new_pos_y);
 	}
-	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] == 5)
+	if (rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] == 5)
 	{
 		rvar->lucky_value++;
-		rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] = 0;
-		set_entity_hitpoint_as_zero(rvar, 3, (int)rvar->new_posX, \
-		(int)rvar->new_posY);
+		rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] = 0;
+		set_entity_hitpoint_as_zero(rvar, 3, (int)rvar->new_pos_x, \
+		(int)rvar->new_pos_y);
 	}
-	if (rvar->map[(int)rvar->new_posX][(int)rvar->new_posY] != 4)
+	if (rvar->map[(int)rvar->new_pos_x][(int)rvar->new_pos_y] != 4)
 		re_init_animated_sprites(rvar);
 }

@@ -14,37 +14,37 @@
 
 static void	init_player_dir_plan_if_dir_is_n_or_s(char c, t_map *rvar)
 {
-	rvar->planeX = 0;
-	rvar->planeY = 0.66;
+	rvar->plane_x = 0;
+	rvar->plane_y = 0.66;
 	if (c == 'N')
 	{
-		rvar->dirX = 1;
-		rvar->dirY = 0;
-		rvar->planeX = 0;
-		rvar->planeY = -0.66;
+		rvar->dir_x = 1;
+		rvar->dir_y = 0;
+		rvar->plane_x = 0;
+		rvar->plane_y = -0.66;
 	}
 	else if (c == 'S')
 	{
-		rvar->dirX = -1;
-		rvar->dirY = 0;
+		rvar->dir_x = -1;
+		rvar->dir_y = 0;
 	}
 }
 
 static void	init_player_dir_plan_if_dir_is_w_or_e(char c, t_map *rvar)
 {
-	rvar->planeX = 0.66;
-	rvar->planeY = 0;
+	rvar->plane_x = 0.66;
+	rvar->plane_y = 0;
 	if (c == 'W')
 	{
-		rvar->dirX = 0;
-		rvar->dirY = 1;
+		rvar->dir_x = 0;
+		rvar->dir_y = 1;
 	}
 	else if (c == 'E')
 	{
-		rvar->dirX = 0;
-		rvar->dirY = -1;
-		rvar->planeX = -0.66;
-		rvar->planeY = 0;
+		rvar->dir_x = 0;
+		rvar->dir_y = -1;
+		rvar->plane_x = -0.66;
+		rvar->plane_y = 0;
 	}
 }
 
@@ -60,10 +60,10 @@ void		init_player_dir(char c, t_map *rvar)
 static void	get_player_start_pos(int i, int j, char c, t_map *rvar)
 {
 	init_player_dir(c, rvar);
-	rvar->posX = (double)i;
-	rvar->posY = (double)j;
-	rvar->new_posX = (double)i;
-	rvar->new_posY = (double)j;
+	rvar->pos_x = (double)i;
+	rvar->pos_y = (double)j;
+	rvar->new_pos_x = (double)i;
+	rvar->new_pos_y = (double)j;
 	return ;
 }
 

@@ -49,8 +49,8 @@ t_spr		**get_sprites_order(t_map *r, t_spr **spr_order, int total_nb_spr)
 		ft_error("malloc failed", NULL);
 	while (++i < total_nb_spr)
 	{
-		sprite_distance[i] = pow((r->posX - spr_order[i]->x), 2) +
-			pow((r->posY - spr_order[i]->y), 2);
+		sprite_distance[i] = pow((r->pos_x - spr_order[i]->x), 2) +
+			pow((r->pos_y - spr_order[i]->y), 2);
 	}
 	r->sprite_distance = sprite_distance;
 	sortsprites(spr_order, sprite_distance, total_nb_spr);

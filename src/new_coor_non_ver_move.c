@@ -17,14 +17,14 @@ void	move_up(t_map *rvar)
 	double new_posx;
 	double new_posy;
 
-	new_posx = rvar->posX + (rvar->dirX) * MOVE_SPEED;
-	new_posy = rvar->posY + (rvar->dirY) * MOVE_SPEED;
-	rvar->new_posX = new_posx;
-	rvar->new_posY = new_posy;
-	if (!wall_collision(new_posx, rvar->posY, rvar->map))
-		rvar->posX = new_posx;
-	if (!wall_collision(rvar->posX, new_posy, rvar->map))
-		rvar->posY = new_posy;
+	new_posx = rvar->pos_x + (rvar->dir_x) * MOVE_SPEED;
+	new_posy = rvar->pos_y + (rvar->dir_y) * MOVE_SPEED;
+	rvar->new_pos_x = new_posx;
+	rvar->new_pos_y = new_posy;
+	if (!wall_collision(new_posx, rvar->pos_y, rvar->map))
+		rvar->pos_x = new_posx;
+	if (!wall_collision(rvar->pos_x, new_posy, rvar->map))
+		rvar->pos_y = new_posy;
 }
 
 void	move_down(t_map *rvar)
@@ -32,43 +32,43 @@ void	move_down(t_map *rvar)
 	double new_posx;
 	double new_posy;
 
-	new_posx = rvar->posX - (rvar->dirX) * MOVE_SPEED;
-	new_posy = rvar->posY - (rvar->dirY) * MOVE_SPEED;
-	rvar->new_posX = new_posx;
-	rvar->new_posY = new_posy;
-	if (!wall_collision(new_posx, rvar->posY, rvar->map))
-		rvar->posX = new_posx;
-	if (!wall_collision(rvar->posX, new_posy, rvar->map))
-		rvar->posY = new_posy;
-	if (wall_collision(new_posx, rvar->posY, rvar->map) ||
-		wall_collision(rvar->posX, new_posy, rvar->map))
+	new_posx = rvar->pos_x - (rvar->dir_x) * MOVE_SPEED;
+	new_posy = rvar->pos_y - (rvar->dir_y) * MOVE_SPEED;
+	rvar->new_pos_x = new_posx;
+	rvar->new_pos_y = new_posy;
+	if (!wall_collision(new_posx, rvar->pos_y, rvar->map))
+		rvar->pos_x = new_posx;
+	if (!wall_collision(rvar->pos_x, new_posy, rvar->map))
+		rvar->pos_y = new_posy;
+	if (wall_collision(new_posx, rvar->pos_y, rvar->map) ||
+		wall_collision(rvar->pos_x, new_posy, rvar->map))
 		insert_warn(rvar);
 }
 
 void	move_left(t_map *rvar)
 {
-	rvar->oldDirX = rvar->dirX;
-	rvar->dirX = rvar->dirX * cos(rvar->rotSpeed)\
-	- rvar->dirY * sin(rvar->rotSpeed);
-	rvar->dirY = rvar->oldDirX * sin(rvar->rotSpeed)\
-	+ rvar->dirY * cos(rvar->rotSpeed);
-	rvar->oldPlaneX = rvar->planeX;
-	rvar->planeX = (rvar->planeX) * cos(rvar->rotSpeed)\
-	- (rvar->planeY) * sin(rvar->rotSpeed);
-	rvar->planeY = (rvar->oldPlaneX) * sin(rvar->rotSpeed)\
-	+ (rvar->planeY) * cos(rvar->rotSpeed);
+	rvar->old_dir_x = rvar->dir_x;
+	rvar->dir_x = rvar->dir_x * cos(rvar->rot_speed)\
+	- rvar->dir_y * sin(rvar->rot_speed);
+	rvar->dir_y = rvar->old_dir_x * sin(rvar->rot_speed)\
+	+ rvar->dir_y * cos(rvar->rot_speed);
+	rvar->old_plane_x = rvar->plane_x;
+	rvar->plane_x = (rvar->plane_x) * cos(rvar->rot_speed)\
+	- (rvar->plane_y) * sin(rvar->rot_speed);
+	rvar->plane_y = (rvar->old_plane_x) * sin(rvar->rot_speed)\
+	+ (rvar->plane_y) * cos(rvar->rot_speed);
 }
 
 void	move_right(t_map *rvar)
 {
-	rvar->oldDirX = rvar->dirX;
-	rvar->dirX = (rvar->dirX) * cos((rvar->rotSpeed * -1))\
-	- (rvar->dirY) * sin((rvar->rotSpeed * -1));
-	rvar->dirY = (rvar->oldDirX) * sin((rvar->rotSpeed * -1))\
-	+ (rvar->dirY) * cos((rvar->rotSpeed * -1));
-	rvar->oldPlaneX = rvar->planeX;
-	rvar->planeX = (rvar->planeX) * cos((rvar->rotSpeed * -1))\
-	- (rvar->planeY) * sin((rvar->rotSpeed * -1));
-	rvar->planeY = (rvar->oldPlaneX) * sin((rvar->rotSpeed * -1))\
-	+ (rvar->planeY) * cos((rvar->rotSpeed * -1));
+	rvar->old_dir_x = rvar->dir_x;
+	rvar->dir_x = (rvar->dir_x) * cos((rvar->rot_speed * -1))\
+	- (rvar->dir_y) * sin((rvar->rot_speed * -1));
+	rvar->dir_y = (rvar->old_dir_x) * sin((rvar->rot_speed * -1))\
+	+ (rvar->dir_y) * cos((rvar->rot_speed * -1));
+	rvar->old_plane_x = rvar->plane_x;
+	rvar->plane_x = (rvar->plane_x) * cos((rvar->rot_speed * -1))\
+	- (rvar->plane_y) * sin((rvar->rot_speed * -1));
+	rvar->plane_y = (rvar->old_plane_x) * sin((rvar->rot_speed * -1))\
+	+ (rvar->plane_y) * cos((rvar->rot_speed * -1));
 }

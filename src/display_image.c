@@ -17,8 +17,8 @@ void	display_image(int x, t_map *r)
 	int	i;
 	int	j;
 
-	i = r->drawStart;
-	while (i++ < r->drawEnd)
+	i = r->draw_start;
+	while (i++ < r->draw_end)
 	{
 		j = i * r->size_line + x * (r->bpp) / 8;
 		if (r->endian)

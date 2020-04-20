@@ -33,7 +33,7 @@ void		init_all_path_and_ind_spr_value(t_map *rvar)
 		system("pkill -9 afplay");
 		system("afplay ./sounds/game.mp3 &");
 	}
-	rvar->rotSpeed = ROT_SPEED;
+	rvar->rot_speed = ROT_SPEED;
 	rvar->open_up = 0;
 	rvar->open_down = 0;
 	rvar->open_left = 0;

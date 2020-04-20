@@ -14,31 +14,31 @@
 
 static void		init_tex_raycasting(t_map *r, int y)
 {
-	r->rayDirX0 = r->dirX - r->planeX;
-	r->rayDirY0 = r->dirY - r->planeY;
-	r->rayDirX1 = r->dirX + r->planeX;
-	r->rayDirY1 = r->dirY + r->planeY;
+	r->ray_dir_x0 = r->dir_x - r->plane_x;
+	r->ray_dir_y0 = r->dir_y - r->plane_y;
+	r->ray_dir_x1 = r->dir_x + r->plane_x;
+	r->ray_dir_y1 = r->dir_y + r->plane_y;
 	r->p = y - r->height / 2;
-	r->posZ = 0.5 * r->height;
-	r->rowDistance = r->posZ / r->p;
-	r->floorStepX = r->rowDistance * \
-	(r->rayDirX1 - r->rayDirX0) / r->width;
-	r->floorStepY = r->rowDistance * \
-	(r->rayDirY1 - r->rayDirY0) / r->width;
-	r->floorX = r->posX + r->rowDistance * r->rayDirX0;
-	r->floorY = r->posY + r->rowDistance * r->rayDirY0;
+	r->pos_z = 0.5 * r->height;
+	r->row_distance = r->pos_z / r->p;
+	r->floor_step_x = r->row_distance * \
+	(r->ray_dir_x1 - r->ray_dir_x0) / r->width;
+	r->floor_step_y = r->row_distance * \
+	(r->ray_dir_y1 - r->ray_dir_y0) / r->width;
+	r->floor_x = r->pos_x + r->row_distance * r->ray_dir_x0;
+	r->floor_y = r->pos_y + r->row_distance * r->ray_dir_y0;
 }
 
 static void		init_tex_raycasting_x_cor(t_map *r)
 {
-	r->cellX = (int)(r->floorX);
-	r->cellY = (int)(r->floorY);
+	r->cellX = (int)(r->floor_x);
+	r->cellY = (int)(r->floor_y);
 	r->tx = (int)(r->width_floor * \
-	(r->floorX - r->cellX)) & (r->width_floor - 1);
-	r->ty = (int)(r->height_floor * (r->floorY - r->cellY)) \
+	(r->floor_x - r->cellX)) & (r->width_floor - 1);
+	r->ty = (int)(r->height_floor * (r->floor_y - r->cellY)) \
 	& (r->height_floor - 1);
-	r->floorX += r->floorStepX;
-	r->floorY += r->floorStepY;
+	r->floor_x += r->floor_step_x;
+	r->floor_y += r->floor_step_y;
 }
 
 void			draw_floor(t_map *r)
