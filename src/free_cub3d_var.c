@@ -14,14 +14,14 @@
 
 static void	free_texture_path(t_map *rvar)
 {
-	if (rvar->NO)
-		free(rvar->NO);
-	if (rvar->SO)
-		free(rvar->SO);
-	if (rvar->WE)
-		free(rvar->WE);
-	if (rvar->EA)
-		free(rvar->EA);
+	if (rvar->no)
+		free(rvar->no);
+	if (rvar->so)
+		free(rvar->so);
+	if (rvar->we)
+		free(rvar->we);
+	if (rvar->ea)
+		free(rvar->ea);
 	if (rvar->S)
 		free(rvar->S);
 	if (rvar->F)

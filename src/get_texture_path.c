@@ -16,16 +16,16 @@ static void	get_ns_texture_path(char *s, char *path, t_map *rvar)
 {
 	if (!ft_strcmp(s, "NO"))
 	{
-		if (!rvar->NO)
-			rvar->NO = path;
+		if (!rvar->no)
+			rvar->no = path;
 		else
 			free_program_var(rvar, \
 		"NO path ", "is defined more than one time\n");
 	}
 	else if (!ft_strcmp(s, "SO"))
 	{
-		if (!rvar->SO)
-			rvar->SO = path;
+		if (!rvar->so)
+			rvar->so = path;
 		else
 			free_program_var(rvar, "SO path ", \
 	"is defined more than one time\n");
@@ -36,16 +36,16 @@ static void	get_wa_texture_path(char *s, char *path, t_map *rvar)
 {
 	if (!ft_strcmp(s, "WE"))
 	{
-		if (!rvar->WE)
-			rvar->WE = path;
+		if (!rvar->we)
+			rvar->we = path;
 		else
 			free_program_var(rvar, "WE path ", \
 		"is defined more than one time\n");
 	}
 	else if (!ft_strcmp(s, "EA"))
 	{
-		if (!rvar->EA)
-			rvar->EA = path;
+		if (!rvar->ea)
+			rvar->ea = path;
 		else
 			free_program_var(rvar, "EA path ", \
 		"is defined more than one time\n");

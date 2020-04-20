@@ -14,10 +14,10 @@
 
 void		init_r_tex_path(t_map *r)
 {
-	r->NO = NULL;
-	r->SO = NULL;
-	r->WE = NULL;
-	r->EA = NULL;
+	r->no = NULL;
+	r->so = NULL;
+	r->we = NULL;
+	r->ea = NULL;
 	r->S = NULL;
 	r->F = NULL;
 	r->C = NULL;

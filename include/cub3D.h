@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 16:38:28 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 18:05:32 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,10 +247,10 @@ typedef	struct		s_map
 	int				look_down;
 	double			rot_speed;
 	int				**map;
-	char			*NO;
-	char			*SO;
-	char			*WE;
-	char			*EA;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
 	char			*S;
 	t_color			ceil_color;
 	char			*map_str;

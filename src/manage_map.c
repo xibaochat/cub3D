@@ -55,8 +55,8 @@ void	check_space_before_id(t_map *rvar, char *line)
 
 void	validate_all_id_are_set(t_map *rvar)
 {
-	if (!rvar->NO || !rvar->SO || !rvar->WE
-		|| !rvar->EA || !rvar->S
+	if (!rvar->no || !rvar->so || !rvar->we
+		|| !rvar->ea || !rvar->S
 		|| !rvar->C || !rvar->F)
 		free_program_var(rvar, \
 		"Some texture path in the map is unmarkable\n", NULL);

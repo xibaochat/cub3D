@@ -15,13 +15,13 @@
 static char	*get_tex_path(t_map *rvar, int i)
 {
 	if (!i)
-		return (rvar->NO);
+		return (rvar->no);
 	else if (i == 1)
-		return (rvar->SO);
+		return (rvar->so);
 	else if (i == 2)
-		return (rvar->WE);
+		return (rvar->we);
 	else
-		return (rvar->EA);
+		return (rvar->ea);
 }
 
 void		init_wall_tex_info(t_map *rvar)
