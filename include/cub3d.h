@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 20:02:49 by osshit           ###   ########.fr       */
+/*   Updated: 2020/04/20 20:24:16 by osshit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,59 +97,60 @@ typedef struct		s_spr
 	int				hitpoint;
 }					t_spr;
 
-typedef struct	s_prop
+typedef struct		s_prop
 {
-	char	*path;
-	int		height;
-	int		width;
-	void	*img;
-	char	*addr;
-	void	*img1;
-	char	*addr1;
-	int		bpp;
-	int		s_l;
-	int		endian;
-	int		nb_occur;
-	float	*buffer;
-	t_spr	*indi_spr;
-}				t_prop;
+	char			*path;
+	int				height;
+	int				width;
+	void			*img;
+	char			*addr;
+	void			*img1;
+	char			*addr1;
+	int				bpp;
+	int				s_l;
+	int				endian;
+	int				nb_occur;
+	float			*buffer;
+	t_spr			*indi_spr;
+}					t_prop;
 
-typedef struct	s_bad_cat
+typedef struct		s_bad_cat
 {
-	char	*path;
-}				t_bad_cat;
+	char			*path;
+}					t_bad_cat;
 
-typedef struct	s_weap {
-	char		id;
-	void		**tex;
-}				t_weap;
-
-typedef struct	s_roll_cat
+typedef struct		s_weap
 {
-	char		*path;
-	int			nb_tex;
-}				t_roll_cat;
+	char			id;
+	void			**tex;
+}					t_weap;
 
-typedef struct	s_texture
+typedef struct		s_roll_cat
 {
-	void	*img;
-	char	*addr;
-	int		w;
-	int		h;
-}				t_texture;
+	char			*path;
+	int				nb_tex;
+}					t_roll_cat;
 
-typedef struct	s_die
+typedef struct		s_texture
 {
-	int			hit;
-	int			x;
-	int			y;
-}				t_die;
+	void			*img;
+	char			*addr;
+	int				w;
+	int				h;
+}					t_texture;
 
-typedef struct	s_door
+typedef struct		s_die
 {
-	char		*path;
-	int			nb_tex;
-}				t_door;
+	int				hit;
+	int				x;
+	int				y;
+}					t_die;
+
+typedef struct		s_door
+{
+	char			*path;
+	int				nb_tex;
+}					t_door;
 
 typedef	struct		s_map
 {
@@ -295,143 +296,145 @@ typedef	struct		s_map
 	t_spr			**sprite_order;
 }					t_map;
 
-int		is_all_wall(t_map *r, char *str);
-int		cal_nb_elem(char *str, int *mark);
-int		start_end_has_wall(t_map *r, char *str);
-int		has_invalid_alpha(t_map *r, char *str);
-char		*ft_strnew(int n);
-char	*ft_strcat(char *s1, char *s2);
-void	integrate_map(t_map *r);
-void	print_map(int **map, char *map_str);
-void	get_line(t_map *r, char *str);
-void	get_column(t_map *r, char *str);
-void	new_graph(t_map	*r);
-void	draw_walls(t_map *r);
-void	init_all_path_and_ind_spr_value(t_map *r);
-void	init_wall_tex_info(t_map *r);
-void	init_hitpoint_imgs(t_map *r);
-void	init_bad_cat(t_map *r);
-void	init_hud_imgs(t_map *r);
-void	init_roll_cat(t_map *r);
-void	init_turns_img(t_map *r);
-void	init_cat_img(t_map *r);
-void	reset_rayon_var(t_map *r, int x);
-void	set_sprites_order(t_map *r, t_prop *cur_pr, int **spr_ord, int j);
-void	move_bad_cat(t_map *r);
-void	draw_vertical_sprite(t_spr *spr, t_map *r);
-void	calculate_side_dist(t_map *r);
-void	find_hits(t_map *r, int x);
-void	calculate_start_end_point(t_map *r);
-void	set_color(t_map *r);
-void	put_pixel(int x, t_map *r);
-void	draw_sol(t_map r, int x);
-void	display_image(int x, t_map *r);
-void	move_up(t_map *r);
-void	move_down(t_map *r);
-void	move_left(t_map *r);
-void	move_right(t_map *r);
-int		release(int keycode, t_map *r);
-int		movement(t_map *r);
-void	get_map_as_str(t_map *r, char *first_line);
-int		get_next_line(int fd, char **line);
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
-void	get_map_taille(t_map *r, char *line);
-int		nigun_static(char **str, int n);
-void	get_final_map(t_map *r, char *file);
-int		is_dir_mark(char c);
-void	get_player_pos(t_map *r);
-void	init_player_dir(char c, t_map *r);
-int		manage_rotation_arrow(int keycode, t_map *r);
-void	change_left_rotation_dir(t_map *r);
-void	change_right_rotation_dir(t_map *r);
-void	draw_background(int x, int s, int e, t_map *r, t_color c);
-void	ft_error(char	*str, char *s);
-int		map_taille_is_valide(t_map *r, char *file);
-void	map_is_readable(t_map *r, char *file);
-int		path_dir_is_validate(char *line, char *path_dir);
-int		valide_texture_path(t_map *r, char *str);
-int		ft_strcmp(char *s1, char *s2);
-int		get_next_line_from_str(t_map *r, char **str, char **line);
-void	valid_map_on_everyline(t_map *r, char *str);
-int		atoi_with_index(const char *str, int *i);
-int		map_fst_arg_is_invalid(int *i, char *str);
-void	init_r_tex_path(t_map *r);
-void	draw_floor(t_map *r);
-void	get_tex_dir_path(char *line, t_map *r);
-int		get_sprites_num(t_map *r);
-void	init_spr(t_map *r);
-void	draw_sprites(t_map *r);
-int		get_sprites_num(t_map *r);
-void	draw_ceil(int x, t_map *r);
-int		mouse_press_hook(int mouse_code, t_map *r);
-int		mouse_release_hook(int mouse_code, t_map *r);
-void	check_space_before_id(t_map *r, char *line);
-void	validate_all_id_are_set(t_map *r);
-int		is_resolution_id(char *line);
-int		press(int keycode, t_map *r);
-void	get_all_texture_path(char *s, char *path, t_map *r);
-void	show_cover_menu(t_map *r);
-int		close_red_button(t_map *r);
-void	start(t_map *r);
-void	init_raycasting_var(t_map *r);
-void	change_char_in_addr_value(t_map *r, char *s2, int j, int k);
-void	insert_warn(t_map *r);
-void	change_music_selon_turn(t_map	*r);
-int		leave_page(int keycode, t_map *r);
-int		game_over(t_map *r);
-void	lose_game_of_this_turn(t_map *r);
-void	put_game_turns_to_window(t_map *r);
-void	put_score_to_window(t_map *r);
-void	put_weapon_to_win(t_map	*r);
-int		get_cats_num(t_map *r);
-void	draw_good_cats(t_map *r);
-void	init_all_sprites(t_map *r);
-void	draw_sprites(t_map *r);
-void	init_player_stats(t_map *r);
-void	move_roll_cat(t_map *r);
-void	set_sprite_img(t_map *r, t_prop *spr, int i);
-void	set_curr_sprites_tex(t_map *r);
-void	get_indi_sprite_coord(t_spr *spr, t_map *r, int n);
-void	set_entity_hitpoint_as_zero(t_map *r, int i_sprite, int x, int y);
-t_spr	**get_sprites_order(t_map *r, t_spr **spr_ord, int total_nb_spr);
-void	manage_sound_based_on_pos(t_map *r);
-int		get_wall_texture(t_map *r);
-void	init_mutant(t_map *r);
-void	init_weapons(t_map *r);
-void	init_weapon_texture(t_map *r, t_weap *weap, int nb_tex, char *w);
-void	put_weapon_to_win(t_map *r);
-void	manage_damage(t_map *r);
-void	init_enemy_die(t_map *r);
-void	decrease_enemy_hitpoint(t_map *r, int hitpoint);
-void	init_door(t_map *r);
-void	move_door(t_map *r);
-void	init_mutan_img(t_map *r);
-void	put_lucky_value_to_window(t_map *r);
-void	write_bmp(t_map *r);
-void	free_program_var(t_map *r, char *s1, char *s2);
-void	free_hitpoint(t_map *r);
-void	free_spr_img(t_map *r);
-void	init_program_var(t_map *r);
-char	*get_mutant_tex_path(t_map *r, int j);
-void	init_mutan_img(t_map *r);
-void	init_origin_sprite(t_prop *spr);
-void	init_hp(t_prop *spr);
-void	init_origin_sprite(t_prop *spr);
-int		cal_nb_obj(char *map_str, int i);
-void	replace_pixel_value_floor(t_map *r, char *s2, int j, int k);
-void	change_sprite_tex_index(t_map *r);
-void	move_vertical_left(t_map *r);
-void	move_vertical_right(t_map *r);
-void	move_up(t_map *r);
-void	move_down(t_map *r);
-void	move_left(t_map *r);
-void	move_right(t_map *r);
-int		wall_collision(double x, double y, int **map);
-void	set_new_pos_and_value_after_pick_spr(t_map *r);
-int		player_is_knocking_on_wall_or_barrier(t_map *r, double x, double y);
-void	inser_hurt(t_map *r, double n1, double n2);
-int		nice_job(t_map *r);
-void	final_message(char *s1, char *s2);
-void	write_bmp(t_map *rvar);
-int		save_bmp(t_map *r);
+int					is_all_wall(t_map *r, char *str);
+int					cal_nb_elem(char *str, int *mark);
+int					start_end_has_wall(t_map *r, char *str);
+int					has_invalid_alpha(t_map *r, char *str);
+char				*ft_strnew(int n);
+char				*ft_strcat(char *s1, char *s2);
+void				integrate_map(t_map *r);
+void				print_map(int **map, char *map_str);
+void				get_line(t_map *r, char *str);
+void				get_column(t_map *r, char *str);
+void				new_graph(t_map	*r);
+void				draw_walls(t_map *r);
+void				init_all_path_and_ind_spr_value(t_map *r);
+void				init_wall_tex_info(t_map *r);
+void				init_hitpoint_imgs(t_map *r);
+void				init_bad_cat(t_map *r);
+void				init_hud_imgs(t_map *r);
+void				init_roll_cat(t_map *r);
+void				init_turns_img(t_map *r);
+void				init_cat_img(t_map *r);
+void				reset_rayon_var(t_map *r, int x);
+void				set_sprites_order(t_map *r, t_prop *spr, int **so, int j);
+void				move_bad_cat(t_map *r);
+void				draw_vertical_sprite(t_spr *spr, t_map *r);
+void				calculate_side_dist(t_map *r);
+void				find_hits(t_map *r, int x);
+void				calculate_start_end_point(t_map *r);
+void				set_color(t_map *r);
+void				put_pixel(int x, t_map *r);
+void				draw_sol(t_map r, int x);
+void				display_image(int x, t_map *r);
+void				move_up(t_map *r);
+void				move_down(t_map *r);
+void				move_left(t_map *r);
+void				move_right(t_map *r);
+int					release(int keycode, t_map *r);
+int					movement(t_map *r);
+void				get_map_as_str(t_map *r, char *first_line);
+int					get_next_line(int fd, char **line);
+char				*ft_strncat(char *dest, char *src, unsigned int nb);
+void				get_map_taille(t_map *r, char *line);
+int					nigun_static(char **str, int n);
+void				get_final_map(t_map *r, char *file);
+int					is_dir_mark(char c);
+void				get_player_pos(t_map *r);
+void				init_player_dir(char c, t_map *r);
+int					manage_rotation_arrow(int keycode, t_map *r);
+void				change_left_rotation_dir(t_map *r);
+void				change_right_rotation_dir(t_map *r);
+void				draw_background(int x, int s, int e, t_map *r, t_color c);
+void				ft_error(char				*str, char *s);
+int					map_taille_is_valide(t_map *r, char *file);
+void				map_is_readable(t_map *r, char *file);
+int					path_dir_is_validate(char *line, char *path_dir);
+int					valide_texture_path(t_map *r, char *str);
+int					ft_strcmp(char *s1, char *s2);
+int					get_next_line_from_str(t_map *r, char **str, char **line);
+void				valid_map_on_everyline(t_map *r, char *str);
+int					atoi_with_index(const char *str, int *i);
+int					map_fst_arg_is_invalid(int *i, char *str);
+void				init_r_tex_path(t_map *r);
+void				draw_floor(t_map *r);
+void				get_tex_dir_path(char *line, t_map *r);
+int					get_sprites_num(t_map *r);
+void				init_spr(t_map *r);
+void				draw_sprites(t_map *r);
+int					get_sprites_num(t_map *r);
+void				draw_ceil(int x, t_map *r);
+int					mouse_press_hook(int mouse_code, t_map *r);
+int					mouse_release_hook(int mouse_code, t_map *r);
+void				check_space_before_id(t_map *r, char *line);
+void				validate_all_id_are_set(t_map *r);
+int					is_resolution_id(char *line);
+int					press(int keycode, t_map *r);
+void				get_all_texture_path(char *s, char *path, t_map *r);
+void				show_cover_menu(t_map *r);
+int					close_red_button(t_map *r);
+void				start(t_map *r);
+void				init_raycasting_var(t_map *r);
+void				change_char_in_addr_value(t_map *r, char *s2, int j, int k);
+void				insert_warn(t_map *r);
+void				change_music_selon_turn(t_map	*r);
+int					leave_page(int keycode, t_map *r);
+int					game_over(t_map *r);
+void				lose_game_of_this_turn(t_map *r);
+void				put_game_turns_to_window(t_map *r);
+void				put_score_to_window(t_map *r);
+void				put_weapon_to_win(t_map	*r);
+int					get_cats_num(t_map *r);
+void				draw_good_cats(t_map *r);
+void				init_all_sprites(t_map *r);
+void				draw_sprites(t_map *r);
+void				init_player_stats(t_map *r);
+void				move_roll_cat(t_map *r);
+void				set_sprite_img(t_map *r, t_prop *spr, int i);
+void				set_curr_sprites_tex(t_map *r);
+void				get_indi_sprite_coord(t_spr *spr, t_map *r, int n);
+void				set_entity_hitpoint_as_zero(t_map *r, int i, int x, int y);
+t_spr				**get_sprites_order(t_map *r, t_spr **spr_ord, int nb_spr);
+void				manage_sound_based_on_pos(t_map *r);
+int					get_wall_texture(t_map *r);
+void				init_mutant(t_map *r);
+void				init_weapons(t_map *r);
+void				init_weapon_texture(t_map *r, t_weap *w, int nt, char *w);
+void				put_weapon_to_win(t_map *r);
+void				manage_damage(t_map *r);
+void				init_enemy_die(t_map *r);
+void				decrease_enemy_hitpoint(t_map *r, int hitpoint);
+void				init_door(t_map *r);
+void				move_door(t_map *r);
+void				init_mutan_img(t_map *r);
+void				put_lucky_value_to_window(t_map *r);
+void				write_bmp(t_map *r);
+void				free_program_var(t_map *r, char *s1, char *s2);
+void				free_hitpoint(t_map *r);
+void				free_spr_img(t_map *r);
+void				init_program_var(t_map *r);
+char				*get_mutant_tex_path(t_map *r, int j);
+void				init_mutan_img(t_map *r);
+void				init_origin_sprite(t_prop *spr);
+void				init_hp(t_prop *spr);
+void				init_origin_sprite(t_prop *spr);
+int					cal_nb_obj(char *map_str, int i);
+void				replace_pixel_value_floor(t_map *r, char *s2, int j, int k);
+void				change_sprite_tex_index(t_map *r);
+void				move_vertical_left(t_map *r);
+void				move_vertical_right(t_map *r);
+void				move_up(t_map *r);
+void				move_down(t_map *r);
+void				move_left(t_map *r);
+void				move_right(t_map *r);
+int					wall_collision(double x, double y, int **map);
+void				set_new_pos_and_value_after_pick_spr(t_map *r);
+int					player_is_knocking_on_wall_or_barrier(t_map *r, double x, \
+															double y);
+void				inser_hurt(t_map *r, double n1, double n2);
+int					nice_job(t_map *r);
+void				final_message(char *s1, char *s2);
+void				write_bmp(t_map *rvar);
+int					save_bmp(t_map *r);
+
 #endif
