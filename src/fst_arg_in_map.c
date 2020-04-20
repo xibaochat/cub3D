@@ -32,7 +32,7 @@ static void	get_ceil_path(char *path, t_map *r)
 	r->ceil_color.g = atoi_with_index(path, &i);
 	r->ceil_color.b = atoi_with_index(path, &i);
 	if (color_is_valid(r->ceil_color, r))
-		r->C = path;
+		r->c = path;
 }
 
 static void	free_strs(char *path, char *s)
@@ -55,7 +55,7 @@ void		assign_tex_path(char *str, char *s, t_map *r, int i)
 		get_all_texture_path(s, path, r);
 	else if (!ft_strcmp(s, "C"))
 	{
-		if (!r->C)
+		if (!r->c)
 			get_ceil_path(path, r);
 		else
 			free_program_var(r, "multi ceil path\n", NULL);

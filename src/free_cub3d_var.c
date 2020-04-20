@@ -22,12 +22,12 @@ static void	free_texture_path(t_map *rvar)
 		free(rvar->we);
 	if (rvar->ea)
 		free(rvar->ea);
-	if (rvar->S)
-		free(rvar->S);
-	if (rvar->F)
-		free(rvar->F);
-	if (rvar->C)
-		free(rvar->C);
+	if (rvar->s)
+		free(rvar->s);
+	if (rvar->f)
+		free(rvar->f);
+	if (rvar->c)
+		free(rvar->c);
 }
 
 static void	free_map(t_map *rvar)

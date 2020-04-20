@@ -18,9 +18,9 @@ void		init_r_tex_path(t_map *r)
 	r->so = NULL;
 	r->we = NULL;
 	r->ea = NULL;
-	r->S = NULL;
-	r->F = NULL;
-	r->C = NULL;
+	r->s = NULL;
+	r->f = NULL;
+	r->c = NULL;
 }
 
 static void	cpy_column(int **map, int i, int *k, t_map *r)

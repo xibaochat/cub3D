@@ -6,7 +6,7 @@
 /*   By: xinwang <xinwang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:19:43 by xinwang           #+#    #+#             */
-/*   Updated: 2020/04/20 18:05:32 by xinwang          ###   ########.fr       */
+/*   Updated: 2020/04/20 18:07:12 by xinwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,7 +251,7 @@ typedef	struct		s_map
 	char			*so;
 	char			*we;
 	char			*ea;
-	char			*S;
+	char			*s;
 	t_color			ceil_color;
 	char			*map_str;
 	int				line;
@@ -286,8 +286,8 @@ typedef	struct		s_map
 	int				tx;
 	int				ty;
 	unsigned int	tex_color;
-	char			*F;
-	char			*C;
+	char			*f;
+	char			*c;
 	double			tex_x;
 	double			tex_y;
 	double			step;

@@ -15,7 +15,7 @@
 static void	init_floor_imgs(t_map *r)
 {
 	r->floor_img_ptr = mlx_xpm_file_to_image(r->mlx_ptr, \
-	r->F, &(r->width_floor), &(r->height_floor));
+	r->f, &(r->width_floor), &(r->height_floor));
 	r->floor_texture = mlx_get_data_addr(r->floor_img_ptr, \
 	&(r->floor_bpp), &(r->s_l_floor), &(r->endian));
 }

@@ -56,16 +56,16 @@ static void	get_sprite_floor_tex_path(char *s, char *path, t_map *rvar)
 {
 	if (!ft_strcmp(s, "S"))
 	{
-		if (!rvar->S)
-			rvar->S = path;
+		if (!rvar->s)
+			rvar->s = path;
 		else
 			free_program_var(rvar, "S path ", \
 		"is defined more than one time\n");
 	}
 	else if (!ft_strcmp(s, "F"))
 	{
-		if (!rvar->F)
-			rvar->F = path;
+		if (!rvar->f)
+			rvar->f = path;
 		else
 			free_program_var(rvar, "F path ", \
 		"is defined more than one time\n");

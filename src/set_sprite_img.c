@@ -21,7 +21,7 @@ void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 	if (i != 5)
 	{
 		if (!i)
-			filepath = rvar->S;
+			filepath = rvar->s;
 		else if (i == 1)
 			filepath = "./textures/cat.xpm";
 		else if (i == 2)
