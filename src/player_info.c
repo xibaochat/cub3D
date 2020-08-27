@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 static void	init_player_dir_plan_if_dir_is_n_or_s(char c, t_map *rvar)
 {

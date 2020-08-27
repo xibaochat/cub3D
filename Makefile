@@ -37,7 +37,7 @@ SRCS_PATH = ./src/
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
-SRCSO = $(SRCS_NAME:.c=.o)
+#SRCSO = $(SRCS_NAME:.c=.o)
 
 HEADER_DIR = ./include
 
@@ -49,7 +49,15 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = gcc
 
-CC_FLAGS =  -Wall -Werror -Wextra
+#CC_FLAGS =  -Wall -Werror -Wextra
+CC_FLAGS = -fsanitize=address -g3
+
+# ------ NEW --------
+SRCSO = $(SRCS:.c=.o)
+MLX_PATH = minilibx-linux/
+MLX_LIB = ${MLX_PATH}/libmlx.a
+
+# -------------------
 
 MLX_FLAGS_DEBIAN = -lmlx -lXext -lX11 -lm
 MLX_FLAGS_XIBAO = -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
@@ -59,9 +67,8 @@ MLX_A = $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
 
 all: ${NAME}
 
-$(NAME): libft_compil
-	$(CC) -c $(CC_FLAGS) -I $(HEADER_DIR) -I $(LIBFT_DIR) -I /usr/X11/include $(SRCS)
-	$(CC) $(MLX_FLAGS_OSX) $(SRCSO) $(LIBFT_A) -o $(NAME)
+$(NAME): libft_compil ${SRCSO} mlx_compil
+	${CC} ${CFLAGS}  -I $(HEADER_DIR) -o ${NAME} ${SRCSO} -L ${MLX_PATH} -lmlx -lXext -lX11 -lbsd -lm -L ${LIBFT_DIR}  -lft
 
 linux_compil: libft_compil
 	$(CC) -g -c $(CC_FLAGS) -I $(HEADER_DIR) -I $(LIBFT_DIR) $(SRCS)
@@ -70,6 +77,9 @@ linux_compil: libft_compil
 xibao_compil: libft_compil
 	$(CC) -c $(CC_FLAGS) -I $(HEADER_DIR) -I $(LIBFT_DIR) $(SRCS)
 	$(CC) $(MLX_FLAGS_XIBAO) $(SRCSO) $(LIBFT_A) $(MLX_A) -o $(NAME)
+
+mlx_compil:
+	make -C ${MLX_PATH}
 
 libft_compil:
 	make -C ./libft all --silent

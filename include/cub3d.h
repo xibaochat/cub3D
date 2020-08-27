@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <errno.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 # define MAX_VALID_WIDTH 1920
 # define MIN_VALID_WIDTH 250
@@ -53,6 +53,8 @@
 #  define LEFT_ARROW_KEY 65361
 #  define RIGHT_ARROW_KEY  65363
 #  define ESCAPE_KEY 65307
+#  define SHOOTING 256
+#  define COUTEAU 12
 # endif
 
 # define NB_WEAPONS 2

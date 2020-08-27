@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 static t_spr	*get_entity(t_map *rvar, int i_sprite, int x, int y)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 int		player_is_knocking_on_wall_or_barrier(t_map *r, double new_pos_x,\
 		double new_pos_y)
