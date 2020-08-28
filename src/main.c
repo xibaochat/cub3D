@@ -51,14 +51,18 @@ int		main(int ac, char **av)
 	check_argument(&rvar, ac, av);
 	init_program_var(&rvar);
 	get_final_map(&rvar, av[1]);
-	if (ac == 2)
-		system("afplay ./sounds/avril_14th.mp3 &");
-	rvar.round = 0;
-	if (!(rvar.mlx_ptr = mlx_init()))
-		free_program_var(&rvar, "Mlx initialization failed", NULL);
-	if (!rvar.save_bmp)
-		show_cover_menu(&rvar);
-	else
-		start(&rvar);
+//	free_program_var(&rvar, "Mlx initialization failed", NULL);
+	if (ac >= 2)
+	{
+		if (ac == 2)
+			system("afplay ./sounds/avril_14th.mp3 &");
+		rvar.round = 0;
+		if (!(rvar.mlx_ptr = mlx_init()))
+			free_program_var(&rvar, "Mlx initialization failed", NULL);
+		if (!rvar.save_bmp)
+			show_cover_menu(&rvar);
+		else
+			start(&rvar);
+	}
 	return (0);
 }

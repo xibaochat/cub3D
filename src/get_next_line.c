@@ -36,7 +36,7 @@ static int			get_content_from_file(int fd, char **str)
 		return (-1);
 	if ((nb_read = read(fd, buff, BUFFER_SIZE)) <= 0)
 	{
-		free(buff);
+		free_str(buff);
 		return (nb_read);
 	}
 	buff[nb_read] = '\0';
@@ -45,10 +45,12 @@ static int			get_content_from_file(int fd, char **str)
 	if (*str)
 	{
 		s = ft_strncat(s, *str, ft_strlen(*str));
-		free(*str);
+		free_str(*str);
 	}
 	*str = ft_strncat(s, buff, nb_read);
-	free(buff);
+	free_str(buff);
+	// BEBE CHAT ARE YOU SURE IF THIS FREE ?? o.O
+	free_str(s);
 	if (no_newline_in_str(*str))
 		return (get_content_from_file(fd, str));
 	return (1);
