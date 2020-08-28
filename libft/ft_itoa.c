@@ -27,7 +27,7 @@ static int			get_size(int n)
 		size++;
 		n = n / 10;
 	}
-	return (size);
+	return (size + 1);
 }
 
 static char			*get_converted_str(char *str, unsigned int res, int *i)
