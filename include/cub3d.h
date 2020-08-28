@@ -439,5 +439,6 @@ void				final_message(char *s1, char *s2);
 void				write_bmp(t_map *rvar);
 int					save_bmp(t_map *r);
 void				free_str(char *str);
+char				*ft_strclone(const char *s);
 
 #endif
