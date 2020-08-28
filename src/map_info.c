@@ -59,6 +59,7 @@ int		get_next_line_from_str(t_map *rvar, char **str, char **line)
 		i++;
 	if (!(s = ft_strnew(i + 1)))
 		return (-1);
+	free_str(*line);
 	*line = ft_strncat(s, *str, i);
 	j = strlen(*str) - i;
 	if (!j)
@@ -70,6 +71,8 @@ int		get_next_line_from_str(t_map *rvar, char **str, char **line)
 		*str = tmp;
 		return (1);
 	}
+	free_str(*str);
+	free_str(*line);
 	free_program_var(rvar, "malloc fail", NULL);
 	return (-1);
 }
@@ -82,6 +85,7 @@ void	valid_map_on_everyline(t_map *rvar, char *str)
 	int		mark;
 
 	mark = 0;
+	line = NULL;
 	get_next_line_from_str(rvar, &str, &line);
 	is_all_wall(rvar, line);
 	nb_elem = cal_nb_elem(line, &mark);
@@ -89,12 +93,18 @@ void	valid_map_on_everyline(t_map *rvar, char *str)
 	{
 		tmp = cal_nb_elem(line, &mark);
 		if (nb_elem != tmp)
+		{
+			free_str(str);
+			free_str(line);
 			free_program_var(rvar, \
 		"the column of eachlinein the map is not equal\n", NULL);
+		}
 		start_end_has_wall(rvar, line);
 		has_invalid_alpha(rvar, line);
 	}
+	free_str(str);
 	is_all_wall(rvar, line);
+	free_str(line);
 	if (mark == 0)
 		free_program_var(rvar, \
 	"player position is not showed in the map\n", NULL);
