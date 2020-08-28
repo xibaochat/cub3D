@@ -3,5 +3,8 @@
 void	free_str(char *str)
 {
 	if (str)
+	{
 		free(str);
+		str = NULL;
+	}
 }
