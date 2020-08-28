@@ -56,9 +56,9 @@ int		main(int ac, char **av)
 	rvar.round = 0;
 	if (!(rvar.mlx_ptr = mlx_init()))
 		free_program_var(&rvar, "Mlx initialization failed", NULL);
-	if (!rvar.save_bmp)
-		show_cover_menu(&rvar);
-	else
+	/* if (!rvar.save_bmp) */
+	/* 	show_cover_menu(&rvar); */
+	/* else */
 		start(&rvar);
 	return (0);
 }

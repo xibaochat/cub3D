@@ -32,12 +32,16 @@ char	*ft_strcat(char *dest, char *src)
 	int	lens;
 	int	i;
 
-	i = 0;
-	lens = ft_strlen(dest);
-	while (src[i])
-		dest[lens++] = src[i++];
-	dest[lens] = '\0';
-	return (dest);
+	if (dest && src)
+	{
+		i = 0;
+		lens = ft_strlen(dest);
+		while (src[i])
+			dest[lens++] = src[i++];
+		dest[lens] = '\0';
+		return (dest);
+	}
+	return (NULL);
 }
 
 int		path_dir_is_validate(char *line, char *path_dir)

@@ -16,6 +16,7 @@ char		*add_first_line(t_map *rvar, char *line)
 {
 	char *s;
 
+	s = NULL;
 	if (!(s = (char *)malloc(sizeof(char) * ft_strlen(line) + 2)))
 		free_program_var(rvar, "can't integrate this line in map", line);
 	ft_strcat(s, line);
