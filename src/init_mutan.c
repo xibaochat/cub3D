@@ -52,6 +52,7 @@ void	init_mutan_img(t_map *rvar)
 	t_prop	*spr;
 
 	j = -1;
+	tex_path = NULL;
 	spr = rvar->all_spr + 5;
 	while (++j < spr->nb_occur)
 	{
@@ -62,6 +63,7 @@ void	init_mutan_img(t_map *rvar)
 		tex_path, &spr->width, &spr->height);
 			spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,\
 			&(spr->bpp), &(spr->s_l), &(spr->endian));
+			free_str(tex_path);
 		}
 		else if (spr->indi_spr[j].hitpoint == 1)
 		{

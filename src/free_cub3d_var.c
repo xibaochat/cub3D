@@ -91,7 +91,7 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 	/* IT SEEMS WE DON"T NEED TO FREE THAT ? o.O */
 	/* free_wall_texture(rvar); */
 	/* free_hitpoint(rvar); */
-	free_spr_img(rvar);
+	/* free_spr_img(rvar); */
 	free_secret_door(rvar);
 	if (rvar->round == 0)
 		ft_error(s1, s2);

@@ -17,6 +17,7 @@ void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 	char	*filepath;
 	int		j;
 
+	filepath = NULL;
 	j = -1;
 	if (i != 5)
 	{
