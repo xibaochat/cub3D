@@ -440,5 +440,6 @@ void				write_bmp(t_map *rvar);
 int					save_bmp(t_map *r);
 void				free_str(char *str);
 char				*ft_strclone(char *s);
+void				first_init_sprite(t_map *r);
 
 #endif

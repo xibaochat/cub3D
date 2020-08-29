@@ -22,9 +22,6 @@ static void	init_chaque_spr(t_map *r, t_prop *spr, int index)
 static void	init_chaque_type_spr(t_map *r, t_prop *spr, int i)
 {
 	spr->nb_occur = cal_nb_obj(r->map_str, i);
-	if (!(spr->indi_spr = (t_spr *)malloc(sizeof(t_spr) * (spr->nb_occur))))
-		free_program_var(r, \
-	"Malloc failed in the function init_chaque_type_spr\n", NULL);
 	init_chaque_spr(r, spr, i);
 }
 
@@ -33,9 +30,6 @@ void		init_all_sprites(t_map *r)
 	int i;
 
 	i = -1;
-	if (!(r->all_spr = (t_prop *)malloc(sizeof(t_prop) * NB_SPRITE)))
-		free_program_var(r, \
-	"Malloc failed in the function init_all_sprites\n", NULL);
 	while (++i < NB_SPRITE)
 		init_chaque_type_spr(r, r->all_spr + i, i);
 }

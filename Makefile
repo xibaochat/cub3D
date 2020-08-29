@@ -30,7 +30,8 @@ SRCS_NAME = calculation_start_end_point.c  draw_sol.c \
 			bmp.c  free_cub3d_var.c get_map_as_str.c check_validity_map.c get_player_direction.c \
 			free_img.c init_program_var_to_null.c init_mutan.c sprite_calculation.c \
 			change_sprite_tex_index.c new_coor_calc_vertical_move.c new_coor_non_ver_move.c \
-			set_new_pos_and_value_after_pick_spr.c  insert_hurt.c free_str.c ft_strclone.c
+			set_new_pos_and_value_after_pick_spr.c  insert_hurt.c free_str.c ft_strclone.c \
+			first_init_sprite.c
 
 
 SRCS_PATH = ./src/

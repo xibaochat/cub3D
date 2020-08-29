@@ -51,7 +51,7 @@ int		main(int ac, char **av)
 	check_argument(&rvar, ac, av);
 	init_program_var(&rvar);
 	get_final_map(&rvar, av[1]);
-//	free_program_var(&rvar, "Mlx initialization failed", NULL);
+	first_init_sprite(&rvar);
 	if (ac >= 2)
 	{
 		if (ac == 2)
