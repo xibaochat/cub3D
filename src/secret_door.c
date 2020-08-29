@@ -17,7 +17,11 @@ void	init_door(t_map *rvar)
 	int		i;
 	char	*s;
 	char	*s1;
+	char	*n_tmp;
 
+	s = NULL;
+	s1 = NULL;
+	n_tmp = NULL;
 	i = -1;
 	rvar->nb_door = 0;
 	if (!(rvar->door = (t_door*)malloc(sizeof(t_door) * 5)))
@@ -25,7 +29,9 @@ void	init_door(t_map *rvar)
 	rvar->door->nb_tex = 0;
 	while (++i < 5)
 	{
-		s = ft_strjoin("./textures/door/texture_", ft_itoa(i));
+		n_tmp = ft_itoa(i);
+		s = ft_strjoin("./textures/door/texture_", n_tmp);
+		free_str(n_tmp);
 		s1 = ft_strjoin(s, ".xpm");
 		free_str(s);
 		if (!s1)
