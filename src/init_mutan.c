@@ -17,7 +17,11 @@ char	*get_mutant_tex_path(t_map *rvar, int j)
 	char	*s;
 	int		hitpoints;
 	char	*str;
+	char	*n_tmp;
 
+	s = NULL;
+	str = NULL;
+	n_tmp = NULL;
 	hitpoints = rvar->all_spr[5].indi_spr[j].hitpoint;
 	if (hitpoints == 100)
 		rvar->all_spr[5].indi_spr[j].nb_tex = 0;
@@ -33,8 +37,9 @@ char	*get_mutant_tex_path(t_map *rvar, int j)
 		(rvar->all_spr[5].indi_spr[j].nb_tex)++;
 		(rvar->all_spr[5].indi_spr[j].hitpoint)--;
 	}
-	s = ft_strjoin("./textures/enemies/mutant/chest_", \
-	ft_itoa(rvar->all_spr[5].indi_spr[j].nb_tex));
+	n_tmp = ft_itoa(rvar->all_spr[5].indi_spr[j].nb_tex);
+	s = ft_strjoin("./textures/enemies/mutant/chest_", n_tmp);
+	free_str(n_tmp);
 	str = ft_strjoin(s, ".xpm");
 	free_str(s);
 	return (str);
