@@ -27,4 +27,5 @@ void	init_program_var(t_map *r)
 	r->weaps = NULL;
 	r->all_spr = NULL;
 	r->sprite_order = NULL;
+	r->round = 1;
 }
