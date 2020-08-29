@@ -31,6 +31,8 @@ void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 			filepath = rvar->roll_cat[rvar->nb_roll_cat].path;
 		else
 			filepath = rvar->door[rvar->nb_door].path;
+		if (spr->img)
+			mlx_destroy_image(rvar->mlx_ptr, spr->img);
 		spr->img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 		filepath, &spr->width, &spr->height);
 		if (!spr->img)

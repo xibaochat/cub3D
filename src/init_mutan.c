@@ -59,6 +59,8 @@ void	init_mutan_img(t_map *rvar)
 		if (spr->indi_spr[j].hitpoint > 1)
 		{
 			tex_path = get_mutant_tex_path(rvar, j);
+			if (spr->indi_spr[j].img)
+				mlx_destroy_image(rvar->mlx_ptr, spr->indi_spr[j].img);
 			spr->indi_spr[j].img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 		tex_path, &spr->width, &spr->height);
 			spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,\

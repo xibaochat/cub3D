@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_program_var_to_null.c                         :+:      :+:    :+:   */
+/*   first_init_sprite.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,7 +25,8 @@ void first_init_sprite(t_map *r)
 	while (++i < NB_SPRITE)
 	{
 		spr = r->all_spr + i;
-		spr->nb_occur = cal_nb_obj(r->map_str, i);
+		spr->nb_occur = cal_nb_obj(r->map_str, i) + 1;
+		spr->img = NULL;
 		j = spr->nb_occur;
 		if (!(spr->indi_spr = (t_spr *)malloc(sizeof(t_spr) * (spr->nb_occur))))
 			free_program_var(r, "Malloc failed in the function init_chaque_type_spr\n", NULL);
