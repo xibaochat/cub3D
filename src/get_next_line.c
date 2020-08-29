@@ -49,8 +49,8 @@ static int			get_content_from_file(int fd, char **str)
 	}
 	*str = ft_strncat(s, buff, nb_read);
 	free_str(buff);
-	// BEBE CHAT ARE YOU SURE IF THIS FREE ?? o.O
-	free_str(s);
+	// BOID MAYBE SOME LEAKS HERE
+	// free_str(s);
 	if (no_newline_in_str(*str))
 		return (get_content_from_file(fd, str));
 	return (1);
