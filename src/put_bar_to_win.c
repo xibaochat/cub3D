@@ -29,13 +29,15 @@ void	put_score_to_window(t_map *rvar)
 	char	*n_tmp;
 
 	n_tmp = NULL;
+	if (rvar->score_img)
+		mlx_destroy_image(rvar->mlx_ptr, rvar->score_img);
 	rvar->score_img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 	"textures/score.xpm", &w, &h);
-	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, \
+	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr,	\
 	rvar->score_img, 0, rvar->height - 25);
 	n_tmp = ft_itoa(rvar->score);
 	mlx_string_put(rvar->mlx_ptr, rvar->win_ptr,			\
-	10, rvar->height - 5, 15692404, n_tmp);
+				   10, rvar->height - 5, 15692404, n_tmp);
 	free_str(n_tmp);
 	if (rvar->hitpoint >= 100)
 		mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr, \
