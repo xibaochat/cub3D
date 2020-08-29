@@ -25,11 +25,15 @@ static char		*clean_strjoin(char *path, char *s1, char *s2)
 static char		*get_tex_path(int i, char *weap_name)
 {
 	char *path;
+	char *n_tmp;
 
 	path = NULL;
+	n_tmp = NULL;
 	path = clean_strjoin(path, "./textures/weapons/", weap_name);
 	path = clean_strjoin(path, path, "/texture_");
-	path = clean_strjoin(path, path, ft_itoa(i));
+	n_tmp = ft_itoa(i);
+	path = clean_strjoin(path, path, n_tmp);
+	free_str(n_tmp);
 	path = clean_strjoin(path, path, ".xpm");
 	return (path);
 }
