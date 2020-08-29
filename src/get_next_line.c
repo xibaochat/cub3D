@@ -29,9 +29,11 @@ static int			no_newline_in_str(char *str)
 static int			get_content_from_file(int fd, char **str)
 {
 	int		nb_read;
-	char	*s;
+	char	*tmp;
 	char	*buff;
 
+	tmp = NULL;
+	buff = NULL;
 	if (!(buff = ft_strnew(BUFFER_SIZE + 1)))
 		return (-1);
 	if ((nb_read = read(fd, buff, BUFFER_SIZE)) <= 0)
@@ -40,17 +42,19 @@ static int			get_content_from_file(int fd, char **str)
 		return (nb_read);
 	}
 	buff[nb_read] = '\0';
-	if (!(s = ft_strnew(ft_strlen(*str) + nb_read + 1)))
+	if (!(tmp = ft_strnew(ft_strlen(*str) + nb_read + 1)))
+	{
+		free_str(buff);
 		return (-1);
+	}
 	if (*str)
 	{
-		s = ft_strncat(s, *str, ft_strlen(*str));
+		tmp = ft_strncat(tmp, *str, ft_strlen(*str));
 		free_str(*str);
 	}
-	*str = ft_strncat(s, buff, nb_read);
+	*str = ft_strncat(tmp, buff, nb_read);
+	tmp = NULL;
 	free_str(buff);
-	// BOID MAYBE SOME LEAKS HERE
-	// free_str(s);
 	if (no_newline_in_str(*str))
 		return (get_content_from_file(fd, str));
 	return (1);
@@ -76,6 +80,7 @@ static int			extract_line(char **line, char **str, int *i, int *j)
 	if ((s1 = ft_strnew(*j)))
 	{
 		tmp = ft_strncat(s1, *str + *i + 1, *j - 1);
+		free_str(*str);
 		*str = tmp;
 		return (1);
 	}
@@ -105,7 +110,10 @@ int					get_next_line(int fd, char **line)
 	static char *str = NULL;
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
+	{
+		free_str(str);
 		return (-1);
+	}
 	if (no_newline_in_str(str))
 	{
 		if (get_content_from_file(fd, &str) == -1)

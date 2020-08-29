@@ -84,6 +84,7 @@ void		get_info_from_map(t_map *r)
 			if (ft_isdigit(line[0]))
 			{
 				get_map_as_str(r, line);
+				get_next_line(-42, &line);
 				break ;
 			}
 			if (is_resolution_id(line))
