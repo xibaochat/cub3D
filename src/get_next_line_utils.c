@@ -28,7 +28,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 int		nigun_static(char **str, int return_value)
 {
 	if (*str)
-		free(*str);
-	*str = NULL;
+		free_str(*str);
 	return (return_value);
 }

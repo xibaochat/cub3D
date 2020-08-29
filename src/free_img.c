@@ -14,11 +14,7 @@
 
 void	free_hitpoint(t_map *rvar)
 {
-	if (rvar->hitpoint_img)
-	{
-		free(rvar->hitpoint_img);
-		rvar->hitpoint_img = NULL;
-	}
+	free_str(rvar->hitpoint_img);
 }
 
 void	free_weapons(t_map *rvar)
@@ -31,13 +27,9 @@ void	free_weapons(t_map *rvar)
 		while (++i < NB_WEAPONS)
 		{
 			if ((rvar->weaps + i)->tex)
-			{
-				free(rvar->weaps[i].tex);
-				rvar->weaps[i].tex = NULL;
-			}
+				free_str(rvar->weaps[i].tex);
 		}
-		free(rvar->weaps);
-		rvar->weaps = NULL;
+		free_str(rvar->weaps);
 	}
 }
 
@@ -51,23 +43,15 @@ void	free_sprites_selon_type_spr(t_map *rvar)
 		while (++i < NB_SPRITE)
 		{
 			if ((rvar->all_spr + i)->indi_spr)
-			{
-				free((rvar->all_spr + i)->indi_spr);
-				(rvar->all_spr + i)->indi_spr = NULL;
-			}
+				free_str((rvar->all_spr + i)->indi_spr);
 		}
-		free(rvar->all_spr);
-		rvar->all_spr = NULL;
+		free_str(rvar->all_spr);
 	}
 }
 
 void	free_sprite_order(t_map *rvar)
 {
-	if (rvar->sprite_order)
-	{
-		free(rvar->sprite_order);
-		rvar->sprite_order = NULL;
-	}
+	free_str(rvar->sprite_order);
 }
 
 void	free_spr_img(t_map *rvar)
@@ -78,20 +62,15 @@ void	free_spr_img(t_map *rvar)
 	if (rvar->bad_cat)
 	{
 		while (++i <= 30)
-			free(rvar->bad_cat[i].path);
-		free(rvar->bad_cat);
-		rvar->bad_cat = NULL;
+			free_str(rvar->bad_cat[i].path);
+		free_str(rvar->bad_cat);
 	}
 	i = -1;
 	if (rvar->roll_cat)
 	{
 		while (++i <= 15)
-		{
-			free(rvar->roll_cat[i].path);
-			rvar->roll_cat[i].path = NULL;
-		}
-		free(rvar->roll_cat);
-		rvar->roll_cat = NULL;
+			free_str(rvar->roll_cat[i].path);
+		free_str(rvar->roll_cat);
 	}
 	free_weapons(rvar);
 	free_sprites_selon_type_spr(rvar);

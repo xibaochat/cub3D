@@ -26,7 +26,7 @@ void	init_bad_cat(t_map *rvar)
 	{
 		s = ft_strjoin("./textures/enemies/badcat/bad_cat_", ft_itoa(i));
 		s1 = ft_strjoin(s, ".xpm");
-		free(s);
+		free_str(s);
 		rvar->bad_cat[i].path = ft_strnew(ft_strlen(s1) + 1);
 		rvar->bad_cat[i].path = ft_strcat(rvar->bad_cat[i].path, s1);
 	}

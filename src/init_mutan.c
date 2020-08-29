@@ -36,7 +36,7 @@ char	*get_mutant_tex_path(t_map *rvar, int j)
 	s = ft_strjoin("./textures/enemies/mutant/chest_", \
 	ft_itoa(rvar->all_spr[5].indi_spr[j].nb_tex));
 	str = ft_strjoin(s, ".xpm");
-	free(s);
+	free_str(s);
 	return (str);
 }
 

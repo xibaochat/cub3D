@@ -18,7 +18,7 @@ static char		*clean_strjoin(char *path, char *s1, char *s2)
 
 	str = ft_strjoin(s1, s2);
 	if (path)
-		free(path);
+		free_str(path);
 	return (str);
 }
 
@@ -51,7 +51,7 @@ void			init_weapon_texture(t_map *rvar, t_weap *weap, \
 		tex_path = get_tex_path(i, weapon_name);
 		weap->tex[i] = mlx_xpm_file_to_image(rvar->mlx_ptr, tex_path, &w, &h);
 		if (tex_path)
-			free(tex_path);
+			free_str(tex_path);
 		if (!weap->tex[i])
 			free_program_var(rvar, "can't creat new img\n", NULL);
 	}

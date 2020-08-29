@@ -37,8 +37,8 @@ static void	get_ceil_path(char *path, t_map *r)
 
 static void	free_strs(char *path, char *s)
 {
-	free(path);
-	free(s);
+	free_str(path);
+	free_str(s);
 	ft_error(s, "invalid value.");
 }
 

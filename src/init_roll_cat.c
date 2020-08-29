@@ -26,7 +26,7 @@ void	init_roll_cat(t_map *rvar)
 	{
 		s = ft_strjoin("./textures/texture_", ft_itoa(i));
 		s1 = ft_strjoin(s, ".xpm");
-		free(s);
+		free_str(s);
 		rvar->roll_cat[i].path = ft_strnew(ft_strlen(s1) + 1);
 		rvar->roll_cat[i].path = ft_strcat(rvar->roll_cat[i].path, s1);
 	}

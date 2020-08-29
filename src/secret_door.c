@@ -27,7 +27,7 @@ void	init_door(t_map *rvar)
 	{
 		s = ft_strjoin("./textures/door/texture_", ft_itoa(i));
 		s1 = ft_strjoin(s, ".xpm");
-		free(s);
+		free_str(s);
 		if (!s1)
 			free_program_var(rvar, "The str of secret  door path fail\n", NULL);
 		rvar->door[i].path = s1;

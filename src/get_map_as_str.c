@@ -37,13 +37,13 @@ static char	*read_from_buffer(t_map *rvar, char *fst_line)
 		buffer[nb_read] = '\0';
 		if (!(s1 = ft_strnew(ft_strlen(fst_line) + nb_read + 1)))
 		{
-			free(fst_line);
+			free_str(fst_line);
 			free_program_var(rvar, "fail malloc to map str", NULL);
 		}
 		if (fst_line)
 		{
 			ft_strcat(s1, fst_line);
-			free(fst_line);
+			free_str(fst_line);
 		}
 		ft_strcat(s1, buffer);
 		fst_line = s1;

@@ -15,19 +15,19 @@
 static void	free_texture_path(t_map *rvar)
 {
 	if (rvar->no)
-		free(rvar->no);
+		free_str(rvar->no);
 	if (rvar->so)
-		free(rvar->so);
+		free_str(rvar->so);
 	if (rvar->we)
-		free(rvar->we);
+		free_str(rvar->we);
 	if (rvar->ea)
-		free(rvar->ea);
+		free_str(rvar->ea);
 	if (rvar->s)
-		free(rvar->s);
+		free_str(rvar->s);
 	if (rvar->f)
-		free(rvar->f);
+		free_str(rvar->f);
 	if (rvar->c)
-		free(rvar->c);
+		free_str(rvar->c);
 }
 
 static void	free_map(t_map *rvar)
@@ -38,13 +38,11 @@ static void	free_map(t_map *rvar)
 	if (rvar->map)
 	{
 		while (++i < rvar->line)
-		{
 			if (rvar->map[i])
 			{
 				free(rvar->map[i]);
 				rvar->map[i] = NULL;
 			}
-		}
 		free(rvar->map);
 		rvar->map = NULL;
 	}
@@ -52,9 +50,6 @@ static void	free_map(t_map *rvar)
 
 static void	free_wall_texture(t_map *rvar)
 {
-	int	i;
-
-	i = -1;
 	if (rvar->textures)
 	{
 		free(rvar->textures);
@@ -71,7 +66,7 @@ void		free_secret_door(t_map *r)
 	{
 		while (++i < 5)
 			if (r->door[i].path)
-				free(r->door[i].path);
+				free_str(r->door[i].path);
 		free(r->door);
 		r->door = NULL;
 	}
@@ -85,14 +80,14 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 		mlx_destroy_window(rvar->mlx_ptr, rvar->win_ptr);
 	}
 	if (rvar->map_str)
-	{
-		free(rvar->map_str);
-		rvar->map_str = NULL;
-	}
+		free_str(rvar->map_str);
 	free_texture_path(rvar);
 	free_map(rvar);
 	if (rvar->spr_buffer)
+	{
 		free(rvar->spr_buffer);
+		rvar->spr_buffer = NULL;
+	}
 	free_wall_texture(rvar);
 	free_hitpoint(rvar);
 	free_spr_img(rvar);
