@@ -54,11 +54,14 @@ static char	*read_from_buffer(t_map *rvar, char *fst_line)
 void		get_map_as_str(t_map *rvar, char *first_line)
 {
 	char	*s1;
+	char	*tmp;
 
-	first_line = add_first_line(rvar, first_line);
+	tmp = add_first_line(rvar, first_line);
+	free_str(first_line);
+	first_line = tmp;
 	s1 = read_from_buffer(rvar, first_line);
 	if (!s1)
-		free_program_var(rvar, "it is an empyrt map", NULL);
+		free_program_var(rvar, "it is an empty map", NULL);
 	rvar->map_str = s1;
 	close(rvar->fd);
 }
