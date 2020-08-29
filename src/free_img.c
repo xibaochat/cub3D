@@ -102,6 +102,6 @@ void	free_spr_img(t_map *rvar)
 		free(rvar->roll_cat);
 		rvar->roll_cat = NULL;
 	}
-	free_weapons(rvar);
+	/* free_weapons(rvar); */
 	free_sprites_selon_type_spr(rvar);
 }
