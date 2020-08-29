@@ -92,6 +92,7 @@ void		get_info_from_map(t_map *r)
 			else
 				get_tex_dir_path(line, r);
 		}
+		free_str(line);
 	}
 	if (!value)
 		free_program_var(r, "The map is empty\n", NULL);
