@@ -77,4 +77,5 @@ void		get_tex_dir_path(char *line, t_map *r)
 	if (!line[i])
 		free_program_var(r, "empty texture path", NULL);
 	assign_tex_path(line, s, r, i);
+	free_str(s);
 }
