@@ -56,6 +56,8 @@ void		get_map_as_str(t_map *rvar, char *first_line)
 	char	*s1;
 	char	*tmp;
 
+	s1 = NULL;
+	tmp = NULL;
 	tmp = add_first_line(rvar, first_line);
 	free_str(first_line);
 	first_line = tmp;
