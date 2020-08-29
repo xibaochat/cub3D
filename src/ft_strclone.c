@@ -1,6 +1,6 @@
 #include "../include/cub3d.h"
 
-char	*ft_strclone(const char *s)
+char	*ft_strclone(char *s)
 {
 	char *clone;
 
