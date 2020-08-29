@@ -88,7 +88,8 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 		free(rvar->spr_buffer);
 		rvar->spr_buffer = NULL;
 	}
-	free_wall_texture(rvar);
+	/* IT SEEMS WE DON"T NEED TO FREE THAT ? o.O */
+	/* free_wall_texture(rvar); */
 	free_hitpoint(rvar);
 	free_spr_img(rvar);
 	free_secret_door(rvar);
