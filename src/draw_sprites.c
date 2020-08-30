@@ -82,8 +82,7 @@ void		draw_sprites(t_map *rvar)
 	total_nb_sprite = get_total_nb_sprites(rvar);
 	rvar->nb_spr = total_nb_sprite;
 	store_chaque_indi_spr_addr_in_an_array(rvar, total_nb_sprite);
-	rvar->sprite_order = get_sprites_order(rvar, \
-	rvar->sprite_order, total_nb_sprite);
+	set_sprites_order(rvar, rvar->sprite_order, total_nb_sprite);
 	while (++i < total_nb_sprite)
 	{
 		if (rvar->sprite_order[i]->hitpoint > 0)

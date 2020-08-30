@@ -38,7 +38,7 @@ static void	sortsprites(t_spr **order, double *dis, int total_nb_sprite)
 	}
 }
 
-t_spr		**get_sprites_order(t_map *r, t_spr **spr_order, int total_nb_spr)
+void		set_sprites_order(t_map *r, t_spr **spr_order, int total_nb_spr)
 {
 	int		i;
 	double	*sprite_distance;
@@ -52,7 +52,8 @@ t_spr		**get_sprites_order(t_map *r, t_spr **spr_order, int total_nb_spr)
 		sprite_distance[i] = pow((r->pos_x - spr_order[i]->x), 2) +
 			pow((r->pos_y - spr_order[i]->y), 2);
 	}
+	if (r->sprite_distance)
+		free(r->sprite_distance);
 	r->sprite_distance = sprite_distance;
 	sortsprites(spr_order, sprite_distance, total_nb_spr);
-	return (spr_order);
 }
