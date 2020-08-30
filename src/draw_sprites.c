@@ -62,6 +62,8 @@ void		store_chaque_indi_spr_addr_in_an_array(t_map *rvar,\
 
 	i = -1;
 	j = -1;
+	if (rvar->sprite_order)
+		free(rvar->sprite_order);
 	if (!(rvar->sprite_order = (t_spr **)malloc(sizeof(t_spr *) \
 	* total_nb_sprite)))
 		free_program_var(rvar, "Malloc failed in function draw_sprite\n", NULL);
