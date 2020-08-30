@@ -17,11 +17,11 @@ void	reset_rayon_var(t_map *r, int x)
 	double	r0;
 	double	r1;
 
-	r0 = (r->ray_dir_y * r->ray_dir_y) / (r->ray_dir_x * r->ray_dir_x);
-	r1 = (r->ray_dir_x * r->ray_dir_x) / (r->ray_dir_y * r->ray_dir_y);
 	r->camera_x = 2 * x / (double)r->width - 1;
 	r->ray_dir_x = r->dir_x + (r->plane_x) * (r->camera_x);
 	r->ray_dir_y = r->dir_y + (r->plane_y) * (r->camera_x);
+	r0 = (r->ray_dir_y * r->ray_dir_y) / (r->ray_dir_x * r->ray_dir_x);
+	r1 = (r->ray_dir_x * r->ray_dir_x) / (r->ray_dir_y * r->ray_dir_y);
 	r->map_x = (int)(r->pos_x);
 	r->map_y = (int)(r->pos_y);
 	r->delta_dist_x = sqrt(1 + r0);
