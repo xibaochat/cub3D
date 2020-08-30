@@ -53,7 +53,7 @@
 #  define LEFT_ARROW_KEY 65361
 #  define RIGHT_ARROW_KEY  65363
 #  define ESCAPE_KEY 65307
-#  define SHOOTING 256
+#  define SHOOTING 65507
 #  define COUTEAU 12
 # endif
 
