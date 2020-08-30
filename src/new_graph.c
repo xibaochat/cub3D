@@ -14,6 +14,8 @@
 
 static void	init_img_to_draw(t_map *r)
 {
+	if (r->image_ptr)
+		mlx_destroy_image(r->mlx_ptr, r->image_ptr);
 	r->image_ptr = mlx_new_image(r->mlx_ptr, r->width, r->height);
 	r->addr = mlx_get_data_addr(r->image_ptr, &(r->bpp),
 									&(r->size_line), &(r->endian));
