@@ -32,6 +32,7 @@ void	inser_hurt(t_map *r, double new_pos_x, double new_pos_y)
 		((r->lucky_value == (r->all_spr + 3)->nb_occur)))
 	{
 		free_program_var(r, NULL, NULL);
+		get_next_line(-42, NULL); // We call gnl to empty the static var
 		get_final_map(r, "maps/my_map02.cub");
 		r->round++;
 		start(r);

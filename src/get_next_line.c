@@ -111,7 +111,8 @@ int					get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 	{
-		free_str(str);
+		free(str);
+		str = NULL;
 		return (-1);
 	}
 	if (no_newline_in_str(str))
