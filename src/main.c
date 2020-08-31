@@ -20,8 +20,8 @@ void	start(t_map *rvar)
 	rvar->width, rvar->height, "CAT BATTLE")))
 		free_program_var(rvar, "Mlx new win failed\n", NULL);
 	new_graph(rvar);
-	mlx_hook(rvar->win_ptr, 4, 0, mouse_press_hook, rvar);
-	mlx_hook(rvar->win_ptr, 5, 0, mouse_release_hook, rvar);
+	//mlx_hook(rvar->win_ptr, 4, 0, mouse_press_hook, rvar);
+	//mlx_hook(rvar->win_ptr, 5, 0, mouse_release_hook, rvar);
 	mlx_hook(rvar->win_ptr, 2, (1L << 0), press, rvar);
 	mlx_hook(rvar->win_ptr, 3, (1L << 1), release, rvar);
 	mlx_hook(rvar->win_ptr, 17, (1L << 0), close_red_button, rvar);

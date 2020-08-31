@@ -44,8 +44,8 @@
 #  define SHOOTING 256
 #  define COUTEAU 12
 # elif __linux__
-#  define MOVE_SPEED 0.045
-#  define ROT_SPEED 0.015
+#  define MOVE_SPEED 0.065
+#  define ROT_SPEED 0.030
 #  define W_KEY 119
 #  define A_KEY 97
 #  define S_KEY 115
@@ -54,7 +54,7 @@
 #  define RIGHT_ARROW_KEY  65363
 #  define ESCAPE_KEY 65307
 #  define SHOOTING 65507
-#  define COUTEAU 12
+#  define COUTEAU 113
 # endif
 
 # define NB_WEAPONS 2
