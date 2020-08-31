@@ -19,6 +19,7 @@ int	manage_rotation_arrow(int keycode, t_map *r)
 	if (keycode == RIGHT_ARROW_KEY)
 		change_right_rotation_dir(r);
 	mlx_destroy_image(r->mlx_ptr, r->image_ptr);
+	r->image_ptr = NULL;
 	new_graph(r);
 	return (0);
 }

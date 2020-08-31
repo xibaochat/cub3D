@@ -45,6 +45,7 @@ int			movement(t_map *r)
 	if (has_moved(r))
 	{
 		mlx_destroy_image(r->mlx_ptr, r->image_ptr);
+		r->image_ptr = NULL;
 		move_action(r);
 		manage_sound_based_on_pos(r);
 		set_new_pos_and_value_after_pick_spr(r);
