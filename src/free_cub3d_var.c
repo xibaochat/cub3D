@@ -78,6 +78,7 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 	{
 		mlx_clear_window(rvar->mlx_ptr, rvar->win_ptr);
 		mlx_destroy_window(rvar->mlx_ptr, rvar->win_ptr);
+		rvar->win_ptr = NULL;
 	}
 	if (rvar->map_str)
 		free_str(rvar->map_str);
