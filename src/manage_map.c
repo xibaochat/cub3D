@@ -14,11 +14,24 @@
 
 void	check_resolution_validity(t_map *r)
 {
+	int max_w;
+	int max_h;
+
 	if ((r->width) < MIN_VALID_WIDTH ||
-		(r->width) > MAX_VALID_WIDTH ||
-		(r->height) < MIN_VALID_HEIGHT ||
-		(r->height) > MAX_VALID_HEIGHT)
-		free_program_var(r, "Resolution value is invalid", NULL);
+		(r->height) < MIN_VALID_HEIGHT)
+	{
+		r->width = 640;
+		r->height = 480;
+		return ;
+	}
+
+	mlx_get_screen_size(r->mlx_ptr, &max_w, &max_h);
+	if ((r->width) > max_w ||
+		(r->height) > max_w)
+	{
+		r->width = max_w;
+		r->height = max_h;
+	}
 }
 
 void	get_map_taille(t_map *rvar, char *line)

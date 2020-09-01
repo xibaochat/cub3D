@@ -57,8 +57,6 @@ int		main(int ac, char **av)
 		if (ac == 2)
 			system("afplay ./sounds/avril_14th.mp3 &");
 		rvar.round = 0;
-		if (!(rvar.mlx_ptr = mlx_init()))
-			free_program_var(&rvar, "Mlx initialization failed", NULL);
 		if (!rvar.save_bmp)
 			show_cover_menu(&rvar);
 		else

@@ -23,9 +23,9 @@
 # include <errno.h>
 # include "../libft/libft.h"
 
-# define MAX_VALID_WIDTH 1920
+//# define MAX_VALID_WIDTH 1920
 # define MIN_VALID_WIDTH 250
-# define MAX_VALID_HEIGHT 1080
+//# define MAX_VALID_HEIGHT 1080
 # define MIN_VALID_HEIGHT 250
 # define NB_SPRITE 6
 # define BUFFER_SIZE 1

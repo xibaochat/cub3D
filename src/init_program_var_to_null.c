@@ -33,7 +33,6 @@ void	init_program_var(t_map *r)
 	r->spr_buffer = NULL;
 	r->spr_img_ptr = NULL;
 	r->spr_tex = NULL;
-	r->mlx_ptr = NULL;
 	r->win_ptr = NULL;
 	r->image_ptr = NULL;
 	r->addr = NULL;
@@ -52,4 +51,7 @@ void	init_program_var(t_map *r)
 	r->f = NULL;
 	r->c = NULL;
 	r->sprite_order = NULL;
+
+	if (!(r->mlx_ptr = mlx_init()))
+		free_program_var(r, "Mlx initialization failed", NULL);
 }
