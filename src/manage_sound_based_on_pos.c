@@ -12,14 +12,14 @@
 
 #include "../include/cub3d.h"
 
-void	manage_sound_based_on_pos(t_map *r)
-{
-	if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 3)
-		system("afplay ./sounds/miao.mp3 &");
-	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 4)
-		system("afplay ./sounds/badcat_miao.mp3 &");
-	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 5)
-		system("afplay ./sounds/rollcat.mp3 &");
-	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y + 3] == 6)
-		system("afplay ./sounds/guzheng.mp3 &");
-}
+/* void	manage_sound_based_on_pos(t_map *r) */
+/* { */
+/* 	if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 3) */
+/* 		system("afplay ./sounds/miao.mp3 &"); */
+/* 	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 4) */
+/* 		system("afplay ./sounds/badcat_miao.mp3 &"); */
+/* 	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y] == 5) */
+/* 		system("afplay ./sounds/rollcat.mp3 &"); */
+/* 	else if (r->map[(int)r->new_pos_x][(int)r->new_pos_y + 3] == 6) */
+/* 		system("afplay ./sounds/guzheng.mp3 &"); */
+/* } */

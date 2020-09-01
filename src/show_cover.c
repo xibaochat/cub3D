@@ -26,7 +26,7 @@ int			close_red_button(t_map *rvar, void *p)
 {
 	if (p)
 	{
-		system("pkill -9 afplay");
+		//system("pkill -9 afplay");
 		free_program_var(rvar, "The program is closed\n", NULL);
 	}
 	return (-1);
@@ -34,12 +34,9 @@ int			close_red_button(t_map *rvar, void *p)
 
 static int	funct(int keycode, t_map *rvar)
 {
-	if (keycode == 36)
-	{
-		mlx_destroy_window(rvar->mlx_ptr, rvar->win_ptr);
-		start(rvar);
-	}
-	if (keycode == 53)
+	if (keycode != ESCAPE)
+		ft_putstr("Please click to play :)\n");
+	if (keycode == ESCAPE)
 	{
 		system("pkill -9 afplay");
 		free_program_var(rvar, "The program is closed\n", NULL);
@@ -60,6 +57,7 @@ void		show_cover_menu(t_map *r)
 	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, cover_img, 0, 0);
 	mlx_key_hook(r->win_ptr, funct, r);
 	mlx_mouse_hook(r->win_ptr, click_to_enter, r);
-	mlx_hook(r->win_ptr, 17, (1L << 0), close_red_button, r);
+	mlx_hook(r->win_ptr, 17, (1L << 17), close_red_button, r);
 	mlx_loop(r->mlx_ptr);
+
 }

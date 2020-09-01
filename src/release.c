@@ -16,7 +16,7 @@ int	release(int keycode, t_map *rvar)
 {
 	if (keycode == ESCAPE_KEY)
 	{
-		system("killall afplay");
+		//system("killall afplay");
 		exit(0);
 	}
 	else if (keycode == W_KEY)

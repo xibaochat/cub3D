@@ -47,7 +47,7 @@ int			movement(t_map *r)
 		mlx_destroy_image(r->mlx_ptr, r->image_ptr);
 		r->image_ptr = NULL;
 		move_action(r);
-		manage_sound_based_on_pos(r);
+		//manage_sound_based_on_pos(r);
 		set_new_pos_and_value_after_pick_spr(r);
 		inser_hurt(r, r->new_pos_x, r->new_pos_y);
 	}

@@ -19,7 +19,7 @@ void	bowing_weapon(t_map *rvar)
 	rvar->nb_press++;
 	if (rvar->nb_press % 3 == 0)
 	{
-		system("afplay ./sounds/potato.mp3 &");
+		//system("afplay ./sounds/potato.mp3 &");
 		rvar->nb_weap_tex++;
 	}
 	tex = rvar->weaps[1].tex[rvar->nb_weap_tex];
@@ -40,7 +40,7 @@ void	shoot_weapon(t_map *rvar)
 	rvar->nb_press++;
 	if (rvar->nb_press % 3 == 0)
 	{
-		system("afplay ./sounds/gun_shoot.mp3 &");
+		//system("afplay ./sounds/gun_shoot.mp3 &");
 		rvar->nb_weap_tex++;
 	}
 	if (rvar->nb_weap_tex == 0)

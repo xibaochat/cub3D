@@ -28,11 +28,6 @@ static void	init_all_textures(t_map *rvar)
 
 void		init_all_path_and_ind_spr_value(t_map *rvar)
 {
-	if (rvar->round)
-	{
-		system("pkill -9 afplay");
-		system("afplay ./sounds/game.mp3 &");
-	}
 	rvar->rot_speed = ROT_SPEED;
 	rvar->open_up = 0;
 	rvar->open_down = 0;

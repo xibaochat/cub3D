@@ -24,7 +24,7 @@ void	start(t_map *rvar)
 	//mlx_hook(rvar->win_ptr, 5, 0, mouse_release_hook, rvar);
 	mlx_hook(rvar->win_ptr, 2, (1L << 0), press, rvar);
 	mlx_hook(rvar->win_ptr, 3, (1L << 1), release, rvar);
-	mlx_hook(rvar->win_ptr, 17, (1L << 0), close_red_button, rvar);
+	mlx_hook(rvar->win_ptr, 17, (1L << 17), close_red_button, rvar);
 	mlx_loop_hook(rvar->mlx_ptr, movement, rvar);
 }
 
@@ -54,8 +54,8 @@ int		main(int ac, char **av)
 	first_init_sprite(&rvar);
 	if (ac >= 2)
 	{
-		if (ac == 2)
-			system("afplay ./sounds/avril_14th.mp3 &");
+		//if (ac == 2)
+			//system("afplay ./sounds/avril_14th.mp3 &");
 		rvar.round = 0;
 		if (!rvar.save_bmp)
 			show_cover_menu(&rvar);

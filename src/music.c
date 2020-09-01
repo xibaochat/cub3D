@@ -14,7 +14,7 @@
 
 void	insert_warn(t_map *r)
 {
-	if (r->hitpoint > 0)
-		system("afplay ./sounds/damage.mp3 &");
+//	if (r->hitpoint > 0)
+		//system("afplay ./sounds/damage.mp3 &");
 	r->hitpoint -= 5;
 }

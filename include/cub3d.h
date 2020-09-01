@@ -44,6 +44,8 @@
 #  define SHOOTING 256
 #  define COUTEAU 12
 # elif __linux__
+#  define ENTER 65293
+#  define ESCAPE 65307
 #  define MOVE_SPEED 0.065
 #  define ROT_SPEED 0.030
 #  define W_KEY 119
