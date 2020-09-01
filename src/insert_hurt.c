@@ -27,7 +27,7 @@ void	inser_hurt(t_map *r, double new_pos_x, double new_pos_y)
 {
 	if (player_is_knocking_on_wall_or_barrier(r, new_pos_x, new_pos_y))
 		insert_warn(r);
-	if (r->round == 0 && r->score >= 150 &&
+	if (r->round == 0 && r->score == 450 &&
 		(int)r->new_pos_x == 19 && (int)r->new_pos_y == 7 &&
 		((r->lucky_value == (r->all_spr + 3)->nb_occur)))
 		nice_job(r);
