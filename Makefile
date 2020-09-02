@@ -31,7 +31,7 @@ SRCS_NAME = calculation_start_end_point.c  draw_sol.c \
 			free_img.c init_program_var_to_null.c init_mutan.c sprite_calculation.c \
 			change_sprite_tex_index.c new_coor_calc_vertical_move.c new_coor_non_ver_move.c \
 			set_new_pos_and_value_after_pick_spr.c  insert_hurt.c free_str.c ft_strclone.c \
-			first_init_sprite.c
+			first_init_sprite.c  remove_space_before_id.c
 
 
 SRCS_PATH = ./src/

@@ -61,7 +61,7 @@ int		get_next_line_from_str(t_map *rvar, char **str, char **line)
 		return (-1);
 	free_str(*line);
 	*line = ft_strncat(s, *str, i);
-	j = strlen(*str) - i;
+	j = ft_strlen(*str) - i;
 	if (!j)
 		return (0);
 	if ((s1 = ft_strnew(j)))

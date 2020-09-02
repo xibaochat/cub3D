@@ -80,7 +80,8 @@ void		get_info_from_map(t_map *r)
 	{
 		if (line && line[0])
 		{
-			check_space_before_id(r, line);
+			//check_space_before_id(r, line);
+			get_remove_space_str(&line);
 			if (ft_isdigit(line[0]))
 			{
 				get_map_as_str(r, line);

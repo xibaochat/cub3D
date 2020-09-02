@@ -442,5 +442,6 @@ int					save_bmp(t_map *r);
 void				free_str(char *str);
 char				*ft_strclone(char *s);
 void				first_init_sprite(t_map *r);
+void        		get_remove_space_str(char **str);
 
 #endif

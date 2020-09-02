@@ -94,8 +94,8 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 	/* free_hitpoint(rvar); */
 	/* free_spr_img(rvar); */
 	free_secret_door(rvar);
-	if (rvar->round == 0)
-		ft_error(s1, s2);
-	else
-		final_message(s1, s2);
+//	if (rvar->round == 0)
+	ft_error(s1, s2);
+//	else
+//		final_message(s1, s2);
 }
