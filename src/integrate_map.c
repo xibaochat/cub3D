@@ -80,23 +80,23 @@ void		get_info_from_map(t_map *r)
 	{
 		if (line && line[0])
 		{
-			//check_space_before_id(r, line);
 			get_remove_space_str(&line);
 			if (ft_isdigit(line[0]))
 			{
-				get_map_as_str(r, line);
-				get_next_line(-42, &line);
-				break ;
+				if (map_info_id_all_get(r))
+				{
+					extract_map_as_str(&line, r);
+					break ;
+				}
+				else
+					free_program_var(r, \
+				"Map info and map content should be seperated\n", NULL);
 			}
-			if (is_resolution_id(line))
-				get_map_taille(r, line);
-			else
-				get_tex_dir_path(line, r);
+			get_map_size_tex_dir_path(line, r);
 		}
 		free_str(line);
 	}
-	if (!value)
-		free_program_var(r, "The map is empty\n", NULL);
+	free_value(value, r);
 }
 
 void		get_final_map(t_map *r, char *file)

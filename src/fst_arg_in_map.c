@@ -31,6 +31,10 @@ static void	get_ceil_path(char *path, t_map *r)
 	r->ceil_color.r = atoi_with_index(path, &i);
 	r->ceil_color.g = atoi_with_index(path, &i);
 	r->ceil_color.b = atoi_with_index(path, &i);
+	if (path && path[i])
+		free_program_var(r,\
+		"The color format is invalid\n", NULL);
+
 	if (color_is_valid(r->ceil_color, r))
 		r->c = path;
 }
@@ -74,8 +78,9 @@ void		get_tex_dir_path(char *line, t_map *r)
 		i++;
 	s = ft_strnew(i + 1);
 	s = ft_strncat(s, line, i);
+	map_info_id_validity(r, s);
 	if (!line[i])
-		free_program_var(r, "empty texture path", NULL);
+		free_program_var(r, "Empty texture path\n", NULL);
 	assign_tex_path(line, s, r, i);
 	free_str(s);
 }

@@ -443,5 +443,10 @@ void				free_str(char *str);
 char				*ft_strclone(char *s);
 void				first_init_sprite(t_map *r);
 void        		get_remove_space_str(char **str);
+void				map_info_id_validity(t_map *r, char *s);
+int					map_info_id_all_get(t_map *r);
+void				extract_map_as_str(char **line, t_map *r);
+void				get_map_size_tex_dir_path(char *line, t_map *r);
+void				free_value(int v, t_map *r);
 
 #endif
