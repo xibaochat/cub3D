@@ -62,20 +62,27 @@ int	start_end_has_wall(t_map *rvar, char *str)
 	return (-1);
 }
 
-int	has_invalid_alpha(t_map *rvar, char *str)
+void	check_invalid_alpha(t_map *rvar, char *str, int *mark)
 {
 	int	i;
 
-	i = 1;
-	while (str[i])
+	i = 0;
+	if (str)
 	{
-		if ((i % 2 == 1 && str[i] == ' ') ||
-			(i % 2 == 0 && (ft_isdigit(str[i]) ||
-			is_dir_mark(str[i]))))
+		while (str[i])
+		{
+			if (str[0] == '\0')
+			{
+				free_str(line);
+				free_program_var(rvar, "Empty line in the map contemt\n",NULL);
+			}
+			if (is_dir_mark(str[i]))
+				(*mark)++;
+			else if (ft_isalpha(str[i]) && !is_dir_mark(str[i]))
+				free_program_var(rvar, "invalid elem in the Map\n",	\
+				"Only space, num and alpha: W N E A are accepted\n");
 			i++;
-		else
-			free_program_var(rvar, "invalid elem in the Map\n",\
-			"only space, num and alpha: W N E A are accepted\n");
+		}
+		free_str(str);
 	}
-	return (0);
 }

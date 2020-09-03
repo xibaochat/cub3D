@@ -80,19 +80,16 @@ void		get_info_from_map(t_map *r)
 	{
 		if (line && line[0])
 		{
-			get_remove_space_str(&line);
-			if (ft_isdigit(line[0]))
+			if (!map_info_id_all_get(r))
 			{
-				if (map_info_id_all_get(r))
-				{
-					extract_map_as_str(&line, r);
-					break ;
-				}
-				else
-					free_program_var(r, \
-				"Map info and map content should be seperated\n", NULL);
+				get_remove_space_str(&line);
+				get_map_size_tex_dir_path(line, r);
 			}
-			get_map_size_tex_dir_path(line, r);
+			else
+			{
+				extract_map_as_str(&line, r);
+				break ;
+			}
 		}
 		free_str(line);
 	}

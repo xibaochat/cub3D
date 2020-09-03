@@ -303,7 +303,7 @@ typedef	struct		s_map
 int					is_all_wall(t_map *r, char *str);
 int					cal_nb_elem(char *str, int *mark);
 int					start_end_has_wall(t_map *r, char *str);
-int					has_invalid_alpha(t_map *r, char *str);
+int					check_invalid_alpha(t_map *r, char *str, int *mark);
 char				*ft_strnew(int n);
 char				*ft_strcat(char *s1, char *s2);
 void				integrate_map(t_map *r);
@@ -448,5 +448,7 @@ int					map_info_id_all_get(t_map *r);
 void				extract_map_as_str(char **line, t_map *r);
 void				get_map_size_tex_dir_path(char *line, t_map *r);
 void				free_value(int v, t_map *r);
-
+int					has_invalid_ele_in_map(char *line);
+int					get_max_len_of_each_line(int fd, char *str);
+void				validity_map(t_map *r);
 #endif
