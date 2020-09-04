@@ -100,7 +100,7 @@ void	valid_map_on_everyline(t_map *rvar, char *str)
 		"the column of each line in the map is not equal\n", NULL);
 		}
 		start_end_has_wall(rvar, line);
-		has_invalid_alpha(rvar, line);
+		//has_invalid_alpha(rvar, line);
 	}
 	free_str(str);
 	is_all_wall(rvar, line);

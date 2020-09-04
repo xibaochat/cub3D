@@ -303,7 +303,7 @@ typedef	struct		s_map
 int					is_all_wall(t_map *r, char *str);
 int					cal_nb_elem(char *str, int *mark);
 int					start_end_has_wall(t_map *r, char *str);
-int					check_invalid_alpha(t_map *r, char *str, int *mark);
+void					check_invalid_alpha(t_map *r, char *str, int *mark);
 char				*ft_strnew(int n);
 char				*ft_strcat(char *s1, char *s2);
 void				integrate_map(t_map *r);
@@ -356,7 +356,6 @@ int					path_dir_is_validate(char *line, char *path_dir);
 int					valide_texture_path(t_map *r, char *str);
 int					ft_strcmp(char *s1, char *s2);
 int					get_next_line_from_str(t_map *r, char **str, char **line);
-void				valid_map_on_everyline(t_map *r, char *str);
 int					atoi_with_index(const char *str, int *i);
 int					map_fst_arg_is_invalid(int *i, char *str);
 void				init_r_tex_path(t_map *r);
@@ -451,4 +450,5 @@ void				free_value(int v, t_map *r);
 int					has_invalid_ele_in_map(char *line);
 int					get_max_len_of_each_line(int fd, char *str);
 void				validity_map(t_map *r);
+char				*get_new_map_str(t_map *r, char *str);
 #endif

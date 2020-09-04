@@ -70,7 +70,7 @@ void		integrate_map(t_map *r)
 	}
 }
 
-void		get_info_from_map(t_map *r)
+void get_info_from_map(t_map *r)
 {
 	char	*line;
 	int		value;
@@ -101,9 +101,11 @@ void		get_final_map(t_map *r, char *file)
 	map_is_readable(r, file);
 	init_r_tex_path(r);
 	get_info_from_map(r);
-	valid_map_on_everyline(r, ft_strclone(r->map_str));
-	validate_all_id_are_set(r);
+//	valid_map_on_everyline(r, ft_strclone(r->map_str));
+//	validate_all_id_are_set(r);
+	validity_map(r);
 	get_line(r, r->map_str);
+	get_new_map_str(r, r->map_str);
 	get_column(r, r->map_str);
 	integrate_map(r);
 }

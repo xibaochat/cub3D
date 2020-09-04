@@ -73,8 +73,8 @@ void	check_invalid_alpha(t_map *rvar, char *str, int *mark)
 		{
 			if (str[0] == '\0')
 			{
-				free_str(line);
-				free_program_var(rvar, "Empty line in the map contemt\n",NULL);
+				free_str(str);
+				free_program_var(rvar, "Empty line in the map contenmt\n",NULL);
 			}
 			if (is_dir_mark(str[i]))
 				(*mark)++;
@@ -83,6 +83,5 @@ void	check_invalid_alpha(t_map *rvar, char *str, int *mark)
 				"Only space, num and alpha: W N E A are accepted\n");
 			i++;
 		}
-		free_str(str);
 	}
 }
