@@ -11,7 +11,7 @@ int		floor_color_is_number(t_map *r, char *line)
 			|| line[i] == ',')
 			i++;
 		else
-			free_program_var(r, "Invalid char in floor value\n", NULL);
+			return (0);
 	}
 	return (1);
 }

@@ -22,9 +22,15 @@ char	*extract_path_from_line(t_map *r, char *line, int i)
 	if (!(path = ft_strnew(ft_strlen(line) - i + 1)))
 	{
 		free_str(line);
-		free_program_var(r, "malloc texture path process failed", NULL);
+		free_program_var(r, "Malloc texture path process failed", NULL);
 	}
 	ft_strcat(path, line + i);
+	if (!valide_texture_path(r, path))
+	{
+		free_str(line);
+		free_str(path);
+		free_program_var(r, "Invald texture file\n", NULL);
+	}
 	return (path);
 }
 
