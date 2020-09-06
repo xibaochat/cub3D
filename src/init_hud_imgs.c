@@ -31,6 +31,6 @@ static void	init_score(t_map *r)
 
 void		init_hud_imgs(t_map *r)
 {
-	init_floor_imgs(r);
+//	init_floor_imgs(r);
 	init_score(r);
 }
