@@ -43,7 +43,7 @@ void		new_graph(t_map *r)
 		init_img_to_draw(r);
 		set_curr_sprites_tex(r);
 		init_enemy_die(r);
-		draw_floor(r);
+//		draw_floor(r);
 		draw_walls(r);
 		draw_sprites(r);
 		if (r->save_bmp)
