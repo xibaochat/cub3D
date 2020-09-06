@@ -57,7 +57,11 @@ static void	get_sprite_floor_tex_path(char *s, char *path, t_map *r)
 	if (!ft_strcmp(s, "S"))
 	{
 		if (!r->s)
+		{
+			if (!valide_texture_path(r, path))
+				free_program_var(r, "Texture file does not exit\n", NULL);
 			r->s = path;
+		}
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
 

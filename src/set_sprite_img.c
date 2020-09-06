@@ -12,6 +12,18 @@
 
 #include "../include/cub3d.h"
 
+static void validate_texture_exist(t_map *rvar, char *tex)
+{
+	int	fd;
+
+	fd = open(tex, O_RDONLY);
+	if (fd == -1)
+		free_program_var(rvar, "Texture file does not exit\n", NULL);
+	else
+		close(fd);
+
+}
+
 void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 {
 	char	*filepath;
@@ -33,6 +45,7 @@ void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
 			filepath = rvar->door[rvar->nb_door].path;
 		if (spr->img)
 			mlx_destroy_image(rvar->mlx_ptr, spr->img);
+		validate_texture_exist(rvar, filepath);
 		spr->img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 		filepath, &spr->width, &spr->height);
 		if (!spr->img)
