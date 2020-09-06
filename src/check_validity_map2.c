@@ -20,7 +20,7 @@ char	*get_next_line_from_s(char *s)
 	return (line);
 }
 
-void	is_all_wall_covered(t_map *r, int fd)
+static void	is_all_wall_covered(t_map *r, int fd)
 {
 	char	*line;
 	int		mark;
@@ -44,7 +44,7 @@ void	is_all_wall_covered(t_map *r, int fd)
 	}
 }
 
-void	check_map_is_closed(t_map *r, char *map_str)
+static void	check_map_is_closed(t_map *r, char *map_str)
 {
 	int	i;
 
@@ -61,10 +61,40 @@ void	check_map_is_closed(t_map *r, char *map_str)
 	return ;
 }
 
+static int get_last_line_index(char *s)
+{
+	int	i_beg_line;
+	int	i;
+
+	i_beg_line = 0;
+	i = -1;
+	while (s[++i])
+		if (s[i] == '\n' && s[i + 1] && s[i + 1] != '\0' && s[i + 1] != '\n')
+			i_beg_line = i + 1;
+	return (i_beg_line);
+}
+
+static void validate_first_and_last_walls_are_closed(t_map *rvar, char *map_str)
+{
+	int	i;
+
+	i = -1;
+	while (map_str[++i] != '\n')
+		if (map_str[i] != '1' && map_str[i] != ' ')
+				free_program_var(rvar, "Map is not closed on first line\n", NULL);
+
+	i = get_last_line_index(map_str) - 1;
+	while (map_str[++i] && map_str[i] != '\n')
+		if (map_str[i] != '1' && map_str[i] != ' ')
+				free_program_var(rvar, "Map is not closed on last line\n", NULL);
+
+}
+
 void	validity_map(t_map *r)
 {
 	if (!r->map_str)
 		free_program_var(r, "Map content is empty\n", NULL);
 	check_map_is_closed(r, r->map_str);
 	is_all_wall_covered(r, r->fd);
+	validate_first_and_last_walls_are_closed(r, r->map_str);
 }
