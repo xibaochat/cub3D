@@ -35,6 +35,7 @@ void		init_all_path_and_ind_spr_value(t_map *rvar)
 	rvar->open_right = 0;
 	rvar->open_a = 0;
 	rvar->open_d = 0;
+	rvar->player_dir = '\0';
 	get_player_pos(rvar);
 	if (!(rvar->spr_buffer = (float *)malloc(sizeof(int) * (rvar->width))))
 		free_program_var(rvar, "Malloc failed in spr_buffer", NULL);

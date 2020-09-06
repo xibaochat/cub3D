@@ -90,4 +90,6 @@ void		get_player_pos(t_map *rvar)
 			i++;
 		}
 	}
+	if (!(rvar->player_dir))
+		free_program_var(rvar, "Mising starting direction\n", NULL);
 }
