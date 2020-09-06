@@ -1,36 +1,28 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check_map_id.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 20:43:15 by osshit            #+#    #+#             */
-/*   Updated: 2020/04/20 18:47:38 by osshit           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/cub3d.h"
 
-void	map_info_id_validity(t_map *r, char *s)
+int is_wall_texture_id(char *line, t_map *r)
 {
-	if (ft_strcmp(s, "SO") && ft_strcmp(s, "WE")
-		&& ft_strcmp(s, "NO") && ft_strcmp(s, "EA")
-		&& ft_strcmp(s, "S")
-		&& ft_strcmp(s, "F") && ft_strcmp(s, "C"))
+	char	*str;
+
+	if (line[0] && line[1])
 	{
-		free_str(s);
-		free_program_var(r, "Map info identifier is invalid\n", NULL);
+		str = ft_strnew(3);
+		str = ft_strncat(str, line, 2);
+		if (!ft_strcmp(str, "SO") || !ft_strcmp(str, "NO") || !ft_strcmp(str, "WE") ||
+			!ft_strcmp(str, "EA"))
+			return (1);
+		else
+			return (0);
 	}
+	return (0);
 }
 
-int		map_info_id_all_get(t_map *r)
+int map_info_id_all_get(t_map *r)
 {
-	if (r->so && r->we && r->no && r->ea
-		&& r->width && r->height
-		&& r->s && r->f && r->c)
-		return (1);
-//	free_program_var(r,										\
-	"Some texture path in the map is unmarkable\n", NULL);
-	return (0);
+    if (r->so && r->we && r->no && r->ea
+        && r->resolution
+        && r->s && r->ceil_has_color
+		&& (r->f || r->f_has_color))
+        return (1);
+    return (0);
 }

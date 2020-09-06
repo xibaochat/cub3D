@@ -20,7 +20,6 @@ void		init_r_tex_path(t_map *r)
 	r->ea = NULL;
 	r->s = NULL;
 	r->f = NULL;
-	r->c = NULL;
 }
 
 static void	cpy_column(int **map, int i, int *k, t_map *r)
@@ -85,11 +84,13 @@ void get_info_from_map(t_map *r)
 				get_remove_space_str(&line);
 				get_map_size_tex_dir_path(line, r);
 			}
-			else
+			else if (map_info_id_all_get && is_map_content(line))
 			{
 				extract_map_as_str(&line, r);
 				break ;
 			}
+			else
+				free_program_var(r, "Wrong Map\n", NULL);
 		}
 		free_str(line);
 	}
@@ -101,8 +102,6 @@ void		get_final_map(t_map *r, char *file)
 	map_is_readable(r, file);
 	init_r_tex_path(r);
 	get_info_from_map(r);
-//	valid_map_on_everyline(r, ft_strclone(r->map_str));
-//	validate_all_id_are_set(r);
 	validity_map(r);
 	get_line(r, r->map_str);
 	get_new_map_str(r, r->map_str);

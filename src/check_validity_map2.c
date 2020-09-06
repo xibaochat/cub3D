@@ -1,11 +1,11 @@
 #include "../include/cub3d.h"
 
-char *get_next_line_from_s(char *s)
+char	*get_next_line_from_s(char *s)
 {
-	static int i = 0;
-	int i_origin;
-	char *line;
-	int	len;
+	static int	i = 0;
+	int			i_origin;
+	char		*line;
+	int			len;
 
 	if (!s[i])
 		return (NULL);

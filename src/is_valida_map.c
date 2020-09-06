@@ -27,13 +27,17 @@ int		valide_texture_path(t_map *rvar, char *str)
 	if (fd >= 3)
 	{
 		close(fd);
-		free_program_var(rvar, str, ": Is a directory\n");
+		free_str(str);
+		free_program_var(rvar, str, strerror(errno));
+		return (0);
 	}
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 	{
 		close(fd);
-		free_program_var(rvar, str, ": No such file\n");
+		free_str(str);
+		free_program_var(rvar, str, strerror(errno));
+		return (0);
 	}
 	close(fd);
 	return (1);

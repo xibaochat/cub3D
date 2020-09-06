@@ -24,10 +24,10 @@ void	check_resolution_validity(t_map *r)
 		r->height = 480;
 		return ;
 	}
-
 	mlx_get_screen_size(r->mlx_ptr, &max_w, &max_h);
 	if ((r->width) > max_w ||
 		(r->height) > max_w)
+
 	{
 		r->width = max_w;
 		r->height = max_h;
@@ -37,40 +37,49 @@ void	check_resolution_validity(t_map *r)
 void	get_map_taille(t_map *rvar, char *line)
 {
 	int	i;
+	int	j;
 
 	i = 1;
-	while (line[i] && is_space(line[i]))
-		++i;
-	rvar->width = atoi_with_index(line, &i);
-	rvar->height = atoi_with_index(line, &i);
+	j = 0;
+	rvar->width = atoi_with_index(line, &i, &j);
+	rvar->height = atoi_with_index(line, &i, &j);
+	atoi_with_index(line, &i, &j);
+	if (j > 2)
+	{
+		free_str(line);
+		free_program_var(rvar, \
+		"Map size is wrong\n", NULL);
+	}
+	rvar->resolution = 1;
 	check_resolution_validity(rvar);
 }
 
-int		is_resolution_id(char *line)
-{
-	if (!line || !line[0] || line[0] != 'R')
-		return (0);
-	if (line[0] == 'R' && line[1] && is_space(line[1]))
-		return (1);
-	return (0);
-}
-
-void	check_space_before_id(t_map *rvar, char *line)
+int		is_resolution_id(t_map *r, char *line)
 {
 	int	i;
 
 	i = 0;
-	while (line[i] && is_space(line[i]))
-		i++;
-	if (i > 0)
-		free_program_var(rvar, "Space before identifier.", NULL);
+	if (line[0] != 'R')
+		return (0);
+	i++;
+	while (line[i])
+	{
+		if (is_space(line[i])|| ft_isdigit(line[i]))
+			i++;
+		else
+		{
+			free_str(line);
+			free_program_var(r, "Wrong Map\n", NULL);
+		}
+		return (1);
+	}
 }
 
 void	validate_all_id_are_set(t_map *rvar)
 {
 	if (!rvar->no || !rvar->so || !rvar->we
 		|| !rvar->ea || !rvar->s
-		|| !rvar->c || !rvar->f)
+		|| !rvar->f)
 		free_program_var(rvar, \
 		"Some texture path in the map is unmarkable\n", NULL);
 }

@@ -12,69 +12,69 @@
 
 #include "../include/cub3d.h"
 
-static void	get_ns_texture_path(char *s, char *path, t_map *rvar)
+static void	get_ns_texture_path(char *s, char *path, t_map *r)
 {
 	if (!ft_strcmp(s, "NO"))
 	{
-		if (!rvar->no)
-			rvar->no = path;
+		if (!r->no)
+			r->no = path;
 		else
-			free_program_var(rvar, \
-		"NO path ", "is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 	else if (!ft_strcmp(s, "SO"))
 	{
-		if (!rvar->so)
-			rvar->so = path;
+		if (!r->so)
+			r->so = path;
 		else
-			free_program_var(rvar, "SO path ", \
-	"is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 }
 
-static void	get_wa_texture_path(char *s, char *path, t_map *rvar)
+static void	get_wa_texture_path(char *s, char *path, t_map *r)
 {
 	if (!ft_strcmp(s, "WE"))
 	{
-		if (!rvar->we)
-			rvar->we = path;
+		if (!r->we)
+			r->we = path;
 		else
-			free_program_var(rvar, "WE path ", \
-		"is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 	else if (!ft_strcmp(s, "EA"))
 	{
-		if (!rvar->ea)
-			rvar->ea = path;
+		if (!r->ea)
+			r->ea = path;
 		else
-			free_program_var(rvar, "EA path ", \
-		"is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 }
 
-static void	get_sprite_floor_tex_path(char *s, char *path, t_map *rvar)
+static void	get_sprite_floor_tex_path(char *s, char *path, t_map *r)
 {
 	if (!ft_strcmp(s, "S"))
 	{
-		if (!rvar->s)
-			rvar->s = path;
+		if (!r->s)
+			r->s = path;
 		else
-			free_program_var(rvar, "S path ", \
-		"is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 	else if (!ft_strcmp(s, "F"))
 	{
-		if (!rvar->f)
-			rvar->f = path;
+		if (!r->f)
+			r->f = path;
 		else
-			free_program_var(rvar, "F path ", \
-		"is defined more than one time\n");
+			free_program_str(r, s, path, "path defined multi times\n");
+
 	}
 }
 
-void		get_all_texture_path(char *s, char *path, t_map *rvar)
+void		get_all_texture_path(char *s, char *path, t_map *r)
 {
-	get_ns_texture_path(s, path, rvar);
-	get_wa_texture_path(s, path, rvar);
-	get_sprite_floor_tex_path(s, path, rvar);
+	get_ns_texture_path(s, path, r);
+	get_wa_texture_path(s, path, r);
+	get_sprite_floor_tex_path(s, path, r);
 }
