@@ -15,10 +15,10 @@
 void	start(t_map *rvar)
 {
 	init_player_stats(rvar);
-	init_all_path_and_ind_spr_value(rvar);
 	if (!(rvar->win_ptr = mlx_new_window(rvar->mlx_ptr, \
 	rvar->width, rvar->height, "CAT BATTLE")))
 		free_program_var(rvar, "Mlx new win failed\n", NULL);
+	init_all_path_and_ind_spr_value(rvar);
 	new_graph(rvar);
 	//mlx_hook(rvar->win_ptr, 4, 0, mouse_press_hook, rvar);
 	//mlx_hook(rvar->win_ptr, 5, 0, mouse_release_hook, rvar);

@@ -35,6 +35,8 @@ void		init_wall_tex_info(t_map *rvar)
 	{
 		rvar->textures[i].img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 	get_tex_path(rvar, i), &(rvar->textures[i].w), &(rvar->textures[i].h));
+		if (rvar->textures[i].img == NULL)
+			free_program_var(rvar, "Error during Xpm file to image\n", NULL);
 		rvar->textures[i].addr = mlx_get_data_addr(rvar->textures[i].img, \
 	&(rvar->bpp), &(rvar->s_l), &(rvar->endian));
 	}
