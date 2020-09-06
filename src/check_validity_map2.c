@@ -55,6 +55,8 @@ void	check_map_is_closed(t_map *r, char *map_str)
 			&& ((map_str[i + 1] && (map_str[i + 1] == ' ' || map_str[i + 1] == '\n') ||
 				 (i > 0 && (map_str[i - 1] == ' ' || map_str[i - 1] == '\n')))))
 			free_program_var(r, "Wrong Map\n", NULL);
+		if (map_str[i] == '\n' && map_str[i + 1] && map_str[i + 1] == '\n')
+			free_program_var(r, "Wrong Map\n", NULL);
 	}
 	return ;
 }
