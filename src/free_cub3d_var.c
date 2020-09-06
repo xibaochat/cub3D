@@ -26,8 +26,8 @@ static void	free_texture_path(t_map *rvar)
 		free_str(rvar->s);
 	if (rvar->f)
 		free_str(rvar->f);
-	if (rvar->c)
-		free_str(rvar->c);
+	/* if (rvar->c) */
+	/* 	free_str(rvar->c); */
 }
 
 static void	free_map(t_map *rvar)

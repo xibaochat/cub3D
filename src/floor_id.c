@@ -4,14 +4,14 @@ int		floor_color_is_number(t_map *r, char *line)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (line[i])
 	{
 		if (is_space(line[i])|| ft_isdigit(line[i])
 			|| line[i] == ',')
 			i++;
 		else
-			return (0);
+			free_program_var(r, "Invalid char in floor value\n", NULL);
 	}
 	return (1);
 }
