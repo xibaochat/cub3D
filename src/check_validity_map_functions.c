@@ -87,7 +87,6 @@ char		*get_new_map_str(t_map *r, char *str)
 	{
 		if (!value)
 			i++;
-		ft_putstr("omsode\n");
 		new_line = get_new_map_line(r, value, line, max_lens);
 		free_str(line);
 		s = ft_strcat(s, new_line);
