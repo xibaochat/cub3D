@@ -18,7 +18,8 @@ void		ft_error(char *str, char *s)
 		&& ft_strcmp(str, "Sorry :(\n")
 		&& ft_strcmp(str, "BMP file is saved\n"))
 		ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
+	if (str)
+		ft_putstr_fd(str, 2);
 	if (s)
 		ft_putstr_fd(s, 2);
 	if (str || s)

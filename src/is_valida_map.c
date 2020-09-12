@@ -28,7 +28,7 @@ int		valide_texture_path(t_map *rvar, char *str)
 	{
 		close(fd);
 		free_str(str);
-		free_program_var(rvar, str, strerror(errno));
+		free_program_var(rvar, strerror(errno), NULL);
 		return (0);
 	}
 	fd = open(str, O_RDONLY);
@@ -36,7 +36,7 @@ int		valide_texture_path(t_map *rvar, char *str)
 	{
 		close(fd);
 		free_str(str);
-		free_program_var(rvar, str, strerror(errno));
+		free_program_var(rvar, strerror(errno), NULL);
 		return (0);
 	}
 	close(fd);
