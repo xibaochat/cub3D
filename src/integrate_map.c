@@ -22,7 +22,7 @@ void		init_r_tex_path(t_map *r)
 	r->f = NULL;
 }
 
-static void	cpy_column(int **map, int i, int *k, t_map *r)
+static void	cpy_line(int **map, int i, int *k, t_map *r)
 {
 	int	j;
 
@@ -31,15 +31,15 @@ static void	cpy_column(int **map, int i, int *k, t_map *r)
 	{
 		if (ft_isdigit(r->map_str[*k]))
 		{
-			map[i][j++] = r->map_str[*k] - '0';
+			map[i][j] = r->map_str[*k] - '0';
 		}
-		else if (r->map_str[*k] == 'N' || r->map_str[*k] == 'S' ||
-				r->map_str[*k] == 'W' || r->map_str[*k] == 'E')
+		else if (is_dir_mark(r->map_str[*k]))
 		{
 			r->player_dir = r->map_str[*k];
-			map[i][j++] = 0;
+			map[i][j] = 0;
 		}
 		(*k)++;
+		++j;
 	}
 }
 
@@ -63,7 +63,7 @@ void		integrate_map(t_map *r)
 	{
 		if (!(r->map[i] = (int *)malloc(sizeof(int) * (r->column))))
 			free_program_var(r, "malloc fail:", "r->map[i]");
-		cpy_column(r->map, i, &k, r);
+		cpy_line(r->map, i, &k, r);
 		if (r->map_str[k] && r->map_str[k] == '\n')
 			k++;
 	}
@@ -105,6 +105,6 @@ void		get_final_map(t_map *r, char *file)
 	validity_map(r);
 	get_line(r, r->map_str);
 	set_new_map_str(r, r->map_str);
-	get_column(r, r->map_str);
+//	get_column(r, r->map_str);
 	integrate_map(r);
 }

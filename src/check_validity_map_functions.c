@@ -71,6 +71,7 @@ void	set_new_map_str(t_map *r, char *map_str)
 	line = NULL;
 	new_line_with_zero = NULL;
 	max_lens = get_max_len_of_each_line(map_str);
+	r->column = max_lens;
 	new_map = ft_strnew((r->line) * max_lens + 1);
 
 	get_next_line_from_s(NULL);  // to reset static var
