@@ -54,6 +54,8 @@ void		show_cover_menu(t_map *r)
 		free_program_var(r, "Malloc fail in creating window", NULL);
 	cover_img = mlx_xpm_file_to_image(r->mlx_ptr, \
 	"textures/cat_menu.xpm", &w, &h);
+	if (!cover_img)
+		free_program_var(r, "Fail xpm file to image\n", NULL);
 	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, cover_img, 0, 0);
 	mlx_key_hook(r->win_ptr, funct, r);
 	mlx_mouse_hook(r->win_ptr, click_to_enter, r);

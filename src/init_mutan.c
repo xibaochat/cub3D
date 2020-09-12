@@ -45,28 +45,34 @@ char	*get_mutant_tex_path(t_map *rvar, int j)
 	return (str);
 }
 
+static void	init_mutan(t_map *rvar, t_prop *spr, int j)
+{
+	char	*tex_path;
+
+	tex_path = NULL;
+	tex_path = get_mutant_tex_path(rvar, j);
+	if (spr->indi_spr[j].img)
+		mlx_destroy_image(rvar->mlx_ptr, spr->indi_spr[j].img);
+	spr->indi_spr[j].img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
+		tex_path, &spr->width, &spr->height);
+	if (!spr->indi_spr[j].img)
+		free_program_var(rvar, "Fail file to image\n", NULL);
+	spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,	\
+		&(spr->bpp), &(spr->s_l), &(spr->endian));
+	free_str(tex_path);
+}
+
 void	init_mutan_img(t_map *rvar)
 {
 	int		j;
-	char	*tex_path;
 	t_prop	*spr;
 
 	j = -1;
-	tex_path = NULL;
 	spr = rvar->all_spr + 5;
 	while (++j < spr->nb_occur)
 	{
 		if (spr->indi_spr[j].hitpoint > 1)
-		{
-			tex_path = get_mutant_tex_path(rvar, j);
-			if (spr->indi_spr[j].img)
-				mlx_destroy_image(rvar->mlx_ptr, spr->indi_spr[j].img);
-			spr->indi_spr[j].img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
-		tex_path, &spr->width, &spr->height);
-			spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,\
-			&(spr->bpp), &(spr->s_l), &(spr->endian));
-			free_str(tex_path);
-		}
+			init_mutan(rvar, spr, j);
 		else if (spr->indi_spr[j].hitpoint == 1)
 		{
 			spr->indi_spr[j].hitpoint = 0;

@@ -26,4 +26,7 @@ void	init_hitpoint_imgs(t_map *r)
 	"./textures/hitpoint02.xpm", &w, &h);
 	r->hitpoint_img[3] = mlx_xpm_file_to_image(r->mlx_ptr, \
 	"./textures/hitpoint03.xpm", &w, &h);
+	if (!r->hitpoint_img[0] || !r->hitpoint_img[1]
+		|| !r->hitpoint_img[2] || !r->hitpoint_img[3])
+		free_program_var(r, "Fail file to image\n", NULL);
 }

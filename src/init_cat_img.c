@@ -19,4 +19,6 @@ void	init_cat_img(t_map *rvar)
 
 	rvar->cat_img = mlx_xpm_file_to_image(rvar->mlx_ptr, \
 	"./textures/cat.xpm", &w, &h);
+	if (!rvar->cat_img)
+		free_program_var(rvar, "Fail file to image\n", NULL);
 }
