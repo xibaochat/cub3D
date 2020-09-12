@@ -7,6 +7,11 @@ char	*get_next_line_from_s(char *s)
 	char		*line;
 	int			len;
 
+	if (!s)
+	{
+		i = 0;
+		return (NULL);
+	}
 	if (!s[i])
 		return (NULL);
 	i_origin = i;

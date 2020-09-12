@@ -450,9 +450,8 @@ void				extract_map_as_str(char **line, t_map *r);
 void				get_map_size_tex_dir_path(char *line, t_map *r);
 void				free_value(int v, t_map *r);
 int					has_invalid_ele_in_map(char *line);
-int					get_max_len_of_each_line(int fd, char *str);
 void				validity_map(t_map *r);
-char				*get_new_map_str(t_map *r, char *str);
+void				set_new_map_str(t_map *r, char *str);
 int					get_color(t_map *r, char *str, int *i, char c);
 void				get_ceil_color(t_map *r, char *p);
 void				get_floor_color(t_map *r, char *p);
@@ -468,5 +467,6 @@ void				get_west_texture_path(char *line, t_map *r);
 void				get_east_texture_path(char *line, t_map *r);
 int					is_wall_texture_id(char *line, t_map *r);
 void				draw_floor_if_number(int x, t_map *rvar);
+char				*get_next_line_from_s(char *s);
 
 #endif

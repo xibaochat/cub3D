@@ -17,80 +17,72 @@ int		has_invalid_ele_in_map(char *line)
 	return (0);
 }
 
-int			get_max_len_of_each_line(int fd, char *str)
+static int			get_max_len_of_each_line(char *map_str)
 {
 	int		lens;
-	int		tmp;
-	int		i;
-	int		value;
+	int		curr_max;
 	char	*line;
 
-	tmp = 0;
-	i = 0;
+	curr_max = 0;
 	line = NULL;
-	while ((value = get_next_line(fd, &line)) >= 0 && i < 1)
+	get_next_line_from_s(NULL);  // to reset static var
+	while ((line = get_next_line_from_s(map_str)))
 	{
-		if (!value)
-			i++;
-		if (value > 0)
-			lens = ft_strlen(line);
-		else
-			lens = ft_strlen(line) + 1;
-		if (lens > tmp)
-			tmp = lens;
+		lens = ft_strlen(line);
+		if (lens > curr_max)
+			curr_max = lens;
 		free_str(line);
 	}
-	return (lens);
+	return (curr_max + 1);
 }
 
-char		*get_new_map_line(t_map *r, int v, char *line, int max_lens)
+char *ft_strnew_with_c(int len, char c)
+{
+	int		i;
+	char	*s;
+
+	i = -1;
+	s = ft_strnew(len);
+	while (++i < len - 1)
+		s[i] = c;
+	return (s);
+}
+
+char		*get_new_map_line(t_map *r, char *line, int max_lens)
 {
 	char	*str;
 	int		i;
 
-	str = NULL;
-	i = 0;
-	if (v > 0)
-		str = ft_strnew(max_lens + 1);
-	else
-		str = ft_strnew(max_lens);
-	while (i < max_lens)
-	{
-		if (line[i] && line[i] == ' ')
-			str[i] = '0';
-		else if (line[i])
+	i = -1;
+	str = ft_strnew_with_c(max_lens, '0');
+	while (line[++i])
+		if (line[i] != ' ')
 			str[i] = line[i];
-		else if (!line[i] && i < max_lens -1)
-			str[i] = '0';
-		i++;
-	}
-	if (v > 0)
-		str[i] = '\n';
 	return (str);
 }
 
-char		*get_new_map_str(t_map *r, char *str)
+void	set_new_map_str(t_map *r, char *map_str)
 {
-	char 	*s;
-	char	*new_line;
-	int 	value;
+	char 	*new_map;
+	char	*new_line_with_zero;
 	char	*line;
-	int		i;
 	int		max_lens;
 
-	i = 0;
 	line = NULL;
-	new_line = NULL;
-	max_lens = get_max_len_of_each_line(r->fd, str);
-	s = ft_strnew((r->line) * max_lens + 1);
-	while ((value = get_next_line(r->fd, &line)) >= 0 && i < 1)
+	new_line_with_zero = NULL;
+	max_lens = get_max_len_of_each_line(map_str);
+	new_map = ft_strnew((r->line) * max_lens + 1);
+
+	get_next_line_from_s(NULL);  // to reset static var
+	while ((line = get_next_line_from_s(map_str)))
 	{
-		if (!value)
-			i++;
-		new_line = get_new_map_line(r, value, line, max_lens);
+		if (new_map)
+			ft_strcat(new_map, "\n");
+		new_line_with_zero = get_new_map_line(r, line, max_lens);
+		ft_strcat(new_map, new_line_with_zero);
+		free_str(new_line_with_zero);
 		free_str(line);
-		ft_strcat(s, new_line);
-		free_str(new_line);
 	}
-	return (s);
+	free_str(map_str);
+	r->map_str = new_map;
 }
