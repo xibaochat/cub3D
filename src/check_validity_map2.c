@@ -43,7 +43,7 @@ static void	is_all_wall_covered(t_map *r, int fd)
 		if (has_invalid_ele_in_map(line) || mark > 1)
 		{
 			free_str(line);
-			free_program_var(r, "Wrong Map here\n", "\n");
+			free_program_var(r, "Wrong Map\n", "\n");
 		}
 		free_str(line);
 	}
