@@ -25,6 +25,8 @@ void	draw_walls(t_map *rvar)
 		calculate_start_end_point(rvar);
 		draw_ceil(x, rvar);
 		put_pixel(x, rvar);
+		if (rvar->f_has_color && !rvar->f)
+			draw_floor_if_number(x, rvar);
 		rvar->spr_buffer[x] = rvar->perp_wall_dist;
 	}
 }

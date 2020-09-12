@@ -18,7 +18,7 @@ void		draw_ceil(int x, t_map *rvar)
 	int				j;
 
 	y = 0;
-	while (y++ < rvar->draw_start)
+	while (y < rvar->draw_start)
 	{
 		j = y * rvar->size_line + x * (rvar->bpp / 8);
 		if (rvar->endian == 0)
@@ -33,5 +33,6 @@ void		draw_ceil(int x, t_map *rvar)
 			rvar->addr[j + 1] = rvar->ceil_color.g;
 			rvar->addr[j + 2] = rvar->ceil_color.r;
 		}
+		y++;
 	}
 }

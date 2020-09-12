@@ -467,5 +467,6 @@ void				get_south_texture_path(char *line, t_map *r);
 void				get_west_texture_path(char *line, t_map *r);
 void				get_east_texture_path(char *line, t_map *r);
 int					is_wall_texture_id(char *line, t_map *r);
+void				draw_floor_if_number(int x, t_map *rvar);
 
 #endif
