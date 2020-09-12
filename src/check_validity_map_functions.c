@@ -77,7 +77,7 @@ void	set_new_map_str(t_map *r, char *map_str)
 	get_next_line_from_s(NULL);  // to reset static var
 	while ((line = get_next_line_from_s(map_str)))
 	{
-		if (new_map)
+		if (new_map[0])
 			ft_strcat(new_map, "\n");
 		new_line_with_zero = get_new_map_line(r, line, max_lens);
 		ft_strcat(new_map, new_line_with_zero);
