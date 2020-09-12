@@ -89,7 +89,7 @@ char		*get_new_map_str(t_map *r, char *str)
 			i++;
 		new_line = get_new_map_line(r, value, line, max_lens);
 		free_str(line);
-		s = ft_strcat(s, new_line);
+		ft_strcat(s, new_line);
 		free_str(new_line);
 	}
 	return (s);
