@@ -17,6 +17,9 @@ void	check_resolution_validity(t_map *r)
 	int max_w;
 	int max_h;
 
+	if (r->width <= 0 || r->height <= 0)
+		free_program_var(r, "Resolution error\n", NULL);
+
 	if ((r->width) < MIN_VALID_WIDTH ||
 		(r->height) < MIN_VALID_HEIGHT)
 	{
