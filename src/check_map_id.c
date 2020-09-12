@@ -6,6 +6,7 @@ int is_wall_texture_id(char *line, t_map *r)
 	int		rtr;
 
 	rtr = 0;
+	str = NULL;
 	if (line[0] && line[1])
 	{
 		str = ft_strnew(3);
