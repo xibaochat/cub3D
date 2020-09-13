@@ -42,7 +42,7 @@ char	*get_wall_texture_id_path(char *line, t_map *r)
 	get_east_texture_path(line, r);
 }
 
-void		get_tex_dir_path(char *line, t_map *r)
+void	get_tex_dir_path(char *line, t_map *r)
 {
 	if (is_wall_texture_id(line, r))
 		get_wall_texture_id_path(line, r);

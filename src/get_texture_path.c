@@ -20,7 +20,6 @@ static void	get_ns_texture_path(char *s, char *path, t_map *r)
 			r->no = path;
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 	else if (!ft_strcmp(s, "SO"))
 	{
@@ -28,7 +27,6 @@ static void	get_ns_texture_path(char *s, char *path, t_map *r)
 			r->so = path;
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 }
 
@@ -40,7 +38,6 @@ static void	get_wa_texture_path(char *s, char *path, t_map *r)
 			r->we = path;
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 	else if (!ft_strcmp(s, "EA"))
 	{
@@ -48,7 +45,6 @@ static void	get_wa_texture_path(char *s, char *path, t_map *r)
 			r->ea = path;
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 }
 
@@ -64,7 +60,6 @@ static void	get_sprite_floor_tex_path(char *s, char *path, t_map *r)
 		}
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 	else if (!ft_strcmp(s, "F"))
 	{
@@ -72,7 +67,6 @@ static void	get_sprite_floor_tex_path(char *s, char *path, t_map *r)
 			r->f = path;
 		else
 			free_program_str(r, s, path, "path defined multi times\n");
-
 	}
 }
 

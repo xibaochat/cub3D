@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-static void validate_texture_exist(t_map *rvar, char *tex)
+static void	validate_texture_exist(t_map *rvar, char *tex)
 {
 	int	fd;
 
@@ -21,28 +21,34 @@ static void validate_texture_exist(t_map *rvar, char *tex)
 		free_program_var(rvar, "Texture file does not exit\n", NULL);
 	else
 		close(fd);
-
 }
 
-void	set_sprite_img(t_map *rvar, t_prop *spr, int i)
+static char	*set_sprite_path(t_map *rvar, int i)
 {
 	char	*filepath;
-	int		j;
 
 	filepath = NULL;
-	j = -1;
+	if (!i)
+		filepath = rvar->s;
+	else if (i == 1)
+		filepath = "./textures/cat.xpm";
+	else if (i == 2)
+		filepath = rvar->bad_cat[rvar->nb_bad_cat].path;
+	else if (i == 3)
+		filepath = rvar->roll_cat[rvar->nb_roll_cat].path;
+	else
+		filepath = rvar->door[rvar->nb_door].path;
+	return (filepath);
+}
+
+void		set_sprite_img(t_map *rvar, t_prop *spr, int i)
+{
+	char	*filepath;
+
+	filepath = NULL;
 	if (i != 5)
 	{
-		if (!i)
-			filepath = rvar->s;
-		else if (i == 1)
-			filepath = "./textures/cat.xpm";
-		else if (i == 2)
-			filepath = rvar->bad_cat[rvar->nb_bad_cat].path;
-		else if (i == 3)
-			filepath = rvar->roll_cat[rvar->nb_roll_cat].path;
-		else
-			filepath = rvar->door[rvar->nb_door].path;
+		filepath = set_sprite_path(rvar, i);
 		if (spr->img)
 			mlx_destroy_image(rvar->mlx_ptr, spr->img);
 		validate_texture_exist(rvar, filepath);

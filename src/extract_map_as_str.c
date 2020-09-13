@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   integrate_map.c                                    :+:      :+:    :+:   */
+/*   extract_map_as_str.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,7 +26,7 @@ void	get_map_size_tex_dir_path(char *line, t_map *r)
 	else if (!r->ceil_has_color && is_ceil_id(r, line))
 		get_ceil_color(r, line);
 	else if (!r->f_has_color && is_floor_id(r, line) &&
-			 floor_color_is_number(r, line))
+		floor_color_is_number(r, line))
 		get_floor_color(r, line);
 	else
 		get_tex_dir_path(line, r);
@@ -36,5 +36,4 @@ void	free_value(int value, t_map *r)
 {
 	if (!value)
 		free_program_var(r, "The map is empty\n", NULL);
-
 }

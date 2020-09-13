@@ -18,10 +18,7 @@ void	bowing_weapon(t_map *rvar)
 
 	rvar->nb_press++;
 	if (rvar->nb_press % 3 == 0)
-	{
-		//system("afplay ./sounds/potato.mp3 &");
 		rvar->nb_weap_tex++;
-	}
 	tex = rvar->weaps[1].tex[rvar->nb_weap_tex];
 	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr,\
 	tex, rvar->width - 200, 350);
@@ -39,10 +36,7 @@ void	shoot_weapon(t_map *rvar)
 
 	rvar->nb_press++;
 	if (rvar->nb_press % 3 == 0)
-	{
-		//system("afplay ./sounds/gun_shoot.mp3 &");
 		rvar->nb_weap_tex++;
-	}
 	if (rvar->nb_weap_tex == 0)
 		rvar->nb_weap_tex++;
 	tex = rvar->weaps[0].tex[rvar->nb_weap_tex];

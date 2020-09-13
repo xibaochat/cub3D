@@ -14,8 +14,6 @@
 
 int		game_over(t_map *rvar)
 {
-	//system("killall afplay");
-	//system("afplay ./sounds/game_over.mp3 &");
 	free_program_var(rvar, "Sorry :(\n", "You lose the game\n");
 	return (0);
 }
@@ -29,8 +27,6 @@ void	final_message(char *s1, char *s2)
 
 int		nice_job(t_map *rvar)
 {
-	//system("killall afplay");
-	//system("afplay ./sounds/win_cat.mp3 &");
 	free_program_var(rvar, "NICE JOB\n", "BEBE CHAT\n");
 	return (0);
 }

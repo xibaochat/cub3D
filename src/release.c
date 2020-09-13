@@ -16,7 +16,6 @@ int	release(int keycode, t_map *rvar)
 {
 	if (keycode == ESCAPE_KEY)
 	{
-		//system("killall afplay");
 		exit(0);
 	}
 	else if (keycode == W_KEY)
@@ -36,23 +35,5 @@ int	release(int keycode, t_map *rvar)
 	else if (keycode == COUTEAU)
 		rvar->couteau = 0;
 	rvar->nb_press = 0;
-	return (0);
-}
-
-int	mouse_press_hook(int mouse_code, t_map *rvar)
-{
-	if (mouse_code == 1)
-		rvar->shooting = 1;
-	if (mouse_code == 2)
-		rvar->open_right = 1;
-	return (0);
-}
-
-int	mouse_release_hook(int mouse_code, t_map *rvar)
-{
-	if (mouse_code == 1)
-		rvar->shooting = 0;
-	if (mouse_code == 2)
-		rvar->open_right = 0;
 	return (0);
 }

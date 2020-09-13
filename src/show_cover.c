@@ -25,10 +25,7 @@ static int	click_to_enter(int mouse_code, int x, int y, t_map *rvar)
 int			close_red_button(t_map *rvar, void *p)
 {
 	if (p)
-	{
-		//system("pkill -9 afplay");
 		free_program_var(rvar, "The program is closed\n", NULL);
-	}
 	return (-1);
 }
 
@@ -61,5 +58,4 @@ void		show_cover_menu(t_map *r)
 	mlx_mouse_hook(r->win_ptr, click_to_enter, r);
 	mlx_hook(r->win_ptr, 17, (1L << 17), close_red_button, r);
 	mlx_loop(r->mlx_ptr);
-
 }

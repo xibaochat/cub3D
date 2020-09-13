@@ -69,7 +69,7 @@ void		integrate_map(t_map *r)
 	}
 }
 
-void get_info_from_map(t_map *r)
+void		get_info_from_map(t_map *r)
 {
 	char	*line;
 	int		value;
@@ -105,6 +105,5 @@ void		get_final_map(t_map *r, char *file)
 	validity_map(r);
 	get_line(r, r->map_str);
 	set_new_map_str(r, r->map_str);
-//	get_column(r, r->map_str);
 	integrate_map(r);
 }

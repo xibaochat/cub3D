@@ -23,9 +23,7 @@
 # include <errno.h>
 # include "../libft/libft.h"
 
-//# define MAX_VALID_WIDTH 1920
 # define MIN_VALID_WIDTH 250
-//# define MAX_VALID_HEIGHT 1080
 # define MIN_VALID_HEIGHT 250
 # define NB_SPRITE 6
 # define BUFFER_SIZE 1
@@ -303,16 +301,11 @@ typedef	struct		s_map
 	t_spr			**sprite_order;
 }					t_map;
 
-int					is_all_wall(t_map *r, char *str);
-int					cal_nb_elem(char *str, int *mark);
-int					start_end_has_wall(t_map *r, char *str);
-void					check_invalid_alpha(t_map *r, char *str, int *mark);
 char				*ft_strnew(int n);
 char				*ft_strcat(char *s1, char *s2);
 void				integrate_map(t_map *r);
 void				print_map(int **map, char *map_str);
 void				get_line(t_map *r, char *str);
-void				get_column(t_map *r, char *str);
 void				new_graph(t_map	*r);
 void				draw_walls(t_map *r);
 void				init_all_path_and_ind_spr_value(t_map *r);
@@ -358,7 +351,6 @@ void				map_is_readable(t_map *r, char *file);
 int					path_dir_is_validate(char *line, char *path_dir);
 int					valide_texture_path(t_map *r, char *str);
 int					ft_strcmp(char *s1, char *s2);
-int					get_next_line_from_str(t_map *r, char **str, char **line);
 int					atoi_with_index(char *str, int *i, int *j);
 int					map_fst_arg_is_invalid(int *i, char *str);
 void				init_r_tex_path(t_map *r);
@@ -369,8 +361,6 @@ void				init_spr(t_map *r);
 void				draw_sprites(t_map *r);
 int					get_sprites_num(t_map *r);
 void				draw_ceil(int x, t_map *r);
-int					mouse_press_hook(int mouse_code, t_map *r);
-int					mouse_release_hook(int mouse_code, t_map *r);
 void				check_space_before_id(t_map *r, char *line);
 void				validate_all_id_are_set(t_map *r);
 int					is_resolution_id(t_map *r, char *line);
@@ -400,7 +390,6 @@ void				set_curr_sprites_tex(t_map *r);
 void				get_indi_sprite_coord(t_spr *spr, t_map *r, int n);
 void				set_entity_hitpoint_as_zero(t_map *r, int i, int x, int y);
 void				set_sprites_order(t_map *r, t_spr **spr_ord, int nb_spr);
-void				manage_sound_based_on_pos(t_map *r);
 int					get_wall_texture(t_map *r);
 void				init_mutant(t_map *r);
 void				init_weapons(t_map *r);
@@ -415,8 +404,6 @@ void				init_mutan_img(t_map *r);
 void				put_lucky_value_to_window(t_map *r);
 void				write_bmp(t_map *r);
 void				free_program_var(t_map *r, char *s1, char *s2);
-void				free_hitpoint(t_map *r);
-void				free_spr_img(t_map *r);
 void				init_program_var(t_map *r);
 char				*get_mutant_tex_path(t_map *r, int j);
 void				init_mutan_img(t_map *r);
@@ -444,7 +431,7 @@ int					save_bmp(t_map *r);
 void				free_str(char *str);
 char				*ft_strclone(char *s);
 void				first_init_sprite(t_map *r);
-void        		get_remove_space_str(char **str);
+void				get_remove_space_str(char **str);
 int					map_info_id_all_get(t_map *r);
 void				extract_map_as_str(char **line, t_map *r);
 void				get_map_size_tex_dir_path(char *line, t_map *r);
@@ -468,5 +455,7 @@ void				get_east_texture_path(char *line, t_map *r);
 int					is_wall_texture_id(char *line, t_map *r);
 void				draw_floor_if_number(int x, t_map *rvar);
 char				*get_next_line_from_s(char *s);
+void				check_invalid_alpha(t_map *r, char *str, int *mark);
+int					nb_read_from_buffer(int fd, char **b, char **t, char **s);
 
 #endif

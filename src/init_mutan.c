@@ -12,16 +12,27 @@
 
 #include "../include/cub3d.h"
 
-char	*get_mutant_tex_path(t_map *rvar, int j)
+static char	*strjoin_path(t_map *rvar, int j)
 {
-	char	*s;
-	int		hitpoints;
 	char	*str;
+	char	*s;
 	char	*n_tmp;
 
 	s = NULL;
 	str = NULL;
 	n_tmp = NULL;
+	n_tmp = ft_itoa(rvar->all_spr[5].indi_spr[j].nb_tex);
+	s = ft_strjoin("./textures/enemies/mutant/chest_", n_tmp);
+	free_str(n_tmp);
+	str = ft_strjoin(s, ".xpm");
+	free_str(s);
+	return (str);
+}
+
+char		*get_mutant_tex_path(t_map *rvar, int j)
+{
+	int		hitpoints;
+
 	hitpoints = rvar->all_spr[5].indi_spr[j].hitpoint;
 	if (hitpoints == 100)
 		rvar->all_spr[5].indi_spr[j].nb_tex = 0;
@@ -37,12 +48,7 @@ char	*get_mutant_tex_path(t_map *rvar, int j)
 		(rvar->all_spr[5].indi_spr[j].nb_tex)++;
 		(rvar->all_spr[5].indi_spr[j].hitpoint)--;
 	}
-	n_tmp = ft_itoa(rvar->all_spr[5].indi_spr[j].nb_tex);
-	s = ft_strjoin("./textures/enemies/mutant/chest_", n_tmp);
-	free_str(n_tmp);
-	str = ft_strjoin(s, ".xpm");
-	free_str(s);
-	return (str);
+	return (strjoin_path(rvar, j));
 }
 
 static void	init_mutan(t_map *rvar, t_prop *spr, int j)
@@ -57,12 +63,12 @@ static void	init_mutan(t_map *rvar, t_prop *spr, int j)
 		tex_path, &spr->width, &spr->height);
 	if (!spr->indi_spr[j].img)
 		free_program_var(rvar, "Fail file to image\n", NULL);
-	spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,	\
+	spr->indi_spr[j].addr = mlx_get_data_addr(spr->indi_spr[j].img,\
 		&(spr->bpp), &(spr->s_l), &(spr->endian));
 	free_str(tex_path);
 }
 
-void	init_mutan_img(t_map *rvar)
+void		init_mutan_img(t_map *rvar)
 {
 	int		j;
 	t_prop	*spr;

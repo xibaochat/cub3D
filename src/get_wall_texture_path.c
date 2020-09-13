@@ -22,15 +22,15 @@ void	get_north_texture_path(char *line, t_map *r)
 	{
 		if (!r->no)
 		{
-            s = extract_path_from_line(r, line, 2);
+			s = extract_path_from_line(r, line, 2);
 			if (valide_texture_path(r, s))
 				r->no = s;
 			else
 			{
 				free_str(s);
-                free_str(line);
-                free_program_var(r, "Wrong Map\n", "NO path multi defined\n");
-            }
+				free_str(line);
+				free_program_var(r, "Wrong Map\n", "NO path multi defined\n");
+			}
 		}
 		else
 		{
@@ -56,9 +56,9 @@ void	get_south_texture_path(char *line, t_map *r)
 			else
 			{
 				free_str(s);
-                free_str(line);
-                free_program_var(r, "Wrong Map\n", "SO path multi defined\n");
-            }
+				free_str(line);
+				free_program_var(r, "Wrong Map\n", "SO path multi defined\n");
+			}
 		}
 		else
 		{
@@ -85,9 +85,9 @@ void	get_west_texture_path(char *line, t_map *r)
 			else
 			{
 				free_str(s);
-                free_str(line);
-                free_program_var(r, "Wrong Map\n", "EA path multi defined\n");
-            }
+				free_str(line);
+				free_program_var(r, "Wrong Map\n", "EA path multi defined\n");
+			}
 		}
 		else
 		{

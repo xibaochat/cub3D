@@ -34,19 +34,9 @@ static int			get_content_from_file(int fd, char **str)
 
 	tmp = NULL;
 	buff = NULL;
-	if (!(buff = ft_strnew(BUFFER_SIZE + 1)))
-		return (-1);
-	if ((nb_read = read(fd, buff, BUFFER_SIZE)) <= 0)
-	{
-		free_str(buff);
+	nb_read = nb_read_from_buffer(fd, &buff, &tmp, str);
+	if (nb_read <= 0)
 		return (nb_read);
-	}
-	buff[nb_read] = '\0';
-	if (!(tmp = ft_strnew(ft_strlen(*str) + nb_read + 1)))
-	{
-		free_str(buff);
-		return (-1);
-	}
 	if (*str)
 	{
 		tmp = ft_strncat(tmp, *str, ft_strlen(*str));

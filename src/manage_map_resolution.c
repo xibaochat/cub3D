@@ -19,7 +19,6 @@ void	check_resolution_validity(t_map *r)
 
 	if (r->width <= 0 || r->height <= 0)
 		free_program_var(r, "Resolution error\n", NULL);
-
 	if ((r->width) < MIN_VALID_WIDTH ||
 		(r->height) < MIN_VALID_HEIGHT)
 	{
@@ -30,7 +29,6 @@ void	check_resolution_validity(t_map *r)
 	mlx_get_screen_size(r->mlx_ptr, &max_w, &max_h);
 	if ((r->width) > max_w ||
 		(r->height) > max_w)
-
 	{
 		r->width = max_w;
 		r->height = max_h;
@@ -67,7 +65,7 @@ int		is_resolution_id(t_map *r, char *line)
 	i++;
 	while (line[i])
 	{
-		if (is_space(line[i])|| ft_isdigit(line[i]))
+		if (is_space(line[i]) || ft_isdigit(line[i]))
 			i++;
 		else
 		{

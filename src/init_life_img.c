@@ -17,8 +17,7 @@ void	init_turns_img(t_map *r)
 	int	w;
 	int	h;
 
-	if (!(r->turns_img = mlx_xpm_file_to_image(r->mlx_ptr,	\
-	   "./textures/heart.xpm", &w, &h)))
+	if (!(r->turns_img = mlx_xpm_file_to_image(r->mlx_ptr,\
+		"./textures/heart.xpm", &w, &h)))
 		free_program_var(r, "Fail file to image\n", NULL);
-
 }

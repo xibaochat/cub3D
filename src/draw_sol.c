@@ -65,27 +65,27 @@ void			draw_floor(t_map *r)
 	}
 }
 
-void	draw_floor_if_number(int x, t_map *rvar)
+void			draw_floor_if_number(int x, t_map *rvar)
 {
-	int             y;
-    int             j;
+	int	y;
+	int	j;
 
-    y = rvar->draw_end;
-    while (y < rvar->height)
-    {
-        j = y * rvar->size_line + x * (rvar->bpp / 8);
-        if (rvar->endian == 0)
-        {
-            rvar->addr[j] = rvar->floor_color.r;
-            rvar->addr[j + 1] = rvar->floor_color.g;
-            rvar->addr[j + 2] = rvar->floor_color.b;
-        }
-        else
-        {
-            rvar->addr[j] = rvar->floor_color.b;
-            rvar->addr[j + 1] = rvar->floor_color.g;
-            rvar->addr[j + 2] = rvar->floor_color.r;
-        }
-        y++;
-    }
+	y = rvar->draw_end;
+	while (y < rvar->height)
+	{
+		j = y * rvar->size_line + x * (rvar->bpp / 8);
+		if (rvar->endian == 0)
+		{
+			rvar->addr[j] = rvar->floor_color.r;
+			rvar->addr[j + 1] = rvar->floor_color.g;
+			rvar->addr[j + 2] = rvar->floor_color.b;
+		}
+		else
+		{
+			rvar->addr[j] = rvar->floor_color.b;
+			rvar->addr[j + 1] = rvar->floor_color.g;
+			rvar->addr[j + 2] = rvar->floor_color.r;
+		}
+		y++;
+	}
 }

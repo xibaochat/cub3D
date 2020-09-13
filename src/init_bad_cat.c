@@ -28,7 +28,6 @@ void	init_bad_cat(t_map *rvar)
 		free_program_var(rvar, "Malloc failed of bad_cat\n", NULL);
 	while (++i <= 30)
 	{
-
 		n_tmp = ft_itoa(i);
 		s = ft_strjoin("./textures/enemies/badcat/bad_cat_", n_tmp);
 		free_str(n_tmp);

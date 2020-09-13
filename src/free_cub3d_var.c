@@ -26,8 +26,6 @@ static void	free_texture_path(t_map *rvar)
 		free_str(rvar->s);
 	if (rvar->f)
 		free_str(rvar->f);
-	/* if (rvar->c) */
-	/* 	free_str(rvar->c); */
 }
 
 static void	free_map(t_map *rvar)
@@ -45,15 +43,6 @@ static void	free_map(t_map *rvar)
 			}
 		free(rvar->map);
 		rvar->map = NULL;
-	}
-}
-
-static void	free_wall_texture(t_map *rvar)
-{
-	if (rvar->textures)
-	{
-		free(rvar->textures);
-		rvar->textures = NULL;
 	}
 }
 
@@ -89,13 +78,6 @@ void		free_program_var(t_map *rvar, char *s1, char *s2)
 		free(rvar->spr_buffer);
 		rvar->spr_buffer = NULL;
 	}
-	/* IT SEEMS WE DON"T NEED TO FREE THAT ? o.O */
-	/* free_wall_texture(rvar); */
-	/* free_hitpoint(rvar); */
-	/* free_spr_img(rvar); */
 	free_secret_door(rvar);
-//	if (rvar->round == 0)
 	ft_error(s1, s2);
-//	else
-//		final_message(s1, s2);
 }

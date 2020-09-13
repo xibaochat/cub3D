@@ -19,10 +19,7 @@ int		press(int keycode, t_map *r)
 	if (keycode == SHOOTING)
 		r->shooting = 1;
 	if (keycode == ESCAPE_KEY)
-	{
-		//system("pkill -9 afplay");
 		exit(0);
-	}
 	if (keycode == W_KEY)
 		r->open_up = 1;
 	if (keycode == S_KEY)

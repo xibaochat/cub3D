@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bmp.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/17 12:54:56 by osshit            #+#    #+#             */
+/*   Updated: 2020/04/20 14:36:45 by osshit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3d.h"
 
-int		has_invalid_ele_in_map(char *line)
+int			has_invalid_ele_in_map(char *line)
 {
 	int	i;
 
@@ -17,7 +29,7 @@ int		has_invalid_ele_in_map(char *line)
 	return (0);
 }
 
-static int			get_max_len_of_each_line(char *map_str)
+static int	get_max_len_of_each_line(char *map_str)
 {
 	int		lens;
 	int		curr_max;
@@ -25,7 +37,7 @@ static int			get_max_len_of_each_line(char *map_str)
 
 	curr_max = 0;
 	line = NULL;
-	get_next_line_from_s(NULL);  // to reset static var
+	get_next_line_from_s(NULL);
 	while ((line = get_next_line_from_s(map_str)))
 	{
 		lens = ft_strlen(line);
@@ -36,7 +48,7 @@ static int			get_max_len_of_each_line(char *map_str)
 	return (curr_max + 1);
 }
 
-char *ft_strnew_with_c(int len, char c)
+char		*ft_strnew_with_c(int len, char c)
 {
 	int		i;
 	char	*s;
@@ -61,9 +73,9 @@ char		*get_new_map_line(t_map *r, char *line, int max_lens)
 	return (str);
 }
 
-void	set_new_map_str(t_map *r, char *map_str)
+void		set_new_map_str(t_map *r, char *map_str)
 {
-	char 	*new_map;
+	char	*new_map;
 	char	*new_line_with_zero;
 	char	*line;
 	int		max_lens;
@@ -73,8 +85,7 @@ void	set_new_map_str(t_map *r, char *map_str)
 	max_lens = get_max_len_of_each_line(map_str);
 	r->column = max_lens - 1;
 	new_map = ft_strnew((r->line) * max_lens + 1);
-
-	get_next_line_from_s(NULL);  // to reset static var
+	get_next_line_from_s(NULL);
 	while ((line = get_next_line_from_s(map_str)))
 	{
 		if (new_map[0])

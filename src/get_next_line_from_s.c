@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_id.c                                     :+:      :+:    :+:   */
+/*   get_next_line_from_s.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osshit <osshit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,32 +12,27 @@
 
 #include "../include/cub3d.h"
 
-int	is_wall_texture_id(char *line, t_map *r)
+char			*get_next_line_from_s(char *s)
 {
-	char	*str;
-	int		rtr;
+	static int	i = 0;
+	int			i_origin;
+	char		*line;
+	int			len;
 
-	rtr = 0;
-	str = NULL;
-	if (line[0] && line[1])
+	if (!s)
 	{
-		str = ft_strnew(3);
-		ft_strncat(str, line, 2);
-		if (!ft_strcmp(str, "SO") || !ft_strcmp(str, "NO")
-			|| !ft_strcmp(str, "WE") ||
-			!ft_strcmp(str, "EA"))
-			rtr = 1;
+		i = 0;
+		return (NULL);
 	}
-	free_str(str);
-	return (rtr);
-}
-
-int	map_info_id_all_get(t_map *r)
-{
-	if (r->so && r->we && r->no && r->ea
-	&& r->resolution
-	&& r->s && r->ceil_has_color
-	&& (r->f || r->f_has_color))
-		return (1);
-	return (0);
+	if (!s[i])
+		return (NULL);
+	i_origin = i;
+	len = 0;
+	line = NULL;
+	while (s[i] && s[i++] != '\n')
+		++len;
+	line = ft_strnew(len + 1);
+	line[len] = '\0';
+	ft_strncat(line, s + i_origin, len);
+	return (line);
 }

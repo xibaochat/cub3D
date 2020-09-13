@@ -16,7 +16,8 @@ void		ft_error(char *str, char *s)
 {
 	if (str && ft_strcmp(str, "The program is closed\n")
 		&& ft_strcmp(str, "Sorry :(\n")
-		&& ft_strcmp(str, "BMP file is saved\n"))
+		&& ft_strcmp(str, "BMP file is saved\n")
+		&& ft_strcmp(str, "NICE JOB\n"))
 		ft_putstr_fd("Error\n", 2);
 	if (str)
 		ft_putstr_fd(str, 2);

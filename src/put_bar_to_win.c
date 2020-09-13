@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-void	put_lucky_value_to_window(t_map *rvar)
+void		put_lucky_value_to_window(t_map *rvar)
 {
 	int i;
 
@@ -38,10 +38,10 @@ static void	put_score_img_to_win(t_map *rvar)
 	rvar->hitpoint_img[3], 100, rvar->height - 25);
 }
 
-void	put_score_to_window(t_map *rvar)
+void		put_score_to_window(t_map *rvar)
 {
-	int 	w;
-	int 	h;
+	int		w;
+	int		h;
 	char	*n_tmp;
 
 	n_tmp = NULL;
@@ -51,11 +51,11 @@ void	put_score_to_window(t_map *rvar)
 	"textures/score.xpm", &w, &h);
 	if (!rvar->score_img)
 		free_program_var(rvar, "Fail file to image\n", NULL);
-	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr,	\
+	mlx_put_image_to_window(rvar->mlx_ptr, rvar->win_ptr,\
 	rvar->score_img, 0, rvar->height - 25);
 	n_tmp = ft_itoa(rvar->score);
-	mlx_string_put(rvar->mlx_ptr, rvar->win_ptr,			\
-				   10, rvar->height - 5, 15692404, n_tmp);
+	mlx_string_put(rvar->mlx_ptr, rvar->win_ptr,\
+	10, rvar->height - 5, 15692404, n_tmp);
 	free_str(n_tmp);
 	put_score_img_to_win(rvar);
 }

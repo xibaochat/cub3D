@@ -56,7 +56,7 @@ int			calculation_color(t_map *r, char *str, int *i, char c)
 	return (res);
 }
 
-void	get_ceil_color(t_map *r, char *path)
+void		get_ceil_color(t_map *r, char *path)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ void	get_ceil_color(t_map *r, char *path)
 	r->ceil_has_color = 1;
 }
 
-void	get_floor_color(t_map *r, char *path)
+void		get_floor_color(t_map *r, char *path)
 {
 	int	i;
 

@@ -12,6 +12,29 @@
 
 #include "../include/cub3d.h"
 
+void	init_map_elem_var(t_map *r)
+{
+	r->map = NULL;
+	r->map_str = NULL;
+	r->text_img_ptr = NULL;
+	r->texture = NULL;
+	r->screen_img = NULL;
+	r->floor_img_ptr = NULL;
+	r->floor_texture = NULL;
+	r->resolution = 0;
+	r->no = NULL;
+	r->so = NULL;
+	r->we = NULL;
+	r->ea = NULL;
+	r->s = NULL;
+	r->f = NULL;
+	r->f_has_color = 0;
+	r->ceil_has_color = 0;
+	r->sprite_order = NULL;
+	if (!(r->mlx_ptr = mlx_init()))
+		free_program_var(r, "Mlx initialization failed", NULL);
+}
+
 void	init_program_var(t_map *r)
 {
 	r->sprite_distance = NULL;
@@ -36,23 +59,5 @@ void	init_program_var(t_map *r)
 	r->win_ptr = NULL;
 	r->image_ptr = NULL;
 	r->addr = NULL;
-	r->map = NULL;
-	r->map_str = NULL;
-	r->text_img_ptr = NULL;
-	r->texture = NULL;
-	r->screen_img = NULL;
-	r->floor_img_ptr = NULL;
-	r->floor_texture = NULL;
-	r->resolution = 0;
-	r->no = NULL;
-	r->so = NULL;
-	r->we = NULL;
-	r->ea = NULL;
-	r->s = NULL;
-	r->f = NULL;
-	r->f_has_color = 0;
-	r->ceil_has_color = 0;
-	r->sprite_order = NULL;
-	if (!(r->mlx_ptr = mlx_init()))
-		free_program_var(r, "Mlx initialization failed", NULL);
+	init_map_elem_var(r);
 }
