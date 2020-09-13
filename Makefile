@@ -10,7 +10,7 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME = cub3D
+NAME = Cub3D
 
 SRCS_NAME = nb_read_from_buffer.c calculation_start_end_point.c  draw_sol.c \
 			main.c display_image.c   error_message.c\
@@ -54,8 +54,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = gcc
 
-#CC_FLAGS =  -Wall -Werror -Wextra
-CC_FLAGS = -fsanitize=address -g3
+# CFLAGS =  -Wall -Werror -Wextra
 
 # ------ NEW --------
 SRCSO = $(SRCS:.c=.o)
@@ -97,5 +96,6 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f $(LIBFT_A)
 	rm -f ./*~ $(SRCS_PATH)/*~ $(HEADER_DIR)/*~
+	rm -f *.bmp
 
 re: fclean all
