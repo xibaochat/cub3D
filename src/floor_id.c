@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-int		floor_color_is_number(t_map *r, char *line)
+int		floor_color_is_number(char *line)
 {
 	int	i;
 
@@ -28,11 +28,8 @@ int		floor_color_is_number(t_map *r, char *line)
 	return (1);
 }
 
-int		is_floor_id(t_map *r, char *line)
+int		is_floor_id(char *line)
 {
-	int	i;
-
-	i = 0;
 	if (line[0] != 'F')
 		return (0);
 	return (1);

@@ -34,7 +34,7 @@ char	*extract_path_from_line(t_map *r, char *line, int i)
 	return (path);
 }
 
-char	*get_wall_texture_id_path(char *line, t_map *r)
+void	get_wall_texture_id_path(char *line, t_map *r)
 {
 	get_north_texture_path(line, r);
 	get_south_texture_path(line, r);
@@ -44,7 +44,7 @@ char	*get_wall_texture_id_path(char *line, t_map *r)
 
 void	get_tex_dir_path(char *line, t_map *r)
 {
-	if (is_wall_texture_id(line, r))
+	if (is_wall_texture_id(line))
 		get_wall_texture_id_path(line, r);
 	else if (line[0] == 'F' && !r->f_has_color && !r->f)
 		r->f = extract_path_from_line(r, line, 1);

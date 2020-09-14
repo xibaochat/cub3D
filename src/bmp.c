@@ -23,9 +23,7 @@ void	put_int_in_char(unsigned char *header, int index, int nb)
 int		write_header(int fd, int filesize, t_map *rvar)
 {
 	static unsigned	char	header[54];
-	int						index;
 
-	index = 0;
 	ft_bzero(header, 54);
 	header[0] = 'B';
 	header[1] = 'M';

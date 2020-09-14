@@ -84,7 +84,7 @@ void		get_info_from_map(t_map *r)
 				get_remove_space_str(&line);
 				get_map_size_tex_dir_path(line, r);
 			}
-			else if (map_info_id_all_get && is_map_content(line))
+			else if (is_map_content(line))
 			{
 				extract_map_as_str(&line, r);
 				break ;

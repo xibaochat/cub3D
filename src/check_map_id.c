@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-int	is_wall_texture_id(char *line, t_map *r)
+int	is_wall_texture_id(char *line)
 {
 	char	*str;
 	int		rtr;

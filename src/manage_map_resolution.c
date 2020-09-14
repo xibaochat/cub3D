@@ -72,8 +72,8 @@ int		is_resolution_id(t_map *r, char *line)
 			free_str(line);
 			free_program_var(r, "Wrong Map\n", NULL);
 		}
-		return (1);
 	}
+	return (1);
 }
 
 void	validate_all_id_are_set(t_map *rvar)

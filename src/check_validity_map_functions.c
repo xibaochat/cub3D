@@ -60,7 +60,7 @@ char		*ft_strnew_with_c(int len, char c)
 	return (s);
 }
 
-char		*get_new_map_line(t_map *r, char *line, int max_lens)
+char		*get_new_map_line(char *line, int max_lens)
 {
 	char	*str;
 	int		i;
@@ -90,7 +90,7 @@ void		set_new_map_str(t_map *r, char *map_str)
 	{
 		if (new_map[0])
 			ft_strcat(new_map, "\n");
-		new_line_with_zero = get_new_map_line(r, line, max_lens);
+		new_line_with_zero = get_new_map_line(line, max_lens);
 		ft_strcat(new_map, new_line_with_zero);
 		free_str(new_line_with_zero);
 		free_str(line);

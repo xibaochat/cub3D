@@ -1,21 +1,18 @@
-    SO                                             ./textures/forest.xpm
-WE            ./textures/apple_golden.xpm
-NO ./textures/meilvf.xpm
-EA                        ./textures/meilv.xpm
-R      1       1
-
-
-
-S ./textures/baked_potato.xpm
-F 92,214,92
-C                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     250,206,135
+SO    ./textures/forest.xpm
+WE    ./textures/apple_golden.xpm
+NO    ./textures/meilvf.xpm
+EA	   ./textures/meilv.xpm
+R       640 480
+S   ./textures/baked_potato.xpm
+F ./textures/grass.xpm
+C 250,206,135
 
 111111111111111111111111
-110200000000000000000001
-110000000000000003000001
-110000000700000000000001
-110000111120000111100001
-110000200020000000100001
+100200000000000000000001
+100000000000000003000001
+100000000700000000000001
+100000111120000111100001
+100000200020000000100001
 130000103010000001100701
 100000100010000000000001
 110001110110001101010001

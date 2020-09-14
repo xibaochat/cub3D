@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-static void		is_all_wall_covered(t_map *r, int fd)
+static void		is_all_wall_covered(t_map *r)
 {
 	char	*line;
 	int		mark;
@@ -44,8 +44,8 @@ static void		check_map_is_closed(t_map *r, char *map_str)
 	while (map_str[++i])
 	{
 		if (map_str[i] != '1' && map_str[i] != '\n' && map_str[i] != ' '
-			&& ((map_str[i + 1] && (map_str[i + 1] == ' '
-			|| map_str[i + 1] == '\n')
+			&& (((map_str[i + 1] && (map_str[i + 1] == ' '
+			|| map_str[i + 1] == '\n'))
 			|| (i > 0 && (map_str[i - 1] == ' ' || map_str[i - 1] == '\n')))))
 			free_program_var(r, "Wrong Map\n", NULL);
 		if (map_str[i] == '\n' && map_str[i + 1] && map_str[i + 1] == '\n')
@@ -86,6 +86,6 @@ void			validity_map(t_map *r)
 	if (!r->map_str)
 		free_program_var(r, "Map content is empty\n", NULL);
 	check_map_is_closed(r, r->map_str);
-	is_all_wall_covered(r, r->fd);
+	is_all_wall_covered(r);
 	validate_first_and_last_walls_are_closed(r, r->map_str);
 }

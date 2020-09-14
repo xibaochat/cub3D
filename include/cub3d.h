@@ -44,8 +44,8 @@
 # elif __linux__
 #  define ENTER 65293
 #  define ESCAPE 65307
-#  define MOVE_SPEED 0.065
-#  define ROT_SPEED 0.030
+#  define MOVE_SPEED 0.085
+#  define ROT_SPEED 0.050
 #  define W_KEY 119
 #  define A_KEY 97
 #  define S_KEY 115
@@ -445,14 +445,14 @@ void				get_floor_color(t_map *r, char *p);
 void				free_program_str(t_map *r, char *s1, char *s2, char *str);
 int					is_map_content(char *line);
 int					is_ceil_id(t_map *r, char *line);
-int					is_floor_id(t_map *r, char *line);
-int					floor_color_is_number(t_map *r, char *line);
+int					is_floor_id(char *line);
+int					floor_color_is_number(char *line);
 char				*extract_path_from_line(t_map *r, char *line, int i);
 void				get_north_texture_path(char *line, t_map *r);
 void				get_south_texture_path(char *line, t_map *r);
 void				get_west_texture_path(char *line, t_map *r);
 void				get_east_texture_path(char *line, t_map *r);
-int					is_wall_texture_id(char *line, t_map *r);
+int					is_wall_texture_id(char *line);
 void				draw_floor_if_number(int x, t_map *rvar);
 char				*get_next_line_from_s(char *s);
 void				check_invalid_alpha(t_map *r, char *str, int *mark);

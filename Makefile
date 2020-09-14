@@ -42,8 +42,6 @@ SRCS_PATH = ./src/
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
-#SRCSO = $(SRCS_NAME:.c=.o)
-
 HEADER_DIR = ./include
 
 LIBFT_DIR = ./libft
@@ -54,7 +52,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = gcc
 
-# CFLAGS =  -Wall -Werror -Wextra
+CFLAGS =  -Wall -Werror -Wextra
 
 # ------ NEW --------
 SRCSO = $(SRCS:.c=.o)

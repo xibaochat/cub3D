@@ -34,10 +34,7 @@ static int	funct(int keycode, t_map *rvar)
 	if (keycode != ESCAPE)
 		ft_putstr("Please click to play :)\n");
 	if (keycode == ESCAPE)
-	{
-		system("pkill -9 afplay");
 		free_program_var(rvar, "The program is closed\n", NULL);
-	}
 	return (0);
 }
 
