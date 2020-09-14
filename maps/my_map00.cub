@@ -5,7 +5,7 @@ EA	   ./textures/meilv.xpm
 R       640 480
 S   ./textures/baked_potato.xpm
 F ./textures/grass.xpm
-C 250,206,135
+C 135,206,250
 
 111111111111111111111111
 100200000000000000000001
