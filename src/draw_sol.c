@@ -74,7 +74,7 @@ void			draw_floor_if_number(int x, t_map *rvar)
 	while (y < rvar->height)
 	{
 		j = y * rvar->size_line + x * (rvar->bpp / 8);
-		if (rvar->endian == 0)
+		if (rvar->endian == 1)
 		{
 			rvar->addr[j] = rvar->floor_color.r;
 			rvar->addr[j + 1] = rvar->floor_color.g;

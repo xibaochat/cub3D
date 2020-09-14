@@ -21,7 +21,7 @@ void		draw_ceil(int x, t_map *rvar)
 	while (y < rvar->draw_start)
 	{
 		j = y * rvar->size_line + x * (rvar->bpp / 8);
-		if (rvar->endian == 0)
+		if (rvar->endian == 1)
 		{
 			rvar->addr[j] = rvar->ceil_color.r;
 			rvar->addr[j + 1] = rvar->ceil_color.g;
