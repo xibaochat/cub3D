@@ -24,5 +24,26 @@
 </tr>
 </table>
 
+![screenshot](https://github.com/xibaochat/cub3D/blob/master/cub3d_screen.png)
+![screenshot](https://github.com/xibaochat/cub3D/blob/master/cub3d_screen1.png)
+
+### demo:
+https://youtu.be/rd9WimzzdOo
+
 ### Subject:
 #### EN [cub3d_subject.pdf](https://github.com/xibaochat/cub3D/blob/master/en.subject_cub3d.pdf)
+
+## Attention
+This project was designed to work on a darwinOS, using the minilibX library.
+
+## Usage
+
+Launch the game :
+
+> make
+
+> ./Cub3D maps/my_map00.cub
+
+Save a screenshot of the first image of the game :
+
+> ./Cub3D maps/my_map00.cub --save
