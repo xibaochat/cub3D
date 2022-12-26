@@ -47,3 +47,21 @@ Launch the game :
 Save a screenshot of the first image of the game :
 
 > ./Cub3D maps/my_map00.cub --save
+
+
+# Battle Cats
+
+Le but du jeu est de trouver la porte secrete et de la franchir.
+Mais elle ne va s'ouvrir que sous certaines conditions:
+1. collecter tous les chats gris (=score total de 450)
+2. collecter tous les chats blancs animes (= 2 coeurs)
+
+Il faut faire attention a ne pas mourir sinon c'est retour a la case depart.
+Ce qui te fait des degats:
+- les murs
+- les pommes de terres (destructible en appuyant sur Q)
+- les mechants chats blancs
+- les coffres (destructible en appuyant sur CTRL, ce remplit un peu ta barre de vie)
+
+Enjoy!
+
