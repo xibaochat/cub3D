@@ -8,6 +8,7 @@
   <br></p>
   <p align="center">
   <img src="https://img.shields.io/badge/c-007ACC?style=for-the-badge&logo=c&logoColor=white">
+  <img src="https://img.shields.io/badge/miniLibX-007ACC?style=for-the-badge&logo=miniLibX&logoColor=white">
   <table  align="center">
 <td>
  <b face="arial" >final mark<br><br></font></b></p>
